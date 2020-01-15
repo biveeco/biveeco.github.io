@@ -14,13 +14,11 @@
     <h2 class="t-heading t-scale-beta t-align-center padding-bottom"><%= data.people.headline.nav %></h2>
 
     <% data.people.groups.each_with_index do |group, index| %>
-      <div<%= " class='border-top border-secondary padding-top-narrow margin-top-wide'" if index > 0 %>>
         <% if group.folder == 'staff' %>
           <%= component "people_list", locals: {
             group: find_people(group: group.folder, exclude: (exclude || []))
           } %>
         <% end %>
-      </div>
     <% end %>
   <% end %>
 <% end %>

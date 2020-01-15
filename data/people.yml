@@ -1,13 +1,13 @@
 # Content for the 'people' listings that appear around the site
 headline:
   # Headline for the staff section on the homepage
-  home: Our team
+  home: Our leadership
   # Headline for the staff nav at the bottom of each profle
-  nav: Meet the rest of the team
+  nav: Meet the rest of the leadership
 groups:
   # name: the heading, e.g. "Staff"
   # folder: the folder (inside /people) where the content is
-  - name: Staff
+  - name: Leadership
     folder: staff
   - name: Consultants
     folder: consultants

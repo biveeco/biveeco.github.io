@@ -57,12 +57,12 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "js-yaml": "^3.13.1",
-    "onchange": "^3.3.0",
+    "onchange": "^6.1.0",
     "path": "^0.12.7",
     "sass-lint": "^1.13.1",
     "svg-sprite": "^1.3.7",
-    "svgo": "^0.6.6",
+    "svgo": "^1.3.2",
     "svgstore-cli": "^1.3.1",
-    "webpack": "^3.11.0"
+    "webpack": "^4.42.0"
   }
 }

@@ -15,6 +15,9 @@ module.exports = env => {
       path: path.resolve(__dirname, buildPath),
       filename: '[name].bundle.js',
     },
+    optimization: {
+      minimize: true
+    },
     module: {
       rules: [
         {
@@ -43,12 +46,7 @@ module.exports = env => {
       ],
     },
     plugins: [
-      new clean([buildPath]),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false
-        }
-      })
+      new clean([buildPath])
     ]
   }
 }

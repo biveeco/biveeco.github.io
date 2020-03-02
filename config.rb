@@ -17,6 +17,8 @@ page '/people/partners/*', layout: 'partner'
 
 # General configuration
 
+config[:encoding] = 'utf-8'
+
 config[:images_dir] = 'assets/images'
 config[:fonts_dir] = 'assets/fonts'
 config[:css_dir] = 'assets/stylesheets'
@@ -27,8 +29,8 @@ config[:sass_assets_paths] = ['node_modules']
 ignore 'assets/javascripts/*'
 
 activate :external_pipeline,
-         name: :yarn,
-         command: build? ? 'yarn run build' : 'yarn run dev',
+         name: :npm,
+         command: build? ? 'npm run build' : 'npm run dev',
          source: '.tmp/assets/',
          latency: 1
 
@@ -167,6 +169,32 @@ helpers do
     source.map do |portrait|
       [portrait.width, "#{path}#{portrait.source}"]
     end.to_h
+  end
+
+  def path_template(path, size)
+    return path.gsub('{size}', size.to_s)
+  end
+
+  # Responsive image component methods
+  def default_source(path, sizes)
+    if (sizes.length > 0)
+      return path_template(path, sizes[0])
+    end
+    return path
+  end
+
+  def source_set(path, sizes)
+    if (sizes.length > 0)
+      return sizes.collect do |size|
+        "#{asset_url(path_template(path, size))} #{size}w"
+      end.compact.join(', ').rstrip
+    end
+  end
+
+  def data_attr(attrs)
+    attrs.collect do |attr, value|
+      ["data-#{attr}='#{value}'"]
+    end.join(' ')
   end
 end
 # rubocop:enable Metrics/BlockLength

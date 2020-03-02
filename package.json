@@ -23,12 +23,12 @@
     "javascripts:watch": "echo '--- Bundling & Linting JS ---' && webpack --watch -d --env.development --",
     "icons": "svgo -f $npm_package_config_icons_src && svgstore -o ./source/components/_spritemap.erb --inline $npm_package_config_icons_src/**/*.svg",
     "middleman": "bundle exec middleman build --",
-    "lint:styles": "echo '--- Linting CSS ---' && yarn run sass-lint --verbose",
+    "lint:styles": "echo '--- Linting CSS ---' && npm run sass-lint --verbose",
     "lint:ruby": "echo '--- Linting Ruby ---' && bundle exec rubocop",
-    "lint:watch": "onchange $npm_package_config_css_src -- yarn run lint:styles",
-    "dev": "yarn run javascripts:watch & yarn run lint:watch",
-    "build": "yarn run lint:ruby && yarn run lint:styles && yarn run javascripts:build",
-    "test": "yarn run lint:styles && yarn run javascripts:build && yarn run lint:ruby"
+    "lint:watch": "onchange $npm_package_config_css_src -- npm run lint:styles",
+    "dev": "npm run javascripts:watch & npm run lint:watch",
+    "build": "npm run lint:ruby && npm run lint:styles && npm run javascripts:build",
+    "test": "npm run lint:styles && npm run javascripts:build && npm run lint:ruby"
   },
   "dependencies": {
     "SassyLists": "git+https://github.com/at-import/SassyLists.git",
@@ -63,6 +63,7 @@
     "svg-sprite": "^1.3.7",
     "svgo": "^1.3.2",
     "svgstore-cli": "^1.3.1",
-    "webpack": "^4.42.0"
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
   }
 }

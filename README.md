@@ -95,9 +95,9 @@ Next, create a folder inside `source/work` and name it something short and memor
 
 ````yml
 ---
-title: 
-weight: 
-project: 
+title:
+weight:
+project:
 ---
 ````
 
@@ -140,8 +140,8 @@ This site is built primarily on Middleman, a static site generator. It uses [Sas
 ## Local setup:
 
 1. Clone this repository
-2. Install [Bundler](http://bundler.io) and [Node](https://nodejs.org/en/) and [Yarn](http://yarnpkg.com) if you don't already have them.
-3. Run `bundle install` and `yarn install` in the command line
+2. Install [Bundler](http://bundler.io) and [Node](https://nodejs.org/en/) if you don't already have them.
+3. Run `bundle install` and `npm install` in the command line
 4. All set!
 
 ## Development:

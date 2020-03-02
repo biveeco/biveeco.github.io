@@ -8,7 +8,7 @@ gem 'middleman', '> 4.0'
 # Middleman extensions
 gem 'middleman-autoprefixer'
 gem 'middleman-google-analytics'
-gem 'middleman-livereload'
+# gem 'middleman-livereload'
 gem 'middleman-minify-html'
 
 # Robots txt

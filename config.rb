@@ -182,7 +182,7 @@ helpers do
   end
 
   def source_set(path, sizes)
-    sizes.empty? || sizes.collect do |size|
+    !sizes.empty? && sizes.collect do |size|
       "#{asset_url(path_template(path, size))} #{size}w"
     end.compact.join(', ').rstrip
   end

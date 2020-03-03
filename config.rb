@@ -206,7 +206,7 @@ page '404.html', directory_index: false
 
 # Reload the browser automatically whenever files change
 configure :development do
-  # activate :livereload, livereload_css_target: 'assets/stylesheets/main.css'
+  activate :livereload, livereload_css_target: 'assets/stylesheets/main.css'
 end
 
 # Build-specific configuration

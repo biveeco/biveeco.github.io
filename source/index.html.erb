@@ -2,81 +2,86 @@
 title: home
 ---
 
-<%= component 'main_header', locals: {
-  hide_logo: true,
-  overlay: true,
-  theme: 'dark'
-} %>
-<section class="t-align-center">
-  <!-- Cover -->
-  <% component 'cover', locals: {
-    bg_image: '/assets/images/covers/ink-cover%401200w.png',
-    padding: { top: 'medium', bottom: 'xxwide', x: 'outside' },
-    classes: 'c-bg-painted-wash',
-    header_offset: true
-  } do %>
-    <!-- Logo evolution sketches -->
-    <%= component 'responsive_image', locals: {
-      source: data.site.cover.logo_sketches.source,
-      sizes: data.site.cover.logo_sketches.sizes,
-      alt: 'Bivee logo evolution',
-      classes: 'display-block align-center-block',
-      style: 'width: 40rem;'
-    } %>
-    <!-- Main logo -->
-    <%= image_tag "logos/logo-bivee-red-reverse.svg",
-      data: { 'ui-logo': '' },
-      class: 'padding-bottom-narrow padding-top',
-      alt: 'Bivee'
-    %>
-    <h1 class="t-scale-gamma c-text-reverse"><%= data.site.cover.headline %></h1>
+<!-- New name banner -->
+<aside class="padding-x-outside padding-y-wide c-bg-midtone c-border-highlight border-bottom border-medium">
+  <% component 'wrapper' do %>
+    <h1 class="t-scale-beta t-align-center c-text-reverse"><%= data.site.name_banner.headline %></h1>
+    <div class="padding-top t-align-center">
+      <%= image_tag "logos/bivee-host-banner.svg", alt: "Bivee > Host", style: "max-width: 20rem;" %>
+    </div>
+    <div class="padding-top"><%= render_markdown(data.site.name_banner.blurb) %></div>
   <% end %>
+</aside>
 
-  <!-- Intro blurb -->
-  <div class="padding-x-wide padding-bottom-xwide padding-top">
-    <% component 'wrapper', locals: {
-      width: 'narrow'
+<div class="position-relative">
+  <%= component 'main_header', locals: {
+    hide_logo: true,
+    overlay: true,
+    theme: 'dark'
+  } %>
+  <section class="t-align-center">
+    <!-- Cover -->
+    <% component 'cover', locals: {
+      bg_image: '/assets/images/covers/ink-cover%401200w.png',
+      padding: { top: 'wide', bottom: 'xxwide', x: 'outside' },
+      classes: 'c-bg-painted-wash',
+      header_offset: true
     } do %>
-      <p class="t-scale-epsilon"><%= data.site.cover.intro %></p>
-      <%= component 'button_link', locals: { label: 'Why does this work?', url: 'design_thinking', classes: 'margin-top-wide' } %>
+      <!-- Main logo -->
+      <%= image_tag "logos/logo-host-reverse.svg",
+        data: { 'ui-logo': '' },
+        class: 'padding-bottom-narrow padding-top',
+        alt: 'Host'
+      %>
+      <h1 class="t-scale-gamma c-text-reverse"><%= data.site.cover.headline %></h1>
     <% end %>
-  </div>
-</section>
 
-<!-- Work -->
-<% component 'panel' do %>
-  <% component 'blurb', locals: { heading: data.work.headline.home, borders: 'none' } do %> <%= data.work.intro %>
+    <!-- Intro blurb -->
+    <div class="padding-x-wide padding-bottom-xwide padding-top">
+      <% component 'wrapper', locals: {
+        width: 'narrow'
+      } do %>
+        <p class="t-scale-epsilon"><%= data.site.cover.intro %></p>
+        <%= component 'button_link', locals: { label: 'Why does this work?', url: 'design_thinking', classes: 'margin-top-wide' } %>
+      <% end %>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <% component 'panel' do %>
+    <% component 'blurb', locals: { heading: data.work.headline.home, borders: 'none' } do %> <%= data.work.intro %>
+    <% end %>
+    <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center padding-top-xwide' } do %>
+      <!-- Case study listings -->
+      <%= component 'projects_list', locals: { projects: data.work.projects[0...data.work.featured_projects] } %>
+
+      <%# this button appears when there's more than 3 case studies to display %>
+      <%= component 'button_link', locals: {
+        label: 'See more of our work',
+        url: '/work',
+        classes: 'margin-top-wide'
+      } if (data.work.projects.length > 3) %>
+    <% end %>
   <% end %>
-  <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center padding-top-xwide' } do %>
-    <!-- Case study listings -->
-    <%= component 'projects_list', locals: { projects: data.work.projects[0...data.work.featured_projects] } %>
 
-    <%# this button appears when there's more than 3 case studies to display %>
-    <%= component 'button_link', locals: {
-      label: 'See more of our work',
-      url: '/work',
-      classes: 'margin-top-wide'
-    } if (data.work.projects.length > 3) %>
-  <% end %>
-<% end %>
-
-<!-- Staff -->
-<% component 'panel', locals: {
-  theme: 'light',
-  painted: true
-} do %>
-  <h2 class="t-scale-alpha t-align-center"><%= data.people.headline.home %></h2>
-  <!-- list of staff photos -->
-  <% component 'wrapper', locals: {
-    width: 'wide',
-    padding: { top: 'wide' },
-    classes: 't-align-center'
+  <!-- Staff -->
+  <% component 'panel', locals: {
+    theme: 'light',
+    painted: true
   } do %>
-    <%= component 'people_list', locals: { group: find_people } %>
-    <%#= component 'button_link', locals: {
-      label: 'Meet the rest of the team',
-      url: '/people',
-      classes: 'margin-top-wide'
-    } %>
+    <h2 class="t-scale-alpha t-align-center"><%= data.people.headline.home %></h2>
+    <!-- list of staff photos -->
+    <% component 'wrapper', locals: {
+      width: 'wide',
+      padding: { top: 'wide' },
+      classes: 't-align-center'
+    } do %>
+      <%= component 'people_list', locals: { group: find_people } %>
+      <%#= component 'button_link', locals: {
+        label: 'Meet the rest of the team',
+        url: '/people',
+        classes: 'margin-top-wide'
+      } %>
+    <% end %>
   <% end %>
-<% end %>
+</div>

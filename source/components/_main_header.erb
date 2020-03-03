@@ -28,9 +28,9 @@
       <!-- logo -->
       <div data-ui-bookend-item="left" class="t-align-center">
         <% link_to '/', class: 'display-inline-block t-decoration-none' do %>
-          <%= image_tag "logos/logo-bivee-red#{'-reverse' if theme == 'dark'}.svg",
+          <%= image_tag "logos/logo-host#{theme == 'dark' ? '-reverse' : '-positive'}.svg",
             class: 'display-inline-block',
-            alt: 'Bivee', style: 'max-width: 5em;'
+            alt: 'Bivee', style: 'max-width: 3em;'
           %>
         <% end %>
       </div>

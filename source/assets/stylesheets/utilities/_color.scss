@@ -66,6 +66,10 @@ body,
   }
 }
 
+.c-bg-midtone {
+  @include color-background('border', $grade: 20);
+}
+
 .c-bg-transparent {
   background-color: transparent !important;
 }

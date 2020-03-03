@@ -13,34 +13,6 @@
   data ||= false # HASH (optional): additional data attributes
 
   # Private:
-
-  def path_template(path, size)
-    return path.gsub('{size}', size.to_s)
-  end
-
-  def default_source(path, sizes)
-    if (sizes.length > 0)
-      return path_template(path, sizes[0])
-    end
-    return path
-  end
-
-  def source_set(path, sizes)
-    if (sizes.length > 0)
-      return sizes.collect do |size|
-        "#{asset_url(path_template(path, size))} #{size}w"
-      end.compact.join(', ').rstrip
-    end
-
-    # return false
-  end
-
-  def data_attr(attrs)
-    attrs.collect do |attr, value|
-      ["data-#{attr}='#{value}'"]
-    end.join(' ')
-  end
-
   utils = [
     ('border c-border-well' if borders),
     (classes if classes)

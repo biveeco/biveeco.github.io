@@ -172,23 +172,19 @@ helpers do
   end
 
   def path_template(path, size)
-    return path.gsub('{size}', size.to_s)
+    path.gsub('{size}', size.to_s)
   end
 
   # Responsive image component methods
   def default_source(path, sizes)
-    if (sizes.length > 0)
-      return path_template(path, sizes[0])
-    end
-    return path
+    return path_template(path, sizes[0]) unless sizes.empty?
+    path
   end
 
   def source_set(path, sizes)
-    if (sizes.length > 0)
-      return sizes.collect do |size|
-        "#{asset_url(path_template(path, size))} #{size}w"
-      end.compact.join(', ').rstrip
-    end
+    sizes.empty? || sizes.collect do |size|
+      "#{asset_url(path_template(path, size))} #{size}w"
+    end.compact.join(', ').rstrip
   end
 
   def data_attr(attrs)
@@ -206,7 +202,7 @@ page '404.html', directory_index: false
 
 # Reload the browser automatically whenever files change
 configure :development do
-  activate :livereload, livereload_css_target: 'assets/stylesheets/main.css'
+  # activate :livereload, livereload_css_target: 'assets/stylesheets/main.css'
 end
 
 # Build-specific configuration

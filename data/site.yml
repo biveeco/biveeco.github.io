@@ -67,12 +67,6 @@ contact:
     - name: 'LinkedIn'
       url: https://www.linkedin.com/company/bivee-co
       icon: 'linkedin'
-    - name: 'Instagram'
-      url: http://instagram.com/biveeco
-      icon: 'instagram'
-    - name: 'Twitter'
-      url: https://twitter.com/biveeco
-      icon: 'twitter'
 
 # Painted backgrounds
 # -> this is the number of choices we have, so you can do stuff like `background =  rand(1...data.site.painted_bg_versions.thumbnails)`

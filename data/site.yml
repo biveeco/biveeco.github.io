@@ -1,5 +1,5 @@
 # Overall site title. Something like "Bivee" ought to do the trick.
-title: Bivee
+title: H&oslash;st
 
 # Items in the main nav in the header. Will be displayed in order from top to bottom, and then by prioity (see below).
 # title: [string] the label on the link
@@ -16,6 +16,9 @@ main_nav:
   # - title: How we work
   #   url: 'design_thinking'
   #   priority: 2
+  - title: Careers
+    url: '/careers'
+    priority: 2
   - title: Contact
     url: '#contact'
     priority: 1

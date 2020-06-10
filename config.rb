@@ -14,6 +14,7 @@ page '/*.txt', layout: false
 page '/people/staff/*', layout: 'profile'
 page '/people/consultants/*', layout: 'profile'
 page '/people/partners/*', layout: 'partner'
+page '/careers/*', layout: 'job_listing'
 
 # General configuration
 

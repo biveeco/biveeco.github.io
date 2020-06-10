@@ -16,8 +16,8 @@
         <p class="padding-top-xnarrow t-scale-zeta t-heading c-text-secondary">
           Posted
           <strong>
-            <time datetime="<%= current_page.data.date %>">
-              <%= Time.parse(current_page.data.date.to_s).strftime("%B %d, %Y") %>
+            <time datetime="<%= current_page.data.posted %>">
+              <%= Time.parse(current_page.data.posted.to_s).strftime("%B %d, %Y") %>
             </time>
           </strong>
         </p>

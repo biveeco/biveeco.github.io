@@ -49,6 +49,9 @@ contact:
   # A short blurb - just one paragraph, please.
   # General email for potential clients/visitors to contact us
   email: newbiz@host-creative.com
+  careers:
+    call_to_action: Does this sound like you?
+    email: careers@host-creative.com
   # Places where we have offices
   locations:
     - name: 'Washington, DC'

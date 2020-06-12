@@ -16,12 +16,24 @@
             Posted
             <strong>
               <time datetime="<%= listing.data.posted %>">
-                <%= Time.parse(listing.data.posted.to_s).strftime("%B %d, %Y") %>
+                <%= listing.data.posted.strftime("%B %d, %Y") %>
               </time>
             </strong>
           </p>
         </header>
         <div class="t-content"><%= listing.render layout: false %></div>
+
+        <!-- contact CTA -->
+        <footer class="padding-top margin-top border-top">
+          <h2 class="t-scale-gamma padding-bottom-narrow"><%= data.site.contact.careers.call_to_action %></h2>
+          <div data-ui-gutter="flush narrow">
+            <!-- Email button -->
+            <div data-ui-gutter-item class="display-inline-block">
+              <%= component 'button_link', locals: { label: 'Send us your resume', url: "mailto:#{data.site.contact.careers.email}" } %>
+            </div>
+            <p data-ui-gutter-item class="display-inline-block t-scale-zeta c-text-secondary"><%= data.site.contact.careers.email %></p>
+          </div>
+        </footer>
       </article>
     <% end %>
   <% end %>

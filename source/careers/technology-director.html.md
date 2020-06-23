@@ -12,6 +12,7 @@ Høst is looking for a full-time developer to help us build digital products for
 - You'll provide hands-on, senior-level leadership on our product development work.
 - You'll mentor and direct other developers on our team.
 - You'll develop robust, testable, scalable technical solutions, using industry best practices.
+- You'll develop, maintain and update software regularly to address customer and company concerns.
 - You'll work with our design team in a close partnership, building fast, reliable, secure, accessible user experiences and design systems. We believe a design is not "complete" until it is realized in code, and, in turn, we believe developers are an integral part of the creative team.
 
 ### You're good at:

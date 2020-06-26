@@ -11,21 +11,21 @@ title: home
   <section class="t-align-center">
     <!-- Cover -->
     <% component 'cover', locals: {
-      padding: { top: 'wide', bottom: 'xxwide', x: 'outside' },
+      padding: { y: 'xxwide', x: 'outside' },
       header_offset: true,
       theme: 'dark'
     } do %>
       <!-- Main logo -->
       <%= image_tag "logos/logo-host-reverse.svg",
         data: { 'ui-logo': '' },
-        class: 'padding-bottom-narrow padding-top',
+        class: 'padding-bottom-narrow',
         alt: 'Host'
       %>
       <h1 class="t-scale-gamma"><%= data.site.cover.headline %></h1>
     <% end %>
 
     <!-- Intro blurb -->
-    <div class="padding-x-wide padding-bottom-xwide padding-top">
+    <div class="padding-x-wide padding-y-xwide">
       <% component 'wrapper', locals: {
         width: 'narrow'
       } do %>

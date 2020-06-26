@@ -40,20 +40,20 @@ $themes: (
     'island': tint($-navy, 10),
     'well': shade($-navy, 10),
     'shadow': shade($-navy, 50),
-    'border': $-blue,
+    'border': tint($-navy, 20),
     'highlight': highlight(),
   ),
   // white background, dark text
   'default': (
     'text': (
-      'primary': tint($-navy, 5),
-      'secondary': tint($-navy, 40)
+      'primary': tint($-navy, 10),
+      'secondary': tint($-blue, 40)
     ),
     'bg': $-white,
     'island': $-white,
     'well': $-blue,
-    'shadow': tint($-blue, 40),
-    'border': $-blue,
+    'shadow': tint($-navy, 40),
+    'border': tint($-blue, 60),
     'highlight': highlight(),
   )
 );

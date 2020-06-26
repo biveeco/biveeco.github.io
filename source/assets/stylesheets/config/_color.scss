@@ -4,72 +4,70 @@
 // -> refer to colors ONLY via the $theme maps
 // =============================================================================
 
-@import 'libs';
+@import 'bourbon';
 
-// Base Palette
-// -----------------------------------------------------------------------------
-// -> PRIVATE, do not use outside this settings file
-//    unless you have a really ironclad reason
+// --- Palette ---
+// PRIVATE - do not refer to these values directly
 
 // neutrals
-$white: #fff;
-$blackberry: #263750;
-$blue-kuri: #e3e5e9;
-$dark-blue-kuri: #939ba8;
+$-white: #fff;
+$-blue: #2e709e;
+$-navy: #132e3f;
 
 // highlights
-$raspberry: #ef4759;
-$blueberry: #11a9be;
-
+$highlights: (
+  'gold': #ffc439,
+  'red': #ff003c,
+  'green': #00c468
+);
 
 // getter function for highlight colors
-// -> PRIVATE
-@function highlight($name) {
+// -> PUBLIC
+@function highlight($name: 'gold') {
   @return map-get($highlights, $name);
 }
 
-// Themes
-// -----------------------------------------------------------------------------
+// --- Themes ---
 
 $themes: (
   // dark blue background, light text
   'dark': (
     'text': (
-      'primary': $white,
-      'secondary': $dark-blue-kuri
+      'primary': $-white,
+      'secondary': $-blue
     ),
-    'bg': $blackberry,
-    'island': tint($blackberry, 10),
-    'well': shade($blackberry, 10),
-    'shadow': shade($blackberry, 50),
-    'border': $dark-blue-kuri,
-    'highlight': $raspberry,
+    'bg': $-navy,
+    'island': tint($-navy, 10),
+    'well': shade($-navy, 10),
+    'shadow': shade($-navy, 50),
+    'border': $-blue,
+    'highlight': highlight(),
   ),
   // light gray background, dark text
   'light': (
     'text': (
-      'primary': $blackberry,
-      'secondary': tint($blackberry, 20)
+      'primary': $-navy,
+      'secondary': tint($-navy, 20)
     ),
-    'bg': $blue-kuri,
-    'island': $white,
-    'well': shade($blue-kuri, 10),
-    'shadow': tint($blue-kuri, 60),
-    'border': $dark-blue-kuri,
-    'highlight': $raspberry,
+    'bg': $-blue,
+    'island': $-white,
+    'well': shade($-blue, 10),
+    'shadow': tint($-blue, 60),
+    'border': $-blue,
+    'highlight': highlight(),
   ),
   // white background, dark text
   'default': (
     'text': (
-      'primary': tint($blackberry, 5),
-      'secondary': tint($blackberry, 40)
+      'primary': tint($-navy, 5),
+      'secondary': tint($-navy, 40)
     ),
-    'bg': $white,
-    'island': $white,
-    'well': $blue-kuri,
-    'shadow': tint($blue-kuri, 40),
-    'border': $dark-blue-kuri,
-    'highlight': $raspberry,
+    'bg': $-white,
+    'island': $-white,
+    'well': $-blue,
+    'shadow': tint($-blue, 40),
+    'border': $-blue,
+    'highlight': highlight(),
   )
 );
 
@@ -133,7 +131,7 @@ $themes: (
 }
 
 // print out the color styles (and state, if needed) for a given attribute
-// -> uses same arguments as color mixin below
+// -> imports same arguments as color mixin below
 // -> PRIVATE
 @mixin _color-props(
   $color,
@@ -182,7 +180,7 @@ $themes: (
 // add colors for each theme
 // -> PUBLIC
 // -> PARAMS:
-//    - STRING/LIST $color: the name of the color you want to use, e.g. 'highlight'
+//    - STRING/LIST $color: the name of the color you want to import, e.g. 'highlight'
 //    - STRING $prop (optional): the property this will apply to, e.g. 'background-color'
 //    - STRING $grade (optional): 'grade' the color darker or lighter (as in 'gradation').
 //      -> pass in a negative number to darken the color

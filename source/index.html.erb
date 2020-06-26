@@ -2,17 +2,6 @@
 title: home
 ---
 
-<!-- New name banner -->
-<aside class="padding-x-outside padding-y-wide c-bg-midtone c-border-highlight border-bottom border-medium">
-  <% component 'wrapper' do %>
-    <h1 class="t-scale-beta t-align-center c-text-reverse"><%= data.site.name_banner.headline %></h1>
-    <div class="padding-top t-align-center">
-      <%= image_tag "logos/bivee-host-banner.svg", alt: "Bivee > Host", style: "max-width: 20rem;" %>
-    </div>
-    <div class="padding-top"><%= render_markdown(data.site.name_banner.blurb) %></div>
-  <% end %>
-</aside>
-
 <div class="position-relative">
   <%= component 'main_header', locals: {
     hide_logo: true,
@@ -28,9 +17,9 @@ title: home
       header_offset: true
     } do %>
       <!-- Main logo -->
-      <%= image_tag "logos/logo-host-reverse.svg",
+      <%= image_tag "logos/logo-bivee-red-reverse.svg",
         data: { 'ui-logo': '' },
-        class: 'padding-bottom-narrow padding-top',
+        class: 'padding-y',
         alt: 'Host'
       %>
       <h1 class="t-scale-gamma c-text-reverse"><%= data.site.cover.headline %></h1>

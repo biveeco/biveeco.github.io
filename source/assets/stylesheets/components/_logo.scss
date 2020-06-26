@@ -13,15 +13,15 @@
   width: 6rem;
 
   @include media('>xsmall') {
-    width: 7rem;
-  }
-
-  @include media('>small') {
     width: 8rem;
   }
 
+  @include media('>small') {
+    width: 11rem;
+  }
+
   @include media('>medium') {
-    width: 9rem;
+    width: 13rem;
   }
 }
 

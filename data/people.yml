@@ -3,7 +3,7 @@ headline:
   # Headline for the staff section on the homepage
   home: Our leadership
   # Headline for the staff nav at the bottom of each profle
-  nav: Meet the rest of the leadership
+  nav: Meet the rest of the team
 groups:
   # name: the heading, e.g. "Staff"
   # folder: the folder (inside /people) where the content is

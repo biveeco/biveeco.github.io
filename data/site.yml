@@ -10,26 +10,15 @@ main_nav:
   - title: Work
     url: '/work'
     priority: 2
-  # - title: People
-  # url: '/people'
-  # priority: 2
-  # - title: How we work
-  #   url: 'design_thinking'
-  #   priority: 2
-  - title: Careers
-    url: '/careers'
+  - title: People
+    url: '/people'
+    priority: 2
+  - title: How we work
+    url: 'design_thinking'
     priority: 2
   - title: Contact
     url: '#contact'
     priority: 1
-
-# Content for the name change banner (temporary)
-name_banner:
-  headline: We're changing our name!
-  blurb: |-
-    We've grown a lot since we started in 2013, and our work has evolved as well. This year, after a period of rethinking our brand and our approach, we decided to change our name to better reflect where we're headed. Our new name is **H&oslash;st**.
-
-    We'll be rolling out our new brand over the next few months, and updating our website alongside it. Check back here soon for more on the thinking and process behind it.
 
 # Content for the 'cover' (hero unit) on the homepage
 cover:
@@ -37,7 +26,7 @@ cover:
     source: /assets/images/bivee-logo-process@{size}w.png
     sizes: [480, 800, 1200]
   # Main headline/tagline
-  headline: We do creative and digital for social good.
+  headline: We do development differently.
   # Blurb introducing us. It'll be followed by a link to the about page.
   intro: 'Different thinking leads to different outcomes: we bring the humility to listen and question, the creativity to imagine without limits, and the confidence to try and fail until we find the right solution.'
 

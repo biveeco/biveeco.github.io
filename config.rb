@@ -156,6 +156,17 @@ helpers do
     end
   end
 
+  # don't show people with draft status (published: false)
+  # if we're doing a production build
+  def hide_draft_profiles(list)
+    if ENV['CONTEXT'] == 'production'
+      return find_people(group: list).select do |p|
+        p.data.published != false
+      end
+    end
+    find_people(group: list)
+  end
+
   # convert staff portrait frontmatter data to the string or hash
   # needed by the 'responsive_image' component
   # -> expects this data format:

@@ -11,10 +11,9 @@ title: home
   <section class="t-align-center">
     <!-- Cover -->
     <% component 'cover', locals: {
-      bg_image: '/assets/images/covers/ink-cover%401200w.png',
       padding: { top: 'wide', bottom: 'xxwide', x: 'outside' },
-      classes: 'c-bg-painted-wash',
-      header_offset: true
+      header_offset: true,
+      theme: 'dark'
     } do %>
       <!-- Main logo -->
       <%= image_tag "logos/logo-host-reverse.svg",
@@ -22,7 +21,7 @@ title: home
         class: 'padding-bottom-narrow padding-top',
         alt: 'Host'
       %>
-      <h1 class="t-scale-gamma c-text-reverse"><%= data.site.cover.headline %></h1>
+      <h1 class="t-scale-gamma"><%= data.site.cover.headline %></h1>
     <% end %>
 
     <!-- Intro blurb -->

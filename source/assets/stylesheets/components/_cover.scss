@@ -13,8 +13,8 @@
 
 [data-ui-cover] {
   display: block;
-  min-height: 300px;
-  min-height: 65vh;
+  // min-height: 300px;
+  // min-height: 65vh;
   position: relative;
 
   @supports (display: flex) {
@@ -22,19 +22,19 @@
     flex-direction: column;
   }
 
-  @include media('height>60em') {
-    min-height: 60vh;
-  }
+  // @include media('height>60em') {
+  //   min-height: 60vh;
+  // }
 
-  // for larger, wider screens, increase the height of the hero unit so the background covers the content well enough
-  // -> this is a hacky magic numbers bad solution. @jay TODO refactor
-  @include media('height>60em', '>medium') {
-    min-height: 70vh;
-  }
+  // // for larger, wider screens, increase the height of the hero unit so the background covers the content well enough
+  // // -> this is a hacky magic numbers bad solution. @jay TODO refactor
+  // @include media('height>60em', '>medium') {
+  //   min-height: 70vh;
+  // }
 
-  @include media('height>60em', '>large') {
-    min-height: 75vh;
-  }
+  // @include media('height>60em', '>large') {
+  //   min-height: 75vh;
+  // }
 }
 
 // Elements

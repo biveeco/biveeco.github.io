@@ -34,7 +34,7 @@ $themes: (
   'dark': (
     'text': (
       'primary': $-white,
-      'secondary': $-blue
+      'secondary': tint($-blue, 40)
     ),
     'bg': $-navy,
     'island': tint($-navy, 10),

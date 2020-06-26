@@ -2,10 +2,10 @@
 //  Type config & scale
 // =============================================================================
 
-@import 'libs';
-@import 'scale';
 @import 'breakpoints';
+@import 'bourbon';
 @import 'paths';
+@import 'scale';
 
 // default type sizes
 $type-size-default: 1rem !default;
@@ -54,25 +54,66 @@ $type-leading: (
   }
 }
 
+// --- Fonts ---
+
+@font-face {
+  font-family: 'sohne-light-normal';
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$asset-path-fonts}/sohne-light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'sohne-light-italic';
+  font-style: italic;
+  font-weight: normal;
+  src: url('#{$asset-path-fonts}/sohne-light-italic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'sohne-semibold-normal';
+  font-style: normal;
+  font-weight: 600;
+  src: url('#{$asset-path-fonts}/sohne-semibold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'sohne-bold-normal';
+  font-style: normal;
+  font-weight: bold;
+  src: url('#{$asset-path-fonts}/sohne-bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'financier';
+  font-style: normal;
+  font-weight: 600;
+  src: url('#{$asset-path-fonts}/financier.otf') format('opentype');
+}
+
 // Fonts
 // -----------------------------------------------------------------------------
 // -> PUBLIC, use these to style type globally & in modules
 
 $font-weights: (
-  'xlight': 100,
-  'light': 200,
-  'normal': 300,
-  'bold': 600
+  'light': 300,
+  'semibold': 600,
+  'bold': 700
 );
 
-@function font-weight($weight: normal) {
+@function font-weight($weight: light) {
   @return map-get($font-weights, $weight);
 }
 
-@mixin font($weight: normal, $style: normal) {
+@mixin font($weight: light, $style: normal) {
   // swap in the webfont once it loads
-  font-display: swap;
-  font-family: 'Libre Franklin', $font-stack-system;
+  font-family: 'sohne-#{$weight}-#{$style}', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Roboto', sans-serif;
   font-style: $style;
   font-weight: font-weight($weight);
+}
+
+@mixin font-display() {
+  font-family: 'financier', $font-stack-georgia;
+  font-style: normal;
+  font-weight: 600;
 }

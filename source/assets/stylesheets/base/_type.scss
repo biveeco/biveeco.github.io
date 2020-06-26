@@ -4,46 +4,24 @@
 // sass-lint:disable no-important
 // -> need important in utils that should always be true
 
-@import '../config/libs';
-@import '../config/scale';
-@import '../config/type';
-@import '../config/color';
 @import '../config/animation';
-@import '../config/spacing';
 @import '../config/borders';
 @import '../config/breakpoints';
+@import '../config/color';
+@import '../config/scale';
+@import '../config/spacing';
+@import '../config/type';
 
 // Base styles & defaults
 // -----------------------------------------------------------------------------
 
-// --- headings ----------------------------------------------------------------
-
-// shared heading styles
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.t-heading {
-  @include color('text' 'primary');
-  @include font('light');
-  display: block;
-  letter-spacing: 0;
-  line-height: type-leading('tight');
-  margin: 0;
-  position: relative;
-
-  strong {
-    @include font('bold');
-  }
-}
+// --- scale ---
 
 h1,
 .t-scale-alpha {
   @include type-fluid($size-min: 'gamma', $size-max: 'alpha');
   font-weight: font-weight(xlight);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
 
   @media print {
     page-break-after: avoid;
@@ -54,7 +32,7 @@ h2,
 .t-scale-beta {
   @include type-fluid($size-min: 'gamma', $size-max: 'beta');
   font-weight: font-weight(xlight);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 
   @media print {
     orphans: 3;
@@ -66,7 +44,6 @@ h2,
 h3,
 .t-scale-gamma {
   @include type-fluid($size-min: 'delta', $size-max: 'gamma');
-  letter-spacing: -0.01em;
 
   @media print {
     orphans: 3;
@@ -78,7 +55,6 @@ h3,
 h4,
 .t-scale-delta {
   @include type-fluid($size-min: 'epsilon', $size-max: 'delta');
-  letter-spacing: -0.005em;
 }
 
 h5,
@@ -93,6 +69,22 @@ h6,
 
 .t-scale-eta {
   font-size: scale-type('eta');
+}
+
+// shared heading styles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.t-heading {
+  @include color('text' 'primary');
+  @include font('bold');
+  display: block;
+  line-height: type-leading('tight');
+  margin: 0;
+  position: relative;
 }
 
 // --- body/inline text --------------------------------------------------------

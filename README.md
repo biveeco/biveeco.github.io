@@ -1,5 +1,5 @@
-# Bivee's website
-http://bivee.co
+# Høst's website
+https://host-creative.com
 
 ## Adding content
 
@@ -59,7 +59,7 @@ expertise:
 
 `logo` works the same as `portrait` for people, with `thumb` and `full_size` versions that accept either single path or [responsive image](#about-responsive-images) values.
 
-Finally, `expertise` is a list of that company's specialities and capabilities. Try to stick with words that are relevant to their relationship with Bivee (e.g. if they shot photos for us, use `photography`), and use the same words as other partner files where possible, as these are used like tags to categorize listings.
+Finally, `expertise` is a list of that company's specialities and capabilities. Try to stick with words that are relevant to their relationship with Høst (e.g. if they shot photos for us, use `photography`), and use the same words as other partner files where possible, as these are used like tags to categorize listings.
 
 ### Projects
 
@@ -135,7 +135,7 @@ And the browser will load the appropriate size, as needed, depending on screen s
 
 ## About this site:
 
-This site is built primarily on Middleman, a static site generator. It uses [Sass](http://sass-lang.com) for its styling (via [LibSass](https://github.com/sass/sassc-ruby)) and a variant of [AMCSS](https://amcss.github.io) for its CSS naming conventions and architecture. Javascript is handled with [Webpack](https://webpack.js.org), and front-end dependencies are managed with Yarn. It's hosted on [Netlify](http://netlify.com).
+This site is built primarily on Middleman, a static site generator. It uses [Sass](http://sass-lang.com) for its styling (via [LibSass](https://github.com/sass/sassc-ruby)) and a variant of [AMCSS](https://amcss.github.io) for its CSS naming conventions and architecture. Javascript is handled with [Webpack](https://webpack.js.org), and front-end dependencies are managed with NPM. It's hosted on [Netlify](http://netlify.com).
 
 ## Local setup:
 
@@ -157,4 +157,4 @@ This site is built primarily on Middleman, a static site generator. It uses [Sas
 
 ## Test:
 
-- `yarn test` will run linters.
+- `npm run test` will run linters.

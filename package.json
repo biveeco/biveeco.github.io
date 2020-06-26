@@ -1,17 +1,17 @@
 {
-  "name": "bivee.co",
-  "version": "2.0.0",
+  "name": "host-creative",
+  "version": "3.0.1",
   "main": "index.js",
-  "author": "Bivee, Inc.",
+  "author": "Høst Inc",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/biveeco/biveeco.github.io/issues"
+    "url": "https://github.com/hostcreative/hostcreative/issues"
   },
   "description": "Refresh of the Bivee website",
-  "homepage": "https://github.com/biveeco/biveeco.github.io#readme",
+  "homepage": "https://github.com/hostcreative/hostcreative#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/biveeco/biveeco.github.io.git"
+    "url": "git+https://github.com/hostcreative/hostcreative.git"
   },
   "config": {
     "css_src": "./source/assets/stylesheets",

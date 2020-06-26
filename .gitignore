@@ -20,6 +20,9 @@
 # Ignore gems installed in local directory
 /vendor/bundle/
 
+# Ignore linter reports
+/linters/
+
 # Ignore node modules
 /node_modules/
 **/npm-debug.log

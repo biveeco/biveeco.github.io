@@ -16,6 +16,15 @@ title: home
       classes: 'c-bg-painted-wash',
       header_offset: true
     } do %>
+      <!-- 'Process' logo drawings -->
+      <div style="margin-right: -2.5em;">
+        <%= component 'responsive_image', locals: {
+          source: '/assets/images/bivee-logo-process@{size}w.png',
+          sizes: [480, 800, 1200, 1600],
+          classes: 'display-block align-center-block',
+          style: 'width: 40rem;'
+        } %>
+      </div>
       <!-- Main logo -->
       <%= image_tag "logos/logo-bivee-red-reverse.svg",
         data: { 'ui-logo': '' },

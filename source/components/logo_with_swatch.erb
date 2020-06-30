@@ -12,21 +12,17 @@
   color ||= 'light'
 %>
 
-<div class="border-markers-corners">
-  <div class="offset-margin-left-<%= offset %> offset-margin-right-<%= offset %>">
-    <div data-ui-aspect="3x1">
-      <div data-ui-aspect-content="bg centered" class="t-align-center" style="
-        background-image: url('<%= "/assets/images/thumbs/#{color}/thumb-0#{bg || rand(1...data.site.painted_bg_versions.thumbnails)}.png" %>');
-        padding: <%= padding %>%; /* padding around client logo drawing */
-      ">
-        <%= component 'responsive_image', locals: {
-          path: path,
-          source: logo,
-          sizes: sizes,
-          alt: alt,
-          data: { 'ui-aspect-image': ''}
-        } %>
-      </div>
-    </div>
+<div data-ui-aspect="3x1">
+  <div data-ui-aspect-content="bg centered" class="t-align-center" style="
+    background-image: url('<%= "/assets/images/thumbs/#{color}/thumb-0#{bg || rand(1...data.site.painted_bg_versions.thumbnails)}.png" %>');
+    padding: <%= padding %>%; /* padding around client logo drawing */
+  ">
+    <%= component 'responsive_image', locals: {
+      path: path,
+      source: logo,
+      sizes: sizes,
+      alt: alt,
+      data: { 'ui-aspect-image': ''}
+    } %>
   </div>
 </div>

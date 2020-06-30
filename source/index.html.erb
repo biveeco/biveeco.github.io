@@ -33,8 +33,10 @@ title: home
       <% component 'wrapper', locals: {
         width: 'narrow'
       } do %>
-        <p class="t-scale-epsilon"><%= data.site.cover.intro %></p>
-        <%= component 'button_link', locals: { label: 'More about us', url: 'design_thinking', classes: 'margin-top-wide' } %>
+        <div class="t-content t-scale-epsilon t-align-left">
+          <%= render_markdown(data.site.cover.intro) %>
+        </div>
+        <%= component 'button_link', locals: { label: 'More about us', url: 'design_thinking', classes: 'margin-top-wide', icon: 'arrow-right' } %>
       <% end %>
     </div>
   </section>

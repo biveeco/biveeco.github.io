@@ -1,6 +1,6 @@
 headline:
   # the headline for the work section on the homepage
-  home: How do we do this?
+  home: Our work
   # the headline for the 'more work' nav at the bottom of each case study
   nav: More work
 
@@ -10,11 +10,7 @@ featured_projects: 6
 
 # an intro blurb describing our work
 intro: |-
-  <p>We’re specialists in strategy, branding, design, communications, knowledge management, and technology. We use these skills in our consulting engagements and the development of new products and applications.</p>
-  <p>We’ve taken this approach on projects in development, healthcare, and education, among others, and with a wide variety of partners, from international development organisations to nonprofits and private sector firms.</p>
-
-# the default width of the cover graphic on the project page
-default_cover_logo_width: 35rem
+  We’re a group of experts who love to work with clients and partners that share our dedication to making an impact. We’re headquartered in Washington D.C., with teams distributed globally. We have launched programs, brands, and products for the World Bank Group, UN Agencies, USAID, CDC, and more.
 
 # the list of projects and their metadata
 # -> used to construct pages for each case study, based on 'project' template and markdown files in 'work' folders

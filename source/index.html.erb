@@ -4,7 +4,6 @@ title: home
 
 <div class="position-relative">
   <%= component 'main_header', locals: {
-    hide_logo: true,
     overlay: true,
     theme: 'dark'
   } %>
@@ -16,12 +15,16 @@ title: home
       theme: 'dark'
     } do %>
       <!-- Main logo -->
-      <%= image_tag "logos/logo-host-reverse.svg",
+      <%#= image_tag "logos/logo-host-reverse.svg",
         data: { 'ui-logo': '' },
         class: 'padding-bottom-narrow',
         alt: 'Host'
       %>
-      <h1 class="t-scale-gamma"><%= data.site.cover.headline %></h1>
+      <% component "wrapper", locals: {
+        width: "default"
+      } do %>
+        <%= component "tagline" %>
+      <% end %>
     <% end %>
 
     <!-- Intro blurb -->

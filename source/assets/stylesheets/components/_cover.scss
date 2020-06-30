@@ -13,13 +13,14 @@
 
 [data-ui-cover] {
   display: block;
-  // min-height: 300px;
-  // min-height: 65vh;
+  min-height: 300px;
+  min-height: 65vh;
   position: relative;
 
   @supports (display: flex) {
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
 
   // @include media('height>60em') {

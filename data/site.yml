@@ -39,7 +39,8 @@ cover:
   # Main headline/tagline
   headline: We do creative and digital for social good.
   # Blurb introducing us. It'll be followed by a link to the about page.
-  intro: 'Different thinking leads to different outcomes: we bring the humility to listen and question, the creativity to imagine without limits, and the confidence to try and fail until we find the right solution.'
+  intro: >-
+    We’re a group of experts who love to work with clients and partners that share our dedication to making an impact. We’re headquartered in Washington D.C., with teams distributed globally. We have launched programs, brands, and products for the World Bank Group, UN Agencies, USAID, CDC, and more.
 
 # Contact/location info that appears in various places around the site
 # -> primarily used in the footer

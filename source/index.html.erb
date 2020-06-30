@@ -15,12 +15,6 @@ title: home
       theme: 'dark',
       classes: "c-bg-triangles"
     } do %>
-      <!-- Main logo -->
-      <%#= image_tag "logos/logo-host-reverse.svg",
-        data: { 'ui-logo': '' },
-        class: 'padding-bottom-narrow',
-        alt: 'Host'
-      %>
       <% component "wrapper", locals: {
         width: "default"
       } do %>
@@ -36,14 +30,15 @@ title: home
         <div class="t-content t-scale-epsilon t-align-left">
           <%= render_markdown(data.site.cover.intro) %>
         </div>
-        <%= component 'button_link', locals: { label: 'More about us', url: 'design_thinking', classes: 'margin-top-wide', icon: 'arrow-right' } %>
+        <%#= component 'button_link', locals: { label: 'More about us', url: 'design_thinking', classes: 'margin-top-wide', icon: 'arrow-right' } %>
       <% end %>
     </div>
   </section>
 
   <!-- Work -->
   <% component 'panel' do %>
-    <% component 'blurb', locals: { heading: data.work.headline.home, borders: 'none' } do %> <%= data.work.intro %>
+    <% component 'blurb', locals: { heading: data.work.headline.home, borders: 'none' } do %>
+      <%= render_markdown(data.work.intro) %>
     <% end %>
     <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center padding-top-xwide' } do %>
       <!-- Case study listings -->

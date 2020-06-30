@@ -33,18 +33,18 @@
         alt: project.title.short,
         style: "width: #{project.cover.full_size.width || data.work.default_cover_logo_width};"
       } %>
-      <h1 class="padding-top-wide"><%= project.title.long %></h1>
+      <h1 class="padding-top-wide t-font-display"><%= project.title.long %></h1>
       <% if project.title.subtitle %>
         <p class="t-heading t-scale-beta c-highlight padding-top-narrow"><%= project.title.subtitle %></p>
       <% end %>
       <div class="padding-top">
-        <p data-ui-gutter="flush narrow" class="t-heading t-scale-epsilon">
-          <time data-ui-gutter-item class="display-inline-block t-weight-bold c-highlight">
+        <p data-ui-gutter="flush narrow" class="t-scale-epsilon">
+          <time data-ui-gutter-item class="display-inline-block c-highlight">
             <%= project.date.respond_to?(:start) ? "#{project.date.start} - #{project.date.end}" : project.date %>
           </time>
           <% if project.respond_to?(:categories) %>
             <span data-ui-gutter-item class="display-inline-block c-text-secondary">
-              <span class="padding-left-narrow border-left"><%= project.categories.collect(&:to_s).join(', ').rstrip %></span>
+              <span class="padding-left-narrow border-left"><%= project.categories.collect{|c| c.to_s.capitalize }.join(", ").rstrip %></span>
             </span>
           <% end %>
         </p>

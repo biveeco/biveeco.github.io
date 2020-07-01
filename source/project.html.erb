@@ -20,19 +20,12 @@
     <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
 
       <h1 class="t-font-display"><%= project.title.short %></h1>
-      <p class="t-scale-gamma c-text-secondary padding-top-xxnarrow"><%= project.client %></p>
-      <div class="padding-top-narrow">
-        <p data-ui-gutter="flush narrow" class="t-scale-epsilon">
-          <time data-ui-gutter-item class="display-inline-block c-highlight">
-            <%= project.date.respond_to?(:start) ? "#{project.date.start} - #{project.date.end}" : project.date %>
-          </time>
-          <% if project.respond_to?(:categories) %>
-            <span data-ui-gutter-item class="display-inline-block c-text-secondary">
-              <span class="padding-left-narrow border-left"><%= project.categories.collect{|c| c.to_s.capitalize }.join(", ").rstrip %></span>
-            </span>
-          <% end %>
-        </p>
-      </div>
+      <p class="t-scale-gamma"><%= project.client %></p>
+      <p class="t-scale-zeta padding-top-xnarrow no-margin">
+        <time class="c-text-secondary">
+          <%= project.date.respond_to?(:start) ? "#{project.date.start} - #{project.date.end}" : project.date %>
+        </time>
+      </p>
 
       <%# project cover image %>
       <%= component 'feature_image', locals: {
@@ -51,10 +44,10 @@
     <% sections = sitemap.resources.select {|r| r.data.project == project.slug || r.data.project == project.title.short }.sort_by {|r| r.data.weight } %>
     <% sections.each_with_index do |section, index| %>
       <% component 'panel', locals: { border: (index == 0 ? 'none' : 'top') } do %>
+        <% unless section.data.title == 'Index' || section.data.title == 'Overview' %>
+          <h1 class="t-heading t-scale-beta t-align-center padding-bottom-wide"><%= section.data.title %></h1>
+        <% end %>
         <% component 'wrapper', locals: { width: 'narrow' } do %>
-          <% unless section.data.title == 'Index' || section.data.title == 'Overview' %>
-            <h1 class="t-heading t-scale-beta t-align-center padding-bottom"><%= section.data.title %></h1>
-          <% end %>
           <div class="t-content">
             <%= section.render layout: false %>
           </div>

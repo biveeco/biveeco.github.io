@@ -11,6 +11,8 @@
   padding ||= { y: 'wide' } # STRING/HASH (optional): padding classes
   borders ||= false # BOOLEAN (optional): add a border to the image
   classes ||= false # STRING (optional): additional utility classes
+  caption ||= false # STRING (optional): a caption to include
+  el ||= caption ? 'figure' : 'div' # STRING (optional): the wrapping element
 
   # Private:
   props = [
@@ -25,7 +27,7 @@
   ]
 %>
 
-<div data-ui-wrapper<%= props_list(props) %><%= class_list(utils) %>>
+<<%= el %> data-ui-wrapper<%= props_list(props) %><%= class_list(utils) %>>
   <% unless screenshot %>
     <%= component 'responsive_image', locals: {
       source: source,
@@ -40,4 +42,7 @@
       alt: alt
     } %>
   <% end %>
-</div>
+  <% if caption %>
+    <figcaption class="c-text-secondary t-align-left t-scale-zeta t-content padding-top-xnarrow"><%= caption %></figcaption>
+  <% end %>
+</<%= el %>>

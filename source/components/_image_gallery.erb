@@ -3,6 +3,7 @@
   # -> An even grid of images
 
   classes ||= false # STRING: additional classes
+  el ||= caption ? 'figure'
 %>
 
 <ul data-ui-gallery<%= " class='#{classes}'" if classes %>>

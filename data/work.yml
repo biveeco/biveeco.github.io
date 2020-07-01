@@ -23,15 +23,21 @@ projects:
       short: Gateway Academy
     slug: GA
     client: CGAP and Mastercard Foundation
+    project_url: https://gateway.academy
     date:
       start: 2017
       end: 2020
     categories:
-      - data
-      - web
-      - mobile applications
-      - knowledge management
-      - learning systems
+      - strategy
+      - design
+      - product roadmapping
+      - concept development
+      - user research
+      - branding
+      - business modeling
+      - communications
+      - learner operations
+      - digital transformation
     cover:
       thumb:
         logo: /work/ga/assets/ga-thumb.jpg
@@ -68,22 +74,29 @@ projects:
         width: 55rem
 
   - title:
-      long: Knowledge sharing for public private partnerships
+      long: PPP Knowledge Lab
       short: PPP Knowledge Lab
     slug: PPP
-    client: World Bank PPP Group
-    date: 2014
+    client: World Bank Group PPP CSA
+    project_url: https://www.pppknowledgelab.org
+    date: 2015 - 2018
     categories:
-      - data
-      - web
+      - strategy
+      - design
+      - concept development
+      - branding
       - knowledge management
-      - learning systems
+      - system architecture
+      - information architecture
+      - user research
     cover:
       thumb:
-        logo: /work/ppp/assets/thumb-PPP.png
+        logo: /work/ppp/assets/ppp-thumb.jpg
       full_size:
-        source: 'work/ppp/assets/ppp-cover@{size}w.png'
-        sizes: [400, 800, 1200, 1600]
+        source: 'work/ppp/assets/ppp-cover@{size}w.jpg'
+        sizes: [800, 1200, 1600, 2000]
+        alt: PPP Knowledge Lab's homepage
+        screenshot: true
 
   - title:
       long: Donor engagement strategy

@@ -86,6 +86,7 @@ h6,
   margin: 0;
   position: relative;
 
+  &.t-scale-gamma,
   &.t-scale-delta,
   &.t-scale-epsilon,
   &.t-scale-zeta {
@@ -93,6 +94,7 @@ h6,
   }
 }
 
+h3,
 h4,
 h5,
 h6 {

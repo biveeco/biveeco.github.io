@@ -52,7 +52,7 @@
     <% sections.each_with_index do |section, index| %>
       <% component 'panel', locals: { border: (index == 0 ? 'none' : 'top') } do %>
         <% component 'wrapper', locals: { width: 'narrow' } do %>
-          <% unless section.data.title == 'Index' %>
+          <% unless section.data.title == 'Index' || section.data.title == 'Overview' %>
             <h1 class="t-heading t-scale-beta t-align-center padding-bottom"><%= section.data.title %></h1>
           <% end %>
           <div class="t-content">

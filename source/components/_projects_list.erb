@@ -7,7 +7,7 @@
   classes ||= false # STRING (optional): additional modifier classes, if needed
   exclude ||= false # STRING (optional): the slug of the project you don't want to show
     # -> useful for local navs where you don't want to show the current project
-  gutter ||= 'wide' # STRING (optional): width of the gutter between thumbnails
+  gutter ||= 'narrow' # STRING (optional): width of the gutter between thumbnails
 %>
 
 <ul data-ui-gallery="gutter-<%= gutter %>"<%= " class='#{classes}'" if classes %>>

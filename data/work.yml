@@ -99,9 +99,8 @@ projects:
         screenshot: true
 
   - title:
-      long: Donor engagement strategy
-      subtitle: Communications audit and recommendations
-      short: Donor engagement strategy
+      long: GPOBA communications and strategy
+      short: GPOBA
     slug: GPOBA
     client: Global Partnership on Output-Based Aid
     date: 2016
@@ -117,13 +116,12 @@ projects:
       - developing country partners
     cover:
       thumb:
-        logo: 'work/gpoba/assets/gpoba-thumb@{size}w.png'
-        sizes: [200, 480, 800, 1200]
-        padding: 18
+        logo: 'work/gpoba/assets/gpoba-thumb.jpg'
       full_size:
-        source: 'work/gpoba/assets/gpoba-cover@{size}w.png'
-        sizes: [400, 800, 1200, 1600]
-        width: 28rem
+        source: 'work/gpoba/assets/gpoba-ar-cover@{size}w.jpg'
+        sizes: [800, 1200, 1600, 2000]
+        alt: The cover of the online version of the 2015 annual report
+        screenshot: true
 
   - title:
       long: Evidence to Action

@@ -33,19 +33,19 @@ name_banner:
 
 # Content for the 'cover' (hero unit) on the homepage
 cover:
-  logo_sketches:
-    source: /assets/images/bivee-logo-process@{size}w.png
-    sizes: [480, 800, 1200]
-  # Main headline/tagline
-  headline: We do creative and digital for social good.
   # Blurb introducing us. It'll be followed by a link to the about page.
-  intro: 'Different thinking leads to different outcomes: we bring the humility to listen and question, the creativity to imagine without limits, and the confidence to try and fail until we find the right solution.'
+  intro: |-
+    H&oslash;st means _harvest_ in Danish. To us, this means producing something new and vital &mdash; with a lot of hard work. It means going back to basics, finding ways to be more efficient and direct, and working toward a shared goal with a close-knit a team.
+
+    In the design-agency world, a trend has emerged where single companies try to do everything: the so-called "360" service model. We offer a different approach. We want to make the world’s best digital products for social good.
+
+    This requires focus. We know what we are and what we aren’t, and we’ve learned to be true to our own vision.
 
 # Contact/location info that appears in various places around the site
 # -> primarily used in the footer
 contact:
   # Title for contact area in footer, e.g. 'You used to call me on my cell phone'
-  headline: Want to do something differently?
+  headline: Ready to get started?
   # A short blurb - just one paragraph, please.
   # General email for potential clients/visitors to contact us
   email: newbiz@host-creative.com

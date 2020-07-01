@@ -56,40 +56,55 @@ $type-leading: (
 
 // --- Fonts ---
 
-@font-face {
-  font-family: 'sohne-light-normal';
+@include font-face(
+  'sohne-light-normal',
+  '#{$asset-path-fonts}/soehne-web-leicht',
+  ['woff', 'woff2', 'eot']
+) {
+  font-display: swap;
   font-style: normal;
-  font-weight: normal;
-  src: url('#{$asset-path-fonts}/sohne-light.otf') format('opentype');
-}
+  font-weight: 300;
+};
 
-@font-face {
-  font-family: 'sohne-light-italic';
+@include font-face(
+  'sohne-light-italic',
+  '#{$asset-path-fonts}/soehne-web-leicht-kursiv',
+  ['woff', 'woff2', 'eot']
+) {
+  font-display: swap;
   font-style: italic;
-  font-weight: normal;
-  src: url('#{$asset-path-fonts}/sohne-light-italic.otf') format('opentype');
-}
+  font-weight: 300;
+};
 
-@font-face {
-  font-family: 'sohne-semibold-normal';
+@include font-face(
+  'sohne-semibold-normal',
+  '#{$asset-path-fonts}/soehne-web-halbfett',
+  ['woff', 'woff2', 'eot']
+) {
+  font-display: swap;
   font-style: normal;
   font-weight: 600;
-  src: url('#{$asset-path-fonts}/sohne-semibold.otf') format('opentype');
-}
+};
 
-@font-face {
-  font-family: 'sohne-bold-normal';
+@include font-face(
+  'sohne-bold-normal',
+  '#{$asset-path-fonts}/soehne-web-fett',
+  ['woff', 'woff2', 'eot']
+) {
+  font-display: swap;
   font-style: normal;
-  font-weight: bold;
-  src: url('#{$asset-path-fonts}/sohne-bold.otf') format('opentype');
-}
+  font-weight: 800;
+};
 
-@font-face {
-  font-family: 'financier';
+@include font-face(
+  'financier',
+  '#{$asset-path-fonts}/financier-display-web-semibold',
+  ['woff', 'woff2', 'eot']
+) {
+  font-display: swap;
   font-style: normal;
   font-weight: 600;
-  src: url('#{$asset-path-fonts}/financier.otf') format('opentype');
-}
+};
 
 // Fonts
 // -----------------------------------------------------------------------------
@@ -98,7 +113,7 @@ $type-leading: (
 $font-weights: (
   'light': 300,
   'semibold': 600,
-  'bold': 700
+  'bold': 800
 );
 
 @function font-weight($weight: light) {

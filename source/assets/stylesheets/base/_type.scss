@@ -85,6 +85,20 @@ h6,
   line-height: type-leading('tight');
   margin: 0;
   position: relative;
+
+  &.t-scale-gamma,
+  &.t-scale-delta,
+  &.t-scale-epsilon,
+  &.t-scale-zeta {
+    @include font('semibold');
+  }
+}
+
+h3,
+h4,
+h5,
+h6 {
+  @include font('semibold');
 }
 
 // --- body/inline text --------------------------------------------------------
@@ -135,19 +149,11 @@ a {
 
 // see t-weight-* and t-style-* classes below for equivalent utilies
 strong {
-  @extend %t-weight-bold;
-
-  em {
-    @include font($weight: bold, $style: italic);
-  }
+  @extend %t-weight-semibold;
 }
 
 em {
   @extend %t-style-italic;
-
-  strong {
-    @include font($weight: bold, $style: italic);
-  }
 }
 
 small,
@@ -235,7 +241,7 @@ cite {
 // -----------------------------------------------------------------------------
 
 .t-font-display {
-  @include font;
+  @include font-display;
 }
 
 .t-font-body {
@@ -276,6 +282,11 @@ cite {
   &.t-font-display {
     @include font('bold');
   }
+}
+
+%t-weight-semibold,
+.t-weight-semibold {
+  @include font('semibold');
 }
 
 // extended by em base style above

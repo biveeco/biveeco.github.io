@@ -3,55 +3,40 @@
   # -> a proxy page used by data/work.yml for content in source/work
 %>
 
-<%= component "main_header", locals: {
-  theme: 'dark',
-  overlay: true
-} %>
+<%= component "main_header" %>
 
 <article>
 
   <!-- Cover image, and title -->
   <% component 'panel', locals: {
     el: 'header',
-    theme: 'dark',
-    painted: true,
-    painted_side: 'bottom',
-    border: 'bottom',
+    border: 'none',
     padding: {
       x: 'outside',
-      top: 'medium',
-      bottom: 'xwide'
-    },
-    header_offset: true
+      top: 'wide',
+      bottom: 'none'
+    }
   } do %>
     <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
 
-      <%# Project logo/header illustration %>
-      <%= component 'responsive_image', locals: {
+      <h1 class="t-font-display"><%= project.title.long %></h1>
+      <p class="t-scale-gamma"><%= project.client %></p>
+      <p class="t-scale-zeta padding-top-xnarrow no-margin">
+        <time class="c-text-secondary">
+          <%= project.date.respond_to?(:start) ? "#{project.date.start} - #{project.date.end}" : project.date %>
+        </time>
+      </p>
+
+      <%# project cover image %>
+      <%= component 'feature_image', locals: {
         source: project.cover.full_size.source,
         sizes: project.cover.full_size.sizes,
-        alt: project.title.short,
-        style: "width: #{project.cover.full_size.width || data.work.default_cover_logo_width};"
+        alt: (project.cover.full_size.alt || project.title.short),
+        borders: (project.cover.full_size.border || false),
+        screenshot: (project.cover.full_size.screenshot || false),
+        padding: { top: 'wide' },
+        width: project.cover.full_size.width || 'wide'
       } %>
-      <h1 class="padding-top-wide"><%= project.title.long %></h1>
-      <% if project.title.subtitle %>
-        <p class="t-heading t-scale-beta c-highlight padding-top-narrow"><%= project.title.subtitle %></p>
-      <% end %>
-      <div class="padding-top">
-        <p data-ui-gutter="flush narrow" class="t-heading t-scale-epsilon">
-          <time data-ui-gutter-item class="display-inline-block t-weight-bold c-highlight">
-            <%= project.date.respond_to?(:start) ? "#{project.date.start} - #{project.date.end}" : project.date %>
-          </time>
-          <% if project.respond_to?(:categories) %>
-            <span data-ui-gutter-item class="display-inline-block c-text-secondary">
-              <span class="padding-left-narrow border-left"><%= project.categories.collect(&:to_s).join(', ').rstrip %></span>
-            </span>
-          <% end %>
-        </p>
-      </div>
-      <a class="display-inline-block margin-top-wide t-decoration-none c-accent" href="#main_content">
-        <%= component 'icon', locals: { id: 'arrow-down' } %>
-      </a>
     <% end %>
   <% end %>
 
@@ -60,10 +45,10 @@
     <% sections = sitemap.resources.select {|r| r.data.project == project.slug || r.data.project == project.title.short }.sort_by {|r| r.data.weight } %>
     <% sections.each_with_index do |section, index| %>
       <% component 'panel', locals: { border: (index == 0 ? 'none' : 'top') } do %>
+        <% unless section.data.title == 'Index' || section.data.title == 'Overview' %>
+          <h1 class="t-heading t-scale-beta t-align-center padding-bottom-wide"><%= section.data.title %></h1>
+        <% end %>
         <% component 'wrapper', locals: { width: 'narrow' } do %>
-          <% unless section.data.title == 'Index' %>
-            <h1 class="t-heading t-scale-beta t-align-center padding-bottom"><%= section.data.title %></h1>
-          <% end %>
           <div class="t-content">
             <%= section.render layout: false %>
           </div>

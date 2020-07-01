@@ -19,13 +19,13 @@ intro: |-
 # -> title.subtitle is a descriptive/editorial subhead that should be displayed on the case study page. This is helpful if the client logo and long title don't make the project name obvious.
 projects:
   - title:
-      long: e-Learning for financial inclusion
+      long: Gateway Academy
       short: Gateway Academy
     slug: GA
     client: CGAP and Mastercard Foundation
     date:
       start: 2017
-      end: Present
+      end: 2020
     categories:
       - data
       - web
@@ -34,10 +34,12 @@ projects:
       - learning systems
     cover:
       thumb:
-        logo: /work/ga/assets/thumb-GA.png
+        logo: /work/ga/assets/ga-thumb.jpg
       full_size:
-        source: 'assets/ga-cover@{size}w.png'
-        sizes: [400, 800, 1200, 1600]
+        source: 'assets/GA-home@{size}w.jpg'
+        sizes: [800, 1200, 1600, 2000]
+        screenshot: true
+        alt: Gateway Academy's homepage
 
   - title:
       long: Knowledge and innovation exchange

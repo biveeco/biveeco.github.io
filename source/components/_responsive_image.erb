@@ -8,14 +8,14 @@
   sizes ||= [] # Array of numbers (optional): the size variations of the image available, e.g. 400, 800, 1200 etc. Must be pixels; do not include units.
   alt ||= '' # STRING (optional): alt tag
   borders ||= false # BOOLEAN (optional): add a border to the image
-  classes ||= false # STRING (optional): additional classes you'd like to pass in
+  classes ||= '' # STRING (optional): additional classes you'd like to pass in
   style ||= false # STRING (optional): inline styles
   data ||= false # HASH (optional): additional data attributes
 
   # Private:
   utils = [
     ('border' if borders),
-    (classes if classes)
+    (classes)
   ]
 %>
 

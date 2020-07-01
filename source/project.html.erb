@@ -35,14 +35,14 @@
       </div>
 
       <%# project cover image %>
-      <div class="padding-top-wide">
-        <%= component 'responsive_image', locals: {
-          source: project.cover.full_size.source,
-          sizes: project.cover.full_size.sizes,
-          alt: project.title.short,
-          style: "width: #{project.cover.full_size.width || data.work.default_cover_logo_width};"
-        } %>
-      </div>
+      <%= component 'feature_image', locals: {
+        source: project.cover.full_size.source,
+        sizes: project.cover.full_size.sizes,
+        alt: (project.cover.full_size.alt || project.title.short),
+        borders: (project.cover.full_size.border || false),
+        screenshot: (project.cover.full_size.screenshot || false),
+        padding: { top: 'wide' }
+      } %>
     <% end %>
   <% end %>
 

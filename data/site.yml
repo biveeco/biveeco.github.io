@@ -33,11 +33,6 @@ name_banner:
 
 # Content for the 'cover' (hero unit) on the homepage
 cover:
-  logo_sketches:
-    source: /assets/images/bivee-logo-process@{size}w.png
-    sizes: [480, 800, 1200]
-  # Main headline/tagline
-  headline: We do creative and digital for social good.
   # Blurb introducing us. It'll be followed by a link to the about page.
   intro: |-
     H&oslash;st means _harvest_ in Danish. To us, this means producing something new and vital &mdash; with a lot of hard work. It means going back to basics, finding ways to be more efficient and direct, and working toward a shared goal with a close-knit a team.

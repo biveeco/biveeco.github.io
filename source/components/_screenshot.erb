@@ -6,7 +6,7 @@
   # Locals:
   # STRING/HASH source: the path(s) or url(s) of the image files(s)
   sizes ||= [] # Array of numbers (optional): size variations of the source image
-  classes ||= false
+  classes ||= ''
 
   # Private
   utils = [
@@ -18,5 +18,6 @@
   source: source,
   sizes: sizes,
   borders: true,
-  classes: 'border-round-large has-shadow #{classes if classes}'
+  classes: "border-round-large has-shadow #{classes}",
+  alt: alt || ''
 } %>

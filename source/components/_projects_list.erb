@@ -15,7 +15,7 @@
     <% unless project.slug == exclude || project.title.short == exclude %>
       <li data-ui-gallery-item>
         <% link_to "/work/#{project.slug.urlize}/", class: 'display-flex-fill display-block t-decoration-none t-align-center' do %>
-          <div data-ui-aspect="3x1">
+          <div data-ui-aspect="3x1" class="border">
             <div data-ui-aspect-content>
               <%= component 'responsive_image', locals: {
                 source: project.cover.thumb.logo,

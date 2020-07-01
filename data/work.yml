@@ -47,31 +47,31 @@ projects:
         screenshot: true
         alt: Gateway Academy's homepage
 
-  - title:
-      long: Knowledge and innovation exchange
-      subtitle: Strategy blueprint design
-      short: Knowledge and innovation exchange
-    slug: GPE
-    client: Global Partnership for Education
-    date: 2018
-    categories:
-      - data
-      - knowledge
-      - learning systems
-    locations:
-      - US
-      - Belgium
-      - France
-      - developing country partners
-    cover:
-      thumb:
-        logo: 'work/gpe/assets/gpe-icon@{size}w.png'
-        sizes: [200, 480, 800, 1200]
-        padding: 14
-      full_size:
-        source: 'work/gpe/assets/gpe-lockup@{size}w.png'
-        sizes: [400, 800, 1200, 1600]
-        width: 55rem
+  # - title:
+  #     long: Knowledge and innovation exchange
+  #     subtitle: Strategy blueprint design
+  #     short: Knowledge and innovation exchange
+  #   slug: GPE
+  #   client: Global Partnership for Education
+  #   date: 2018
+  #   categories:
+  #     - data
+  #     - knowledge
+  #     - learning systems
+  #   locations:
+  #     - US
+  #     - Belgium
+  #     - France
+  #     - developing country partners
+  #   cover:
+  #     thumb:
+  #       logo: 'work/gpe/assets/gpe-icon@{size}w.png'
+  #       sizes: [200, 480, 800, 1200]
+  #       padding: 14
+  #     full_size:
+  #       source: 'work/gpe/assets/gpe-lockup@{size}w.png'
+  #       sizes: [400, 800, 1200, 1600]
+  #       width: 55rem
 
   - title:
       long: PPP Knowledge Lab
@@ -116,64 +116,63 @@ projects:
       - developing country partners
     cover:
       thumb:
-        logo: 'work/gpoba/assets/gpoba-thumb.jpg'
+        logo: /work/gpoba/assets/gpoba-thumb.jpg
       full_size:
         source: 'work/gpoba/assets/gpoba-ar-cover@{size}w.jpg'
         sizes: [800, 1200, 1600, 2000]
         alt: The cover of the online version of the 2015 annual report
         screenshot: true
 
-  - title:
-      long: Evidence to Action
-      subtitle: National reproductive health plan evaluation tool
-      short: Evidence to Action
-    slug: E2A
-    client: Evidence to Action, Pathfinder International, & USAID
-    date: 2018
-    categories:
-      - web application
-      - design
-      - knowledge management
-    locations:
-      - Global
-    cover:
-      thumb:
-        logo: 'work/e2a/assets/e2a-thumb@{size}w.png'
-        sizes: [200, 480, 800, 1200]
-        padding: 22
-      full_size:
-        source: 'work/e2a/assets/e2a-cover@{size}w.png'
-        sizes: [400, 800, 1200, 1600]
-        width: 18rem
+  # - title:
+  #     long: Evidence to Action
+  #     subtitle: National reproductive health plan evaluation tool
+  #     short: Evidence to Action
+  #   slug: E2A
+  #   client: Evidence to Action, Pathfinder International, & USAID
+  #   date: 2018
+  #   categories:
+  #     - web application
+  #     - design
+  #     - knowledge management
+  #   locations:
+  #     - Global
+  #   cover:
+  #     thumb:
+  #       logo: 'work/e2a/assets/e2a-thumb@{size}w.png'
+  #       sizes: [200, 480, 800, 1200]
+  #       padding: 22
+  #     full_size:
+  #       source: 'work/e2a/assets/e2a-cover@{size}w.png'
+  #       sizes: [400, 800, 1200, 1600]
+  #       width: 18rem
 
-  - title:
-      long: Tela
-      subtitle: Symptom tracking mobile app for cancer patients
-      short: Tela app
-    slug: Tela
-    client: Tela Inc.
-    date: 2018
-    categories:
-      - product
-      - mobile application
-      - health & medical
-    locations:
-      - US
-    cover:
-      thumb:
-        logo: 'work/tela/assets/tela-thumb@{size}w.png'
-        sizes: [200, 480, 800, 1200]
-        padding: 18
-      full_size:
-        source: 'work/tela/assets/tela-cover@{size}w.png'
-        sizes: [400, 800, 1200, 1600]
+  # - title:
+  #     long: Tela
+  #     subtitle: Symptom tracking mobile app for cancer patients
+  #     short: Tela app
+  #   slug: Tela
+  #   client: Tela Inc.
+  #   date: 2018
+  #   categories:
+  #     - product
+  #     - mobile application
+  #     - health & medical
+  #   locations:
+  #     - US
+  #   cover:
+  #     thumb:
+  #       logo: 'work/tela/assets/tela-thumb@{size}w.png'
+  #       sizes: [200, 480, 800, 1200]
+  #       padding: 18
+  #     full_size:
+  #       source: 'work/tela/assets/tela-cover@{size}w.png'
+  #       sizes: [400, 800, 1200, 1600]
 
   - title:
       long: Handshake journal
-      subtitle: Design and implementation of segment-specific editorial platform
-      short: Handshake journal
+      short: Handshake
     slug: Handshake
-    client: PPP
+    client: World Bank Group PPP CSA
     date: 2016
     categories:
       - branding
@@ -183,13 +182,12 @@ projects:
       - US
     cover:
       thumb:
-        logo: 'work/handshake/assets/handshake-thumb@{size}w.png'
-        sizes: [200, 480, 800, 1200]
-        padding: 22
+        logo: /work/handshake/assets/handshake-thumb.jpg
       full_size:
-        source: 'work/handshake/assets/handshake-cover@{size}w.png'
-        sizes: [400, 800, 1200, 1600]
-        width: 25rem
+        source: /work/handshake/assets/handshake-cover.jpg
+        width: 'medium'
+        screenshot: true
+        alt: The Handshake homepage
 
 # Killing DDH until we get permission
 # - title:
@@ -212,49 +210,51 @@ projects:
       short: Micronutrient survey toolkit
     slug: CDC
     client: Centers for Disease Control
+    project_url: http://mnsurveytoolkit.nutritionintl.org/
     date:
       start: 2016
-      end: present
+      end: 2019
     categories:
-      - web application
       - design
-      - knowledge management
+      - concept development
+      - user interface design
+      - web development
+      - offline application development
     locations:
       - Global
     cover:
       thumb:
-        logo: 'work/cdc/assets/cdc-thumb@{size}w.png'
-        sizes: [200, 480, 800, 1200]
-        padding: 18
+        logo: 'work/cdc/assets/cdc-thumb.jpg'
       full_size:
-        source: 'work/cdc/assets/cdc-cover@{size}w.png'
-        sizes: [400, 800, 1200, 1600]
+        source: 'work/cdc/assets/cdc-toolkit-interior@{size}w.jpg'
+        sizes: [400, 800, 1200, 1600, 2000]
         width: 30rem
+        screenshot: true
 
-  - title:
-      long: Online Community Development
-      subtitle: UNICEF's Home Fortification Technical Advisory Group
-      short: HF-TAG
-    slug: HF-TAG
-    client: Home Fortification Technical Advisory Group (HF-TAG), UNICEF, GAIN
-    date:
-      start: 2016
-      end: Present
-    categories:
-      - data
-      - web
-      - mobile applications
-      - knowledge management
-      - community development
-    cover:
-      thumb:
-        logo: /work/hf-tag/assets/hftag-thumb@{size}w.png
-        sizes: [200, 400, 800, 1200]
-        padding: 18
-      full_size:
-        source: /work/hf-tag/assets/hftag-cover@{size}w.png
-        sizes: [400, 800, 1200, 1600]
-        width: 23rem
+  # - title:
+  #     long: Online Community Development
+  #     subtitle: UNICEF's Home Fortification Technical Advisory Group
+  #     short: HF-TAG
+  #   slug: HF-TAG
+  #   client: Home Fortification Technical Advisory Group (HF-TAG), UNICEF, GAIN
+  #   date:
+  #     start: 2016
+  #     end: Present
+  #   categories:
+  #     - data
+  #     - web
+  #     - mobile applications
+  #     - knowledge management
+  #     - community development
+  #   cover:
+  #     thumb:
+  #       logo: /work/hf-tag/assets/hftag-thumb@{size}w.png
+  #       sizes: [200, 400, 800, 1200]
+  #       padding: 18
+  #     full_size:
+  #       source: /work/hf-tag/assets/hftag-cover@{size}w.png
+  #       sizes: [400, 800, 1200, 1600]
+  #       width: 23rem
 
 pro_bono:
   title: Pro-bono work

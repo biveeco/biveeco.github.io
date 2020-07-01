@@ -3,41 +3,25 @@
   # -> a proxy page used by data/work.yml for content in source/work
 %>
 
-<%= component "main_header", locals: {
-  theme: 'dark',
-  overlay: true
-} %>
+<%= component "main_header" %>
 
 <article>
 
   <!-- Cover image, and title -->
   <% component 'panel', locals: {
     el: 'header',
-    theme: 'dark',
-    painted: true,
-    painted_side: 'bottom',
-    border: 'bottom',
+    border: 'none',
     padding: {
       x: 'outside',
-      top: 'medium',
-      bottom: 'xwide'
-    },
-    header_offset: true
+      top: 'wide',
+      bottom: 'none'
+    }
   } do %>
     <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
 
-      <%# Project logo/header illustration %>
-      <%= component 'responsive_image', locals: {
-        source: project.cover.full_size.source,
-        sizes: project.cover.full_size.sizes,
-        alt: project.title.short,
-        style: "width: #{project.cover.full_size.width || data.work.default_cover_logo_width};"
-      } %>
-      <h1 class="padding-top-wide t-font-display"><%= project.title.long %></h1>
-      <% if project.title.subtitle %>
-        <p class="t-heading t-scale-beta c-highlight padding-top-narrow"><%= project.title.subtitle %></p>
-      <% end %>
-      <div class="padding-top">
+      <h1 class="t-font-display"><%= project.title.short %></h1>
+      <p class="t-scale-gamma c-text-secondary padding-top-xxnarrow"><%= project.client %></p>
+      <div class="padding-top-narrow">
         <p data-ui-gutter="flush narrow" class="t-scale-epsilon">
           <time data-ui-gutter-item class="display-inline-block c-highlight">
             <%= project.date.respond_to?(:start) ? "#{project.date.start} - #{project.date.end}" : project.date %>
@@ -49,9 +33,16 @@
           <% end %>
         </p>
       </div>
-      <a class="display-inline-block margin-top-wide t-decoration-none c-accent" href="#main_content">
-        <%= component 'icon', locals: { id: 'arrow-down' } %>
-      </a>
+
+      <%# project cover image %>
+      <div class="padding-top-wide">
+        <%= component 'responsive_image', locals: {
+          source: project.cover.full_size.source,
+          sizes: project.cover.full_size.sizes,
+          alt: project.title.short,
+          style: "width: #{project.cover.full_size.width || data.work.default_cover_logo_width};"
+        } %>
+      </div>
     <% end %>
   <% end %>
 

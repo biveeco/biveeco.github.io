@@ -42,7 +42,7 @@ projects:
       thumb:
         logo: /work/ga/assets/ga-thumb.jpg
       full_size:
-        source: 'assets/GA-home@{size}w.jpg'
+        source: /work/ga/assets/GA-home@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]
         screenshot: true
         alt: Gateway Academy's homepage
@@ -69,7 +69,7 @@ projects:
   #       sizes: [200, 480, 800, 1200]
   #       padding: 14
   #     full_size:
-  #       source: 'work/gpe/assets/gpe-lockup@{size}w.png'
+  #       source: /work/gpe/assets/gpe-lockup@{size}w.png'
   #       sizes: [400, 800, 1200, 1600]
   #       width: 55rem
 
@@ -93,7 +93,7 @@ projects:
       thumb:
         logo: /work/ppp/assets/ppp-thumb.jpg
       full_size:
-        source: 'work/ppp/assets/ppp-cover@{size}w.jpg'
+        source: /work/ppp/assets/ppp-cover@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]
         alt: PPP Knowledge Lab's homepage
         screenshot: true
@@ -118,7 +118,7 @@ projects:
       thumb:
         logo: /work/gpoba/assets/gpoba-thumb.jpg
       full_size:
-        source: 'work/gpoba/assets/gpoba-ar-cover@{size}w.jpg'
+        source: /work/gpoba/assets/gpoba-ar-cover@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]
         alt: The cover of the online version of the 2015 annual report
         screenshot: true
@@ -142,7 +142,7 @@ projects:
   #       sizes: [200, 480, 800, 1200]
   #       padding: 22
   #     full_size:
-  #       source: 'work/e2a/assets/e2a-cover@{size}w.png'
+  #       source: /work/e2a/assets/e2a-cover@{size}w.png'
   #       sizes: [400, 800, 1200, 1600]
   #       width: 18rem
 
@@ -165,7 +165,7 @@ projects:
   #       sizes: [200, 480, 800, 1200]
   #       padding: 18
   #     full_size:
-  #       source: 'work/tela/assets/tela-cover@{size}w.png'
+  #       source: /work/tela/assets/tela-cover@{size}w.png'
   #       sizes: [400, 800, 1200, 1600]
 
   - title:
@@ -206,7 +206,6 @@ projects:
 
   - title:
       long: Micronutrient survey toolkit
-      subtitle: On- and offline web application development
       short: Micronutrient survey toolkit
     slug: CDC
     client: Centers for Disease Control
@@ -224,9 +223,9 @@ projects:
       - Global
     cover:
       thumb:
-        logo: 'work/cdc/assets/cdc-thumb.jpg'
+        logo: /work/cdc/assets/cdc-thumb.jpg
       full_size:
-        source: 'work/cdc/assets/cdc-toolkit-interior@{size}w.jpg'
+        source: /work/cdc/assets/cdc-toolkit-interior@{size}w.jpg
         sizes: [400, 800, 1200, 1600, 2000]
         width: 30rem
         screenshot: true

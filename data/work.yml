@@ -222,12 +222,10 @@ projects:
       - US
     cover:
       thumb:
-        logo: /work/cdc/assets/cdc-thumb.jpg
+        logo: /work/sendai/assets/sendai-thumb.jpg
       full_size:
-        source: /work/cdc/assets/cdc-toolkit-interior@{size}w.jpg
+        source: /work/sendai/assets/sendai-cover@{size}w.jpg
         sizes: [400, 800, 1200, 1600, 2000]
-        width: 30rem
-        screenshot: true
 
   - title:
       long: GFDRR reports

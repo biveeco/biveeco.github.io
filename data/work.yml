@@ -99,6 +99,31 @@ projects:
         screenshot: true
 
   - title:
+      long: 'Bringing girls to the table: a global ad campaign'
+      short: World Food Programme ad campaign
+    slug: WFP
+    client: World Food Programme
+    date: 2016
+    categories:
+      - our contributions 
+      - communications 
+      - concept development 
+      - print design 
+      - strategy 
+      - facilitation
+    locations:
+      - Canada
+      - US
+    cover:
+      thumb:
+        logo: /work/wfp/assets/wfp-thumb.jpg
+      full_size:
+        source: /work/wfp/assets/WFP-mockup@{size}w.jpg
+        sizes: [800, 1200, 1600, 2000]
+        alt: The cover of the online version of the 2015 annual report
+        screenshot: true
+
+  - title:
       long: GPOBA communications and strategy
       short: GPOBA
     slug: GPOBA
@@ -272,7 +297,7 @@ projects:
         logo: /work/cdc/assets/cdc-thumb.jpg
       full_size:
         source: /work/cdc/assets/cdc-toolkit-interior@{size}w.jpg
-        sizes: [400, 800, 1200, 1600, 2000]
+        sizes: [400, 800, 1200, 1600]
         width: 30rem
         screenshot: true
 

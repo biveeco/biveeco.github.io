@@ -11,16 +11,14 @@
   <% order_by_last_name(group).each do |profile| %>
     <li data-ui-gallery-item>
       <% link_to profile.url, class: 'display-flex-fill display-block t-align-center t-decoration-none' do %>
-        <div class="border-markers-corners">
-          <%= component 'fluid_aspect_image', locals: {
-            source: profile.data.portrait.thumb,
-            bg_size: 'cover',
-            alt: profile.data.name,
-            classes: 'border border-thick c-border-island'
-          } %>
-        </div>
-        <h3 class="t-scale-delta padding-bottom-xxnarrow padding-top-xnarrow"><%= profile.data.name %></h3>
-        <p class="t-heading t-scale-eta<%= profile.data.job_title ? ' c-highlight' : ' c-text-tertiary' %>">
+        <%= component 'fluid_aspect_image', locals: {
+          source: profile.data.portrait.thumb,
+          bg_size: 'cover',
+          alt: profile.data.name,
+          classes: ''
+        } %>
+        <h3 class="t-scale-delta padding-bottom-xxnarrow padding-top-narrow"><%= profile.data.name %></h3>
+        <p class="t-scale-zeta c-text-secondary">
           <%# show either the job title (for staff) or their interests %>
           <%= profile.data.job_title || profile.data.interests[0...3].join(', ').rstrip %>
         </p>

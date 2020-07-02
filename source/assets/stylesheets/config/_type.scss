@@ -2,10 +2,10 @@
 //  Type config & scale
 // =============================================================================
 
-@import 'libs';
-@import 'scale';
 @import 'breakpoints';
+@import 'bourbon';
 @import 'paths';
+@import 'scale';
 
 // default type sizes
 $type-size-default: 1rem !default;
@@ -54,25 +54,81 @@ $type-leading: (
   }
 }
 
+// --- Fonts ---
+
+@include font-face(
+  'sohne-light-normal',
+  '#{$asset-path-fonts}/soehne-web-leicht',
+  ['woff', 'woff2', 'eot']
+) {
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+};
+
+@include font-face(
+  'sohne-light-italic',
+  '#{$asset-path-fonts}/soehne-web-leicht-kursiv',
+  ['woff', 'woff2', 'eot']
+) {
+  font-display: swap;
+  font-style: italic;
+  font-weight: 300;
+};
+
+@include font-face(
+  'sohne-semibold-normal',
+  '#{$asset-path-fonts}/soehne-web-halbfett',
+  ['woff', 'woff2', 'eot']
+) {
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+};
+
+@include font-face(
+  'sohne-bold-normal',
+  '#{$asset-path-fonts}/soehne-web-fett',
+  ['woff', 'woff2', 'eot']
+) {
+  font-display: swap;
+  font-style: normal;
+  font-weight: 800;
+};
+
+@include font-face(
+  'financier',
+  '#{$asset-path-fonts}/financier-display-web-semibold',
+  ['woff', 'woff2', 'eot']
+) {
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+};
+
 // Fonts
 // -----------------------------------------------------------------------------
 // -> PUBLIC, use these to style type globally & in modules
 
 $font-weights: (
-  'xlight': 100,
-  'light': 200,
-  'normal': 300,
-  'bold': 600
+  'light': 300,
+  'semibold': 600,
+  'bold': 800
 );
 
-@function font-weight($weight: normal) {
+@function font-weight($weight: light) {
   @return map-get($font-weights, $weight);
 }
 
-@mixin font($weight: normal, $style: normal) {
+@mixin font($weight: light, $style: normal) {
   // swap in the webfont once it loads
-  font-display: swap;
-  font-family: 'Libre Franklin', $font-stack-system;
+  font-family: 'sohne-#{$weight}-#{$style}', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Roboto', sans-serif;
   font-style: $style;
   font-weight: font-weight($weight);
+}
+
+@mixin font-display() {
+  font-family: 'financier', $font-stack-georgia;
+  font-style: normal;
+  font-weight: 600;
 }

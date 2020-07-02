@@ -24,7 +24,12 @@ config[:images_dir] = 'assets/images'
 config[:fonts_dir] = 'assets/fonts'
 config[:css_dir] = 'assets/stylesheets'
 
-config[:sass_assets_paths] = ['node_modules']
+config[:sass_assets_paths] = [
+  'node_modules/bourbon/core/',
+  'node_modules/include-media/dist/',
+  'node_modules/modularscale-sass/stylesheets/',
+  'node_modules/normalize.css/'
+]
 
 # # ignore js, b/c we're handling with external pipeline
 ignore 'assets/javascripts/*'

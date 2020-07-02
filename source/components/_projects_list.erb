@@ -7,8 +7,7 @@
   classes ||= false # STRING (optional): additional modifier classes, if needed
   exclude ||= false # STRING (optional): the slug of the project you don't want to show
     # -> useful for local navs where you don't want to show the current project
-  gutter ||= 'wide' # STRING (optional): width of the gutter between thumbnails
-  color ||= 'light' # STRING (optional): color of the background paint image
+  gutter ||= 'narrow' # STRING (optional): width of the gutter between thumbnails
 %>
 
 <ul data-ui-gallery="gutter-<%= gutter %>"<%= " class='#{classes}'" if classes %>>
@@ -16,16 +15,17 @@
     <% unless project.slug == exclude || project.title.short == exclude %>
       <li data-ui-gallery-item>
         <% link_to "/work/#{project.slug.urlize}/", class: 'display-flex-fill display-block t-decoration-none t-align-center' do %>
-          <%= component 'logo_with_swatch', locals: {
-            logo: project.cover.thumb.logo,
-            sizes: project.cover.thumb.sizes || [],
-            alt: project.title.short,
-            padding: project.cover.thumb.padding || false,
-            bg: (project.cover.thumb.bg || false),
-            color: color
-          } %>
-          <h2 class="t-scale-delta padding-top-narrow"><%= project.title.short %></h2>
-          <p class="t-scale-zeta padding-top-xxnarrow c-highlight"><%= project.client %></p>
+          <div data-ui-aspect="3x1" class="border">
+            <div data-ui-aspect-content>
+              <%= component 'responsive_image', locals: {
+                source: project.cover.thumb.logo,
+                sizes: project.cover.thumb.sizes || [],
+                alt: project.title.short,
+                data: { 'ui-aspect-image': ''}
+              } %>
+            </div>
+          </div>
+          <h3 class="t-scale-delta padding-top-narrow"><%= project.title.short %></h3>
         <% end %>
       </li>
     <% end %>

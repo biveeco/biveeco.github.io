@@ -10,8 +10,7 @@
   <!-- Contact us panel -->
   <% component 'panel', locals: {
     theme: 'dark',
-    painted: true,
-    bg: 'light',
+    bg: 'dark',
     id: 'contact'
   } do %>
 
@@ -30,8 +29,8 @@
       <!-- office addresses -->
       <ul data-ui-gallery>
         <% data.site.contact.locations.each_with_index do |location, index| %>
-          <li data-ui-gallery-item class="border-markers-top-left padding-top-narrow">
-            <h2 class="t-scale-delta padding-bottom-xxnarrow c-highlight"><%= location.name %></h2>
+          <li data-ui-gallery-item class="border-top padding-top-narrow">
+            <h2 class="t-weight-normal t-scale-delta padding-bottom-xxnarrow c-highlight"><%= location.name %></h2>
             <p class="t-scale-zeta"><%= location.address %></p>
           </li>
         <% end %>

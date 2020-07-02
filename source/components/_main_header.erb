@@ -17,7 +17,8 @@
     'padding-x-outside',
     'padding-y-narrow',
     ("c-theme-#{theme}" unless theme == 'default'),
-    ('c-bg-transparent' if overlay)
+    ('c-bg-transparent' if overlay),
+    'border-bottom'
   ]
 %>
 
@@ -30,7 +31,7 @@
         <% link_to '/', class: 'display-inline-block t-decoration-none' do %>
           <%= image_tag "logos/logo-host#{theme == 'dark' ? '-reverse' : '-positive'}.svg",
             class: 'display-inline-block',
-            alt: 'Bivee', style: 'max-width: 3em;'
+            alt: 'H&oslash;st', style: 'max-width: 3.4em;'
           %>
         <% end %>
       </div>

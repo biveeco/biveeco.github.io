@@ -1,5 +1,5 @@
-# Overall site title. Something like "Bivee" ought to do the trick.
-title: H&oslash;st
+# Overall site title
+title: H&oslash;st Creative
 
 # Items in the main nav in the header. Will be displayed in order from top to bottom, and then by prioity (see below).
 # title: [string] the label on the link
@@ -46,7 +46,6 @@ cover:
 contact:
   # Title for contact area in footer, e.g. 'You used to call me on my cell phone'
   headline: Ready to get started?
-  # A short blurb - just one paragraph, please.
   # General email for potential clients/visitors to contact us
   email: newbiz@host-creative.com
   careers:

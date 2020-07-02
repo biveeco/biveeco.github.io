@@ -205,6 +205,54 @@ projects:
 #     full_size: work/ppp/assets/ppp-cover.png
 
   - title:
+      long: Sendai report
+      short: Sendai report
+    slug: Sendai
+    client: Global Facility for Disaster Reduction and Recovery
+    date:
+      start: 2015
+      end: 2015
+    categories:
+      - print design 
+      - infographics & data visualization 
+      - illustration 
+      - content strategy 
+      - branding
+    locations:
+      - US
+    cover:
+      thumb:
+        logo: /work/cdc/assets/cdc-thumb.jpg
+      full_size:
+        source: /work/cdc/assets/cdc-toolkit-interior@{size}w.jpg
+        sizes: [400, 800, 1200, 1600, 2000]
+        width: 30rem
+        screenshot: true
+
+  - title:
+      long: GFDRR reports
+      short: GFDRR reports
+    slug: GFDRR
+    client: Global Facility for Disaster Reduction and Recovery
+    date:
+      start: 2016
+      end: 2019
+    categories:
+      - print design 
+      - data visualization 
+      - illustration 
+      - content strategy 
+      - branding
+    locations:
+      - US
+    cover:
+      thumb:
+        logo: /work/gfdrr/assets/gfdrr-thumb.jpg
+      full_size:
+        source: /work/gfdrr/assets/gfdrr-spread@{size}w.jpg
+        sizes: [800, 1200, 1600, 2000]
+
+  - title:
       long: Micronutrient survey toolkit
       short: Micronutrient survey toolkit
     slug: CDC

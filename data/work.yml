@@ -104,6 +104,7 @@ projects:
     slug: WFP
     client: World Food Programme
     date: 2016
+    type: pro-bono
     categories:
       - our contributions 
       - communications 

@@ -213,7 +213,7 @@ end
 
 # Build-specific configuration
 configure :build do
-  config[:host] = 'https://www.bivee.co'
+  config[:host] = 'https://www.host-creative.com'
   activate :minify_css
   activate :minify_html
 
@@ -222,7 +222,7 @@ configure :build do
              rules: [
                { user_agent: '*', allow: %w[/] }
              ],
-             sitemap: 'https://www.bivee.co/sitemap.xml'
+             sitemap: 'https://www.host-creative.com/sitemap.xml'
   else
     activate :robots,
              rules: [

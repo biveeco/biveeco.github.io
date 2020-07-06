@@ -155,6 +155,12 @@ This site is built primarily on Middleman, a static site generator. It uses [Sas
 - The site will automatically build and go live on the host (Netlify) when the PR is merged via Git hook. Branch "previews" are available for PRs.
 - To manually build: run `bundle exec middleman build`; this will build the site. This will build the site, compile assets (CSS, JS), and run linters.
 
+### Favicons
+
+Favicons are generated via an NPM script from [RealFavicon](https://realfavicongenerator.net/favicon_result?file_id=p1ecim1013taq1ur0gd0vq0g846&technology=node_cli).
+
+To update the icon, go through the [web app](https://realfavicongenerator.net/favicon/node_cli) and download the config files. Then update `source/assets/images/favicon-master-desktop.svg` with the new icon image.
+
 ## Test:
 
 - `npm run test` will run linters.

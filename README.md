@@ -161,6 +161,8 @@ Favicons are generated via an NPM script from [RealFavicon](https://realfavicong
 
 To update the icon, go through the [web app](https://realfavicongenerator.net/favicon/node_cli) and download the config files. Then update `source/assets/images/favicon-master-desktop.svg` with the new icon image.
 
+Due to bugs (?) in the script, margins and background color do not work in the 'desktop' images - the background is always output as opaque white. Make sure your master image has an opaque background, and use dedicated transparent images for the app icons as needed.
+
 ## Test:
 
 - `npm run test` will run linters.

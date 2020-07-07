@@ -12,7 +12,7 @@
         <!-- title and posted date -->
         <header class="padding-bottom t-align-center">
           <h1 class="t-scale-beta"><%= listing.data.title %></h1>
-          <p class="padding-top-xnarrow t-scale-zeta t-heading c-text-secondary">
+          <p class="padding-top-xnarrow t-heading c-text-secondary">
             Posted
             <strong>
               <time datetime="<%= listing.data.posted %>">
@@ -31,7 +31,7 @@
             <div data-ui-gutter-item class="display-inline-block">
               <%= component 'button_link', locals: { label: 'Send us your resume', url: "mailto:#{data.site.contact.careers.email}" } %>
             </div>
-            <p data-ui-gutter-item class="display-inline-block t-scale-zeta c-text-secondary"><%= data.site.contact.careers.email %></p>
+            <p data-ui-gutter-item class="display-inline-block c-text-secondary"><%= data.site.contact.careers.email %></p>
           </div>
         </footer>
       </article>

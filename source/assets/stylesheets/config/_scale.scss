@@ -17,7 +17,7 @@ $scale-base-type-percentages: (
   'xsmall': 105%,
   'small': 110%,
   'medium': 115%,
-  'large': 130%
+  'large': 120%
 );
 
 @function scale-base-type-size($screen: 'default') {
@@ -43,8 +43,7 @@ $scale-type: (
   'gamma': ms(2),
   'delta': ms(1),
   'epsilon': ms(0),
-  'zeta': ms(-1),
-  'eta': ms(-2)
+  'zeta': ms(-1)
 ) !default;
 
 @function scale-type($size) {

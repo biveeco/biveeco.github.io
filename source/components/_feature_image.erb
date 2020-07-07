@@ -5,38 +5,39 @@
   # Locals:
   # STRING/HASH source: the path or url of the image file
   sizes ||= [] # Array of numbers (optional): size variations of the source image
-  alt ||= '' # STRING (optional): alt tag
+  alt ||= "" # STRING (optional): alt tag
   screenshot ||= false # BOOLEAN: is it a screenshot?
-  width ||= 'wide' # STRING (optional): how wide the image should be
-  padding ||= { y: 'wide' } # STRING/HASH (optional): padding classes
+  width ||= "wide" # STRING (optional): how wide the image should be
+  padding ||= { y: "wide" } # STRING/HASH (optional): padding classes
   borders ||= false # BOOLEAN (optional): add a border to the image
   classes ||= false # STRING (optional): additional utility classes
   caption ||= false # STRING (optional): a caption to include
-  el ||= caption ? 'figure' : 'div' # STRING (optional): the wrapping element
+  el ||= caption ? "figure" : "div" # STRING (optional): the wrapping element
 
   # Private:
   props = [
-    (width unless width == 'default'),
+    (width unless width == "default"),
     'outcrop'
   ]
 
   utils = [
     padding_classes(padding),
-    't-align-center',
+    "padding-x-outside",
+    "t-align-center",
     (classes if classes)
   ]
 %>
 
 <<%= el %> data-ui-wrapper<%= props_list(props) %><%= class_list(utils) %>>
   <% unless screenshot %>
-    <%= component 'responsive_image', locals: {
+    <%= component "responsive_image", locals: {
       source: source,
       sizes: sizes,
       alt: alt,
       borders: borders
     } %>
   <% else %>
-    <%= component 'screenshot', locals: {
+    <%= component "screenshot", locals: {
       source: source,
       sizes: sizes,
       alt: alt

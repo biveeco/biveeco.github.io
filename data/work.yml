@@ -116,7 +116,7 @@ projects:
       - developing country partners
     cover:
       thumb:
-        logo: /work/gpoba/assets/gpoba-thumb.jpg
+        logo: /work/gpoba/assets/gpoba-ar-samples@800w.png
       full_size:
         source: /work/gpoba/assets/gpoba-ar-cover@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]

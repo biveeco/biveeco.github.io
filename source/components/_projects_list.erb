@@ -10,22 +10,28 @@
   gutter ||= 'narrow' # STRING (optional): width of the gutter between thumbnails
 %>
 
-<ul data-ui-gallery="gutter-<%= gutter %>"<%= " class='#{classes}'" if classes %>>
+<ul data-ui-gallery="large no-gutter"<%= " class='#{classes}'" if classes %>>
   <% projects.each_with_index do |project, index| %>
     <% unless project.slug == exclude || project.title.short == exclude %>
       <li data-ui-gallery-item>
-        <% link_to "/work/#{project.slug.urlize}/", class: 'display-flex-fill display-block t-decoration-none t-align-center' do %>
-          <div data-ui-aspect="144x100" class="border">
+        <% link_to "/work/#{project.slug.urlize}/", class: "display-flex-fill display-block t-decoration-none t-align-center" do %>
+          <figure
+            data-ui-aspect="1x1"
+            class="position-relative c-theme-dark"
+            style="background: radial-gradient(circle, rgba(9,9,121,0) 20%, rgba(9,9,121,0.6) 100%);"
+          >
             <div data-ui-aspect-content>
-              <%= component 'responsive_image', locals: {
+              <%= component "responsive_image", locals: {
                 source: project.cover.thumb.logo,
                 sizes: project.cover.thumb.sizes || [],
                 alt: project.title.short,
-                data: { 'ui-aspect-image': ''}
+                data: { "ui-aspect-image": "scale-cover"}
               } %>
+              <figcaption class="padding position-absolute position-left position-bottom">
+                <h3 class="t-scale-delta"><%= project.title.short %></h3>
+              </figcaption>
             </div>
-          </div>
-          <h3 class="t-scale-epsilon padding-top-narrow"><%= project.title.short %></h3>
+          </figure>
         <% end %>
       </li>
     <% end %>

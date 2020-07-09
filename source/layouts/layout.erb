@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%# inject the (generated) favicon html snippet - only in production %>
-    <%= data.favicon.favicon.html_code if data.favicon %>
+    <%= data.favicon.favicon.html_code if data.respond_to?("favicon") %>
 
     <%# critical JS (picturefill, etc.) %>
     <%= javascript_include_tag 'critical.bundle' %>

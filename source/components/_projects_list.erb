@@ -18,11 +18,10 @@
           <figure
             data-ui-aspect="1x1"
             class="position-relative c-theme-dark"
-            style="background: radial-gradient(circle, rgba(9,9,121,0) 20%, rgba(9,9,121,0.6) 100%);"
           >
             <div data-ui-aspect-content>
               <%= component "responsive_image", locals: {
-                source: project.cover.thumb.logo,
+                source: project.cover.thumb.source,
                 sizes: project.cover.thumb.sizes || [],
                 alt: project.title.short,
                 data: { "ui-aspect-image": "scale-cover"}

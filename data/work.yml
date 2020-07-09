@@ -40,7 +40,8 @@ projects:
       - digital transformation
     cover:
       thumb:
-        logo: /work/ga/assets/ga-thumb.jpg
+        source: /work/ga/assets/ga-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
       full_size:
         source: /work/ga/assets/GA-home@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]
@@ -72,32 +73,6 @@ projects:
   #       source: /work/gpe/assets/gpe-lockup@{size}w.png'
   #       sizes: [400, 800, 1200, 1600]
   #       width: 55rem
-
-  - title:
-      long: PPP Knowledge Lab
-      short: PPP Knowledge Lab
-    slug: PPP
-    client: World Bank Group PPP CSA
-    project_url: https://www.pppknowledgelab.org
-    date: 2015 - 2018
-    categories:
-      - strategy
-      - design
-      - concept development
-      - branding
-      - knowledge management
-      - system architecture
-      - information architecture
-      - user research
-    cover:
-      thumb:
-        logo: /work/ppp/assets/ppp-thumb.jpg
-      full_size:
-        source: /work/ppp/assets/ppp-cover@{size}w.jpg
-        sizes: [800, 1200, 1600, 2000]
-        alt: PPP Knowledge Lab's homepage
-        screenshot: true
-
   - title:
       long: GPOBA communications and strategy
       short: GPOBA
@@ -116,12 +91,14 @@ projects:
       - developing country partners
     cover:
       thumb:
-        logo: /work/gpoba/assets/gpoba-ar-samples@800w.png
+        source: /work/gpoba/assets/gpoba-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
       full_size:
         source: /work/gpoba/assets/gpoba-ar-cover@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]
         alt: The cover of the online version of the 2015 annual report
         screenshot: true
+
 
   # - title:
   #     long: Evidence to Action
@@ -182,12 +159,39 @@ projects:
       - US
     cover:
       thumb:
-        logo: /work/handshake/assets/handshake-thumb.jpg
+        source: /work/handshake/assets/handshake-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
       full_size:
         source: /work/handshake/assets/handshake-cover.jpg
         width: 'medium'
         screenshot: true
         alt: The Handshake homepage
+
+  - title:
+      long: PPP Knowledge Lab
+      short: PPP Knowledge Lab
+    slug: PPP
+    client: World Bank Group PPP CSA
+    project_url: https://www.pppknowledgelab.org
+    date: 2015 - 2018
+    categories:
+      - strategy
+      - design
+      - concept development
+      - branding
+      - knowledge management
+      - system architecture
+      - information architecture
+      - user research
+    cover:
+      thumb:
+        source: /work/ppp/assets/ppp-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
+      full_size:
+        source: /work/ppp/assets/ppp-cover@{size}w.jpg
+        sizes: [800, 1200, 1600, 2000]
+        alt: PPP Knowledge Lab's homepage
+        screenshot: true
 
 # Killing DDH until we get permission
 # - title:
@@ -206,7 +210,7 @@ projects:
 
   - title:
       long: Micronutrient survey toolkit
-      short: Micronutrient survey toolkit
+      short: Micronutrient toolkit
     slug: CDC
     client: Centers for Disease Control
     project_url: http://mnsurveytoolkit.nutritionintl.org/
@@ -223,7 +227,8 @@ projects:
       - Global
     cover:
       thumb:
-        logo: /work/cdc/assets/cdc-thumb.jpg
+        source: /work/cdc/assets/cdc-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
       full_size:
         source: /work/cdc/assets/cdc-toolkit-interior@{size}w.jpg
         sizes: [400, 800, 1200, 1600, 2000]
@@ -247,7 +252,7 @@ projects:
   #     - community development
   #   cover:
   #     thumb:
-  #       logo: /work/hf-tag/assets/hftag-thumb@{size}w.png
+  #       source: /work/hf-tag/assets/hftag-thumb@{size}w.png
   #       sizes: [200, 400, 800, 1200]
   #       padding: 18
   #     full_size:

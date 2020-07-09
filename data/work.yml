@@ -9,8 +9,7 @@ headline:
 featured_projects: 6
 
 # an intro blurb describing our work
-intro: |-
-  We’re a **group of experts** who love to work with clients and partners that share our **dedication to making an impact**. We’re headquartered in Washington D.C., with teams distributed globally. We've launched programs, brands, and products for the **World Bank Group**, **UN Agencies**, **USAID**, **CDC**, and more.
+# intro: |-
 
 # the list of projects and their metadata
 # -> used to construct pages for each case study, based on 'project' template and markdown files in 'work' folders

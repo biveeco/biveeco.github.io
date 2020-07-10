@@ -12,10 +12,7 @@
     <%# inject the (generated) favicon html snippet - only in production %>
     <%= data.favicon.favicon.html_code if data.respond_to?("favicon") %>
 
-    <%# critical JS (picturefill, etc.) %>
-    <%= javascript_include_tag "critical.bundle" %>
-    <%# Google fonts API %>
-    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,200,300,300i,600,600i" rel="stylesheet">
+    <%= javascript_include_tag "critical.bundle" # critical JS (picturefill, etc.) %>
     <%= stylesheet_link_tag :main %>
     <%= component "analytics", locals: { ga_code: ENV["GA_CODE"] }%>
 

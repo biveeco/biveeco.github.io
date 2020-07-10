@@ -47,31 +47,54 @@ projects:
         screenshot: true
         alt: Gateway Academy's homepage
 
-  # - title:
-  #     long: Knowledge and innovation exchange
-  #     subtitle: Strategy blueprint design
-  #     short: Knowledge and innovation exchange
-  #   slug: GPE
-  #   client: Global Partnership for Education
-  #   date: 2018
-  #   categories:
-  #     - data
-  #     - knowledge
-  #     - learning systems
-  #   locations:
-  #     - US
-  #     - Belgium
-  #     - France
-  #     - developing country partners
-  #   cover:
-  #     thumb:
-  #       logo: 'work/gpe/assets/gpe-icon@{size}w.png'
-  #       sizes: [200, 480, 800, 1200]
-  #       padding: 14
-  #     full_size:
-  #       source: /work/gpe/assets/gpe-lockup@{size}w.png'
-  #       sizes: [400, 800, 1200, 1600]
-  #       width: 55rem
+  - title:
+      long: A better way to evaluate health policy plans
+      short: Evidence to Action planning tool
+    slug: E2A
+    client: Evidence to Action, Pathfinder International, & USAID
+    date: 2018
+    project_url: https://tarp.e2aproject.org/
+    categories:
+      - web application
+      - design
+      - knowledge management
+    locations:
+      - Global
+    cover:
+      thumb:
+        logo: /work/e2a/assets/e2a-thumb.jpg
+        padding: 22
+      full_size:
+        source: '/work/e2a/assets/screenshot-analyze@{size}w.jpg'
+        sizes: [400, 800, 1200, 1600, 2000]
+        width: medium
+        screenshot: true
+
+  - title:
+      long: Innovation in learning
+      short: Knowledge and innovation exchange
+    slug: GPE
+    client: Global Partnership for Education
+    date: 2018
+    project_url: https://www.globalpartnership.org/who-we-are/about-gpe
+    categories:
+      - data
+      - knowledge
+      - learning systems
+    locations:
+      - US
+      - Belgium
+      - France
+      - developing country partners
+    cover:
+      thumb:
+        logo: work/gpe/assets/gpe-thumb.jpg
+        padding: 14
+      full_size:
+        source: /work/gpe/assets/kix-diagram.png
+        width: medium
+        caption: >-
+          A diagram of our holistic implementation of KIX
 
   - title:
       long: PPP Knowledge Lab
@@ -150,29 +173,6 @@ projects:
         screenshot: true
 
   - title:
-      long: A better way to evaluate health policy plans
-      short: Evidence to Action planning tool
-    slug: E2A
-    client: Evidence to Action, Pathfinder International, & USAID
-    date: 2018
-    project_url: https://tarp.e2aproject.org/
-    categories:
-      - web application
-      - design
-      - knowledge management
-    locations:
-      - Global
-    cover:
-      thumb:
-        logo: /work/e2a/assets/e2a-thumb.jpg
-        padding: 22
-      full_size:
-        source: '/work/e2a/assets/screenshot-analyze@{size}w.jpg'
-        sizes: [400, 800, 1200, 1600, 2000]
-        width: medium
-        screenshot: true
-
-  - title:
       long: Weaving the patient experience into clinical care
       short: Tela app
     slug: Tela
@@ -210,21 +210,6 @@ projects:
         width: 'medium'
         screenshot: true
         alt: The Handshake homepage
-
-# Killing DDH until we get permission
-# - title:
-#     long: A strategy for data sharing
-#     short: Development Data Hub
-#     subtitle: Development Data Hub
-#   slug: DDH
-#   client:
-#     name: World Bank Group
-#     logo: work/ddh/assets/logo-wbg.svg
-#   date: 2015
-#   categories: Data, knowledge, and learning systems
-#   cover:
-#     thumb: work/ddh/assets/DDH-thumb@800.jpg
-#     full_size: work/ppp/assets/ppp-cover.png
 
   - title:
       long: Sendai report

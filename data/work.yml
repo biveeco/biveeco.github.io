@@ -88,7 +88,7 @@ projects:
       - developing country partners
     cover:
       thumb:
-        logo: work/gpe/assets/gpe-thumb.jpg
+        logo: /work/gpe/assets/gpe-thumb.jpg
         padding: 14
       full_size:
         source: /work/gpe/assets/kix-diagram.png

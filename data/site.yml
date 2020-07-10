@@ -66,9 +66,9 @@ contact:
   # -> current icons available: github, linkedin, instagram, pinterest, facebook
   # -> icons are from iconmonstr.com
   social:
-    - name: 'Github'
-      url: https://github.com/hostcreative/
-      icon: 'github'
+    # - name: 'Github'
+    #   url: https://github.com/hostcreative/
+    #   icon: 'github'
     - name: 'LinkedIn'
       url: https://www.linkedin.com/company/hostcreative/
       icon: 'linkedin'

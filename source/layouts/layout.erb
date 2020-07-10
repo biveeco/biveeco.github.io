@@ -4,30 +4,30 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <%# Use interior page title if it's in the frontmatter %>
-    <title><%= data.site.title %><% if current_resource.data.title.present? && current_resource.data.title != 'home' %> | <%= current_resource.data.title %><% end %></title>
+    <%# Use interior page title if it"s in the frontmatter %>
+    <title><%= data.site.title %><% if current_resource.data.title.present? && current_resource.data.title != "home" %> | <%= current_resource.data.title %><% end %></title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%# inject the (generated) favicon html snippet - only in production %>
-    <%= data.favicon.favicon.html_code if data.favicon %>
+    <%= data.favicon.favicon.html_code if data.respond_to?("favicon") %>
 
     <%# critical JS (picturefill, etc.) %>
-    <%= javascript_include_tag 'critical.bundle' %>
+    <%= javascript_include_tag "critical.bundle" %>
     <%# Google fonts API %>
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,200,300,300i,600,600i" rel="stylesheet">
     <%= stylesheet_link_tag :main %>
-    <%= component "analytics", locals: { ga_code: ENV['GA_CODE'] }%>
+    <%= component "analytics", locals: { ga_code: ENV["GA_CODE"] }%>
 
   </head>
 
   <body>
     <%# icon sprites %>
-    <div style="width: 0; height: 0; position: absolute;"><%= component 'spritemap' %></div>
+    <div style="width: 0; height: 0; position: absolute;"><%= component "spritemap" %></div>
     <%# flag for homepage used in child templates %>
     <% is_home = current_resource.data.title == "home" ? true : false %>
     <%= yield %>
     <%= component "main_footer", locals: { hide_contact: current_resource.data.hide_contact } %>
-    <%= javascript_include_tag 'main.bundle' %>
+    <%= javascript_include_tag "main.bundle" %>
   </body>
 </html>

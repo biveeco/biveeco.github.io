@@ -97,6 +97,27 @@ projects:
           A diagram of our holistic implementation of KIX
 
   - title:
+      long: Branding and publication design for the forcibly displaced
+      short: Forcibly displaced
+    slug: forcibly-displaced
+    client: UNHCR and the World Bank Group
+    date: 2017
+    categories:
+      - concept development 
+      - print design 
+      - content strategy 
+      - campaign design
+    locations:
+      - US
+    cover:
+      thumb:
+        logo: /work/forcibly-displaced/assets/fd-thumb.jpg
+      full_size:
+        source: /work/forcibly-displaced/assets/page-layout01.png
+        width: medium
+        borders: true
+
+  - title:
       long: PPP Knowledge Lab
       short: PPP Knowledge Lab
     slug: PPP

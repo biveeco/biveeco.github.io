@@ -2,16 +2,16 @@
 title: home
 ---
 <div class="position-relative">
-  <%= component 'main_header', locals: {
+  <%= component "main_header", locals: {
     overlay: true,
-    theme: 'dark'
+    theme: "dark"
   } %>
   <section class="t-align-center">
     <!-- Cover -->
-    <% component 'cover', locals: {
-      padding: { y: 'xxwide', x: 'outside' },
+    <% component "cover", locals: {
+      padding: { y: "xxwide", x: "outside" },
       header_offset: true,
-      theme: 'dark',
+      theme: "dark",
       classes: "c-bg-triangles"
     } do %>
       <% component "wrapper", locals: {
@@ -23,31 +23,35 @@ title: home
 
     <!-- Intro blurb -->
     <div class="padding-x-wide padding-y-xwide">
-      <% component 'wrapper', locals: {
-        width: 'narrow'
+      <% component "wrapper", locals: {
+        width: "narrow"
       } do %>
         <div class="t-content t-scale-epsilon t-align-left">
           <%= render_markdown(data.site.cover.intro) %>
         </div>
-        <%#= component 'button_link', locals: { label: 'More about us', url: 'design_thinking', classes: 'margin-top-wide', icon: 'arrow-right' } %>
+        <%= component "button_link", locals: { label: "More about us", url: "about", classes: "margin-top-wide", icon: "arrow-right" } %>
       <% end %>
     </div>
   </section>
 
   <!-- Work -->
-  <% component 'panel' do %>
-    <% component 'blurb', locals: { heading: data.work.headline.home, borders: 'none' } do %>
-      <%= render_markdown(data.work.intro) %>
+  <% component "panel" do %>
+    <% if data.work.respond_to?("intro") %>
+      <% component "blurb", locals: { heading: data.work.headline.home, borders: "none" } do %>
+        <%= render_markdown(data.work.intro) %>
+      <% end %>
+    <% else %>
+      <h1 class="t-align-center"><%= data.work.headline.home %></h1>
     <% end %>
-    <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center padding-top-xwide' } do %>
+    <% component "wrapper", locals: { width: "wide", classes: "t-align-center padding-top-wide" } do %>
       <!-- Case study listings -->
-      <%= component 'projects_list', locals: { projects: data.work.projects[0...data.work.featured_projects] } %>
+      <%= component "projects_list", locals: { projects: data.work.projects[0...data.work.featured_projects] } %>
 
-      <%# this button appears when there's more than 3 case studies to display %>
-      <%= component 'button_link', locals: {
-        label: 'See more of our work',
-        url: '/work',
-        classes: 'margin-top-wide'
+      <%# this button appears when there"s more than 3 case studies to display %>
+      <%= component "button_link", locals: {
+        label: "See more of our work",
+        url: "/work",
+        classes: "margin-top-wide"
       } if (data.work.projects.length > data.work.featured_projects) %>
     <% end %>
   <% end %>

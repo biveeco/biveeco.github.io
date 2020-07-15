@@ -92,6 +92,10 @@ h6,
   &.t-scale-zeta {
     @include font('semibold');
   }
+
+  > strong {
+    @include color('highlight');
+  }
 }
 
 h3,

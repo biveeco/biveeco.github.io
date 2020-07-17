@@ -21,10 +21,10 @@
 %>
 
 <div data-ui-cover<%= " data-ui-main-header-offset" if header_offset %><%= class_list(utils) %>>
-  <div data-ui-cover-content">
+  <div data-ui-cover-content>
     <%= yield %>
   </div>
-  <p data-ui-cover-prompt class="padding-bottom-narrow t-heading">
+  <p data-ui-cover-prompt class="padding-bottom-narrow t-heading t-scale-delta">
     <%= prompt_label %>
   </p>
 </div>

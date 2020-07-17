@@ -4,13 +4,13 @@ title: home
 <div class="position-relative">
   <%= component "main_header", locals: {
     overlay: true,
-    theme: "dark"
+    theme: "wash"
   } %>
   <section class="t-align-center">
     <!-- Cover -->
     <% component "cover", locals: {
       padding: { y: "wide", x: "outside" },
-      theme: "dark"
+      theme: "wash"
     } do %>
       <% component "wrapper", locals: {
         width: "default"
@@ -18,30 +18,11 @@ title: home
         <%= component "tagline" %>
       <% end %>
     <% end %>
-
-    <!-- Intro blurb -->
-    <div class="padding-x-wide padding-y-xwide">
-      <% component "wrapper", locals: {
-        width: "narrow"
-      } do %>
-        <div class="t-content t-scale-epsilon t-align-left">
-          <%= render_markdown(data.site.cover.intro) %>
-        </div>
-        <%= component "button_link", locals: { label: "More about us", url: "about", classes: "margin-top-wide", icon: "arrow-right" } %>
-      <% end %>
-    </div>
   </section>
 
   <!-- Work -->
-  <% component "panel" do %>
-    <% if data.work.respond_to?("intro") %>
-      <% component "blurb", locals: { heading: data.work.headline.home, borders: "none" } do %>
-        <%= render_markdown(data.work.intro) %>
-      <% end %>
-    <% else %>
-      <h1 class="t-align-center"><%= data.work.headline.home %></h1>
-    <% end %>
-    <% component "wrapper", locals: { width: "wide", classes: "t-align-center padding-top-wide" } do %>
+  <% component "panel", locals: { border: "none", theme: "dark" } do %>
+    <% component "wrapper", locals: { width: "wide", classes: "t-align-center" } do %>
       <!-- Case study listings -->
       <%= component "projects_list", locals: { projects: data.work.projects[0...data.work.featured_projects] } %>
 
@@ -49,7 +30,8 @@ title: home
       <%= component "button_link", locals: {
         label: "See more of our work",
         url: "/work",
-        classes: "margin-top-wide"
+        classes: "margin-top-wide",
+        icon: "arrow-right"
       } if (data.work.projects.length > data.work.featured_projects) %>
     <% end %>
   <% end %>

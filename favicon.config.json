@@ -1,0 +1,70 @@
+{
+  "masterPicture": "source/assets/images/favicon-master-desktop.svg",
+  "iconsPath": "/",
+  "design": {
+    "ios": {
+      "pictureAspect": "noChange",
+      "assets": {
+        "ios6AndPriorIcons": false,
+        "ios7AndLaterIcons": false,
+        "precomposedIcons": false,
+        "declareOnlyDefaultIcon": true
+      }
+    },
+    "desktopBrowser": {
+      "design": "raw"
+    },
+    "windows": {
+      "masterPicture": {
+        "type": "inline",
+        "content": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCI+CiAgPHBvbHlnb24gZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJldmVub2RkIiBwb2ludHM9IjE2MS45NzkgMTg4LjcxOSAzMzguMDIxIDE4OC43MTkgMzM4LjAyMSAwIDQ3NC40MDQgMCA0NzQuNDA0IDUwMCAzMzguMDIxIDUwMCAzMzguMDIxIDMwMy42MjIgMTYxLjk3OSAzMDMuNjIyIDE2MS45NzkgNTAwIDI1LjU5NiA1MDAgMjUuNTk2IDAgMTYxLjk3OSAwIi8+Cjwvc3ZnPgo="
+      },
+      "pictureAspect": "noChange",
+      "backgroundColor": "#ffc439",
+      "onConflict": "override",
+      "assets": {
+        "windows80Ie10Tile": false,
+        "windows10Ie11EdgeTiles": {
+          "small": false,
+          "medium": true,
+          "big": false,
+          "rectangle": false
+        }
+      }
+    },
+    "androidChrome": {
+      "pictureAspect": "noChange",
+      "themeColor": "#ffc439",
+      "manifest": {
+        "name": "Høst",
+        "display": "standalone",
+        "orientation": "notSet",
+        "onConflict": "override",
+        "declared": true
+      },
+      "assets": {
+        "legacyIcon": false,
+        "lowResolutionIcons": false
+      }
+    },
+    "safariPinnedTab": {
+      "masterPicture": {
+        "type": "inline",
+        "content": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCI+CiAgPHBvbHlnb24gZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJldmVub2RkIiBwb2ludHM9IjE2MS45NzkgMTg4LjcxOSAzMzguMDIxIDE4OC43MTkgMzM4LjAyMSAwIDQ3NC40MDQgMCA0NzQuNDA0IDUwMCAzMzguMDIxIDUwMCAzMzguMDIxIDMwMy42MjIgMTYxLjk3OSAzMDMuNjIyIDE2MS45NzkgNTAwIDI1LjU5NiA1MDAgMjUuNTk2IDAgMTYxLjk3OSAwIi8+Cjwvc3ZnPgo="
+      },
+      "pictureAspect": "silhouette",
+      "themeColor": "#2e709e"
+    }
+  },
+  "settings": {
+    "scalingAlgorithm": "Mitchell",
+    "errorOnImageTooSmall": false,
+    "readmeFile": false,
+    "htmlCodeFile": false,
+    "usePathAsIs": false
+  },
+  "versioning": {
+    "paramName": "v",
+    "paramValue": "JyB54JQQ8e"
+  }
+}

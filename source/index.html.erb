@@ -1,7 +1,6 @@
 ---
 title: home
 ---
-
 <div class="position-relative">
   <%= component 'main_header', locals: {
     overlay: true,
@@ -49,7 +48,7 @@ title: home
         label: 'See more of our work',
         url: '/work',
         classes: 'margin-top-wide'
-      } if (data.work.projects.length > 3) %>
+      } if (data.work.projects.length > data.work.featured_projects) %>
     <% end %>
   <% end %>
 </div>

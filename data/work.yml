@@ -47,31 +47,75 @@ projects:
         screenshot: true
         alt: Gateway Academy's homepage
 
-  # - title:
-  #     long: Knowledge and innovation exchange
-  #     subtitle: Strategy blueprint design
-  #     short: Knowledge and innovation exchange
-  #   slug: GPE
-  #   client: Global Partnership for Education
-  #   date: 2018
-  #   categories:
-  #     - data
-  #     - knowledge
-  #     - learning systems
-  #   locations:
-  #     - US
-  #     - Belgium
-  #     - France
-  #     - developing country partners
-  #   cover:
-  #     thumb:
-  #       logo: 'work/gpe/assets/gpe-icon@{size}w.png'
-  #       sizes: [200, 480, 800, 1200]
-  #       padding: 14
-  #     full_size:
-  #       source: /work/gpe/assets/gpe-lockup@{size}w.png'
-  #       sizes: [400, 800, 1200, 1600]
-  #       width: 55rem
+  - title:
+      long: A better way to evaluate health policy plans
+      short: Evidence to Action planning tool
+    slug: E2A
+    client: Evidence to Action, Pathfinder International, & USAID
+    date: 2018
+    project_url: https://tarp.e2aproject.org/
+    categories:
+      - web application
+      - design
+      - knowledge management
+    locations:
+      - Global
+    cover:
+      thumb:
+        logo: /work/e2a/assets/e2a-thumb.jpg
+        padding: 22
+      full_size:
+        source: '/work/e2a/assets/screenshot-analyze@{size}w.jpg'
+        sizes: [400, 800, 1200, 1600, 2000]
+        width: medium
+        screenshot: true
+
+  - title:
+      long: Innovation in learning
+      short: Knowledge and innovation exchange
+    slug: GPE
+    client: Global Partnership for Education
+    date: 2018
+    project_url: https://www.globalpartnership.org/who-we-are/about-gpe
+    categories:
+      - data
+      - knowledge
+      - learning systems
+    locations:
+      - US
+      - Belgium
+      - France
+      - developing country partners
+    cover:
+      thumb:
+        logo: /work/gpe/assets/gpe-thumb.jpg
+        padding: 14
+      full_size:
+        source: /work/gpe/assets/kix-diagram.png
+        width: medium
+        caption: >-
+          A diagram of our holistic implementation of KIX
+
+  - title:
+      long: Branding and publication design for the forcibly displaced
+      short: Forcibly displaced
+    slug: forcibly-displaced
+    client: UNHCR and the World Bank Group
+    date: 2017
+    categories:
+      - concept development 
+      - print design 
+      - content strategy 
+      - campaign design
+    locations:
+      - US
+    cover:
+      thumb:
+        logo: /work/forcibly-displaced/assets/fd-thumb.jpg
+      full_size:
+        source: /work/forcibly-displaced/assets/page-layout01.png
+        width: medium
+        borders: true
 
   - title:
       long: PPP Knowledge Lab
@@ -99,6 +143,32 @@ projects:
         screenshot: true
 
   - title:
+      long: 'Bringing girls to the table: a global ad campaign'
+      short: World Food Programme ad campaign
+    slug: WFP
+    client: World Food Programme
+    date: 2016
+    type: pro-bono
+    categories:
+      - our contributions 
+      - communications 
+      - concept development 
+      - print design 
+      - strategy 
+      - facilitation
+    locations:
+      - Canada
+      - US
+    cover:
+      thumb:
+        logo: /work/wfp/assets/wfp-thumb.jpg
+      full_size:
+        source: /work/wfp/assets/WFP-mockup@{size}w.jpg
+        sizes: [800, 1200, 1600, 2000]
+        alt: The cover of the online version of the 2015 annual report
+        screenshot: true
+
+  - title:
       long: GPOBA communications and strategy
       short: GPOBA
     slug: GPOBA
@@ -123,50 +193,23 @@ projects:
         alt: The cover of the online version of the 2015 annual report
         screenshot: true
 
-  # - title:
-  #     long: Evidence to Action
-  #     subtitle: National reproductive health plan evaluation tool
-  #     short: Evidence to Action
-  #   slug: E2A
-  #   client: Evidence to Action, Pathfinder International, & USAID
-  #   date: 2018
-  #   categories:
-  #     - web application
-  #     - design
-  #     - knowledge management
-  #   locations:
-  #     - Global
-  #   cover:
-  #     thumb:
-  #       logo: 'work/e2a/assets/e2a-thumb@{size}w.png'
-  #       sizes: [200, 480, 800, 1200]
-  #       padding: 22
-  #     full_size:
-  #       source: /work/e2a/assets/e2a-cover@{size}w.png'
-  #       sizes: [400, 800, 1200, 1600]
-  #       width: 18rem
-
-  # - title:
-  #     long: Tela
-  #     subtitle: Symptom tracking mobile app for cancer patients
-  #     short: Tela app
-  #   slug: Tela
-  #   client: Tela Inc.
-  #   date: 2018
-  #   categories:
-  #     - product
-  #     - mobile application
-  #     - health & medical
-  #   locations:
-  #     - US
-  #   cover:
-  #     thumb:
-  #       logo: 'work/tela/assets/tela-thumb@{size}w.png'
-  #       sizes: [200, 480, 800, 1200]
-  #       padding: 18
-  #     full_size:
-  #       source: /work/tela/assets/tela-cover@{size}w.png'
-  #       sizes: [400, 800, 1200, 1600]
+  - title:
+      long: Weaving the patient experience into clinical care
+      short: Tela app
+    slug: Tela
+    client: Tela Inc.
+    date: 2018
+    categories:
+      - product
+      - mobile application
+      - health & medical
+    locations:
+      - US
+    cover:
+      thumb:
+        logo: /work/tela/assets/tela-thumb.jpg
+      full_size:
+        source: /work/tela/assets/app-mockup.png
 
   - title:
       long: Handshake journal
@@ -189,20 +232,51 @@ projects:
         screenshot: true
         alt: The Handshake homepage
 
-# Killing DDH until we get permission
-# - title:
-#     long: A strategy for data sharing
-#     short: Development Data Hub
-#     subtitle: Development Data Hub
-#   slug: DDH
-#   client:
-#     name: World Bank Group
-#     logo: work/ddh/assets/logo-wbg.svg
-#   date: 2015
-#   categories: Data, knowledge, and learning systems
-#   cover:
-#     thumb: work/ddh/assets/DDH-thumb@800.jpg
-#     full_size: work/ppp/assets/ppp-cover.png
+  - title:
+      long: Sendai report
+      short: Sendai report
+    slug: Sendai
+    client: Global Facility for Disaster Reduction and Recovery
+    date:
+      start: 2015
+      end: 2015
+    categories:
+      - print design 
+      - infographics & data visualization 
+      - illustration 
+      - content strategy 
+      - branding
+    locations:
+      - US
+    cover:
+      thumb:
+        logo: /work/sendai/assets/sendai-thumb.jpg
+      full_size:
+        source: /work/sendai/assets/sendai-cover@{size}w.jpg
+        sizes: [400, 800, 1200, 1600, 2000]
+
+  - title:
+      long: GFDRR reports
+      short: GFDRR reports
+    slug: GFDRR
+    client: Global Facility for Disaster Reduction and Recovery
+    date:
+      start: 2016
+      end: 2019
+    categories:
+      - print design 
+      - data visualization 
+      - illustration 
+      - content strategy 
+      - branding
+    locations:
+      - US
+    cover:
+      thumb:
+        logo: /work/gfdrr/assets/gfdrr-thumb.jpg
+      full_size:
+        source: /work/gfdrr/assets/gfdrr-spread@{size}w.jpg
+        sizes: [800, 1200, 1600, 2000]
 
   - title:
       long: Micronutrient survey toolkit
@@ -226,7 +300,7 @@ projects:
         logo: /work/cdc/assets/cdc-thumb.jpg
       full_size:
         source: /work/cdc/assets/cdc-toolkit-interior@{size}w.jpg
-        sizes: [400, 800, 1200, 1600, 2000]
+        sizes: [400, 800, 1200, 1600]
         width: 30rem
         screenshot: true
 

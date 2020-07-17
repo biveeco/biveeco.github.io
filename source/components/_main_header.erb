@@ -8,6 +8,7 @@
   theme ||= 'default' # STRING (optional): color theme
   classes ||= false # STRING (optional): any additional classes to pass in
   breakpoint ||= 'small' # STRING (optional): breakpoint where main menu layout changes
+  border ||= false # BOOLEAN (optional): show a border along the bottom?
 
   props = [
     ("overlay" if overlay)
@@ -15,10 +16,10 @@
 
   utils = [
     'padding-x-outside',
-    'padding-y-narrow',
+    'padding-y',
     ("c-theme-#{theme}" unless theme == 'default'),
     ('c-bg-transparent' if overlay),
-    'border-bottom'
+    ('border-bottom' if border)
   ]
 %>
 

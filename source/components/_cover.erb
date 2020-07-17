@@ -1,28 +1,30 @@
 <%
   # Cover component
-  # - A 'hero' with a full-bleed image and headline
+  # - A "hero" with a full-bleed image and headline
 
   # Locals:
-  headline ||= false # STRING: a headline, if you'd like one
+  headline ||= false # STRING: a headline, if you"d like one
   # bg_image ||= false # STRING: image for the background
-  theme ||= 'default' # STRING: color theme
-  classes ||= false # STRING: additional utilitiy classes you'd like to pass in
-  padding ||= { x: 'outside', y: 'xxwide' } # STRING/HASH: outside padding - see padding_classes in config.rb
+  theme ||= "default" # STRING: color theme
+  classes ||= false # STRING: additional utilitiy classes you"d like to pass in
+  padding ||= { x: "outside", y: "xxwide" } # STRING/HASH: outside padding - see padding_classes in config.rb
   borders ||= false # STRING/ARRAY: borders - see border_classes in config.rb
-  content_position ||= 'default'
+  content_position ||= "default"
   header_offset ||= false
+  prompt_label ||= "Our work"
 
   # Private
   utils = [
     "c-theme-#{theme}",
     (classes if classes)
   ]
-
-  content_props = [
-    ('top-heavy' unless content_position == 'default')
-  ]
 %>
 
-<div data-ui-cover<%= ' data-ui-main-header-offset' if header_offset %><%= class_list(utils) %>>
-  <div data-ui-cover-content<%= props_list(content_props) %> class="<%= padding_classes(padding) %>"><%= yield %></div>
+<div data-ui-cover<%= " data-ui-main-header-offset" if header_offset %><%= class_list(utils) %>>
+  <div data-ui-cover-content">
+    <%= yield %>
+  </div>
+  <p data-ui-cover-prompt class="padding-bottom-narrow t-heading">
+    <%= prompt_label %>
+  </p>
 </div>

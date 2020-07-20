@@ -7,7 +7,7 @@
   # bg_image ||= false # STRING: image for the background
   theme ||= "default" # STRING: color theme
   classes ||= false # STRING: additional utilitiy classes you"d like to pass in
-  padding ||= { x: "outside", y: "xxwide" } # STRING/HASH: outside padding - see padding_classes in config.rb
+  padding ||= { x: "outside", y: "wide" } # STRING/HASH: outside padding - see padding_classes in config.rb
   borders ||= false # STRING/ARRAY: borders - see border_classes in config.rb
   content_position ||= "default"
   header_offset ||= false
@@ -16,6 +16,7 @@
   # Private
   utils = [
     "c-theme-#{theme}",
+    padding_classes(padding),
     (classes if classes)
   ]
 %>

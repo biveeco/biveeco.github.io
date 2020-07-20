@@ -4,7 +4,8 @@ title: home
 <div class="position-relative">
   <%= component "main_header", locals: {
     overlay: true,
-    theme: "wash"
+    theme: "wash",
+    hide_logo: "medium"
   } %>
   <section class="t-align-center">
     <!-- Cover -->
@@ -13,9 +14,20 @@ title: home
       theme: "wash"
     } do %>
       <% component "wrapper", locals: {
-        width: "default"
+        width: "wide"
       } do %>
-        <%= component "tagline" %>
+        <div data-ui-columns>
+          <div
+            data-ui-columns-item="left"
+            class="hide-below@medium t-align-left"
+            style="padding-top: 0.4em;"
+          >
+            <%= component "host-logo", locals: { width: 5 } %>
+          </div>
+          <div data-ui-columns-item="right">
+            <%= component "tagline" %>
+          </div>
+        </div>
       <% end %>
     <% end %>
   </section>

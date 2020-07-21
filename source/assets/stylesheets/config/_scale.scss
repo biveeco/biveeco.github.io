@@ -2,46 +2,26 @@
 //  Type & layout scale
 // =============================================================================
 
-@import 'libs';
+@import 'modularscale';
 
 // Config & mixins
 // -----------------------------------------------------------------------------
 
 // -> 1:1.2 scale
 // -> http://www.modularscale.com/?16&&1.2&sass&text
-// $font-scale: 11px 13px 16px 19px 23px 28px 33px 39px 48px 57px 69px 99px 119px;
-$scale-global: 1.2 !default;
+$scale-global: 1.5 !default;
 $scale-base-type: 16px;
 
 $scale-base-type-percentages: (
-  'default': 90%,
-  'xsmall': 95%,
-  'small': 100%,
-  'medium': 105%,
-  'large': 110%
+  'default': 100%,
+  'xsmall': 105%,
+  'small': 110%,
+  'medium': 115%,
+  'large': 120%
 );
 
 @function scale-base-type-size($screen: 'default') {
   @return map-get($scale-base-type-percentages, $screen);
-}
-
-// --- type scale & sizing -----------------------------------------------------
-
-// global type scale
-// -> we could compute this via the modular scale mixins,
-// -> but doing it by hand allows us to tweak certain sizes to suit the fonts we're using
-$scale-type: (
-  'alpha': 3.6rem,
-  'beta': 2.5rem,
-  'gamma': 2rem,
-  'delta': 1.44rem,
-  'epsilon': 1.2rem,
-  'zeta': 1rem,
-  'eta': 0.8rem
-) !default;
-
-@function scale-type($size) {
-  @return map-get($scale-type, $size);
 }
 
 // --- modular scale config ----------------------------------------------------
@@ -51,3 +31,21 @@ $modularscale: (
   base: 1rem,
   ratio: $scale-global
 );
+
+// --- type scale & sizing -----------------------------------------------------
+
+// global type scale
+// -> we could compute this via the modular scale mixins,
+// -> but doing it by hand allows us to tweak certain sizes to suit the fonts we're using
+$scale-type: (
+  'alpha': ms(4),
+  'beta': ms(3),
+  'gamma': ms(2),
+  'delta': ms(1),
+  'epsilon': ms(0),
+  'zeta': ms(-1)
+) !default;
+
+@function scale-type($size) {
+  @return map-get($scale-type, $size);
+}

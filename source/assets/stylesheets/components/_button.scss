@@ -28,9 +28,9 @@ $button-icon-margin: ms(0, 1em);
   border-width: border-width('thin');
   cursor: pointer;
   display: inline-block;
-  font-size: scale-type('zeta');
+  font-size: scale-type('epsilon');
   margin-bottom: border-width('thin'); // webkit bug: set a default bottom margin to keep border from overflowing the bottom of its container - gets cut off by overflow: hidden
-  padding: ms(-2, 1em) ms(3, 1em);
+  padding: ms(-1, 1em) ms(2, 1em);
   position: relative;
   text-decoration: none;
   text-shadow: none;

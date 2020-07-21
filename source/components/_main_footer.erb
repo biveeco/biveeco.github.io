@@ -30,8 +30,8 @@
       <ul data-ui-gallery>
         <% data.site.contact.locations.each_with_index do |location, index| %>
           <li data-ui-gallery-item class="border-top padding-top-narrow">
-            <h2 class="t-weight-normal t-scale-delta padding-bottom-xxnarrow c-highlight"><%= location.name %></h2>
-            <p class="t-scale-zeta"><%= location.address %></p>
+            <h2 class="t-weight-normal t-scale-epsilon padding-bottom-xxnarrow c-highlight"><%= location.name %></h2>
+            <p class="t-scale-epsilon"><%= location.address %></p>
           </li>
         <% end %>
       </ul>
@@ -45,18 +45,18 @@
               <div data-ui-gutter-item class="display-inline-block">
                 <%= component 'button_link', locals: { label: 'Send us a message', url: "mailto:#{data.site.contact.email}" } %>
               </div>
-              <p data-ui-gutter-item class="display-inline-block t-scale-zeta c-text-secondary"><%= data.site.contact.email %></p>
+              <p data-ui-gutter-item class="display-inline-block c-text-secondary"><%= data.site.contact.email %></p>
             </div>
           </div>
 
           <!-- Social channels -->
           <div data-ui-bookend-item="right" data-ui-gutter-item>
             <div data-ui-gutter="flush narrow">
-              <h2 data-ui-gutter-item class="t-font-body t-scale-zeta c-text-secondary display-inline-block">Say hi:</h2>
+              <h2 data-ui-gutter-item class="t-scale-epsilon c-text-secondary display-inline-block">Say hi:</h2>
               <ul data-ui-gutter-item class="list-inline display-inline-block padding-x-between-xnarrow">
                 <% data.site.contact.social.each do |channel| %>
                 <li class="list-inline-item">
-                  <% link_to channel.url, class: 'c-text-primary t-scale-zeta t-decoration-none', target: '_blank', title: "Say hi on #{channel.name}" do %>
+                  <% link_to channel.url, class: 'c-text-primary t-decoration-none', target: '_blank', title: "Say hi on #{channel.name}" do %>
                     <% component 'icon', locals: { id: channel.icon, title: channel.name, role: 'img' } %>
                   <% end %>
                 </li>
@@ -80,7 +80,7 @@
           <%= image_tag 'logos/logo-host-reverse.svg', alt: 'Host' %>
         <% end %>
       </div>
-      <small data-ui-bookend-item="right" data-ui-gutter-item class="l-margin-top-narrow l-no-margin@xsmall t-align-center t-align-right@xsmall t-scale-eta c-text-secondary">
+      <small data-ui-bookend-item="right" data-ui-gutter-item class="l-margin-top-narrow l-no-margin@xsmall t-align-center t-align-right@xsmall t-scale-zeta c-text-secondary">
         &copy; Copyright <%= Time.now.year %> H&oslash;st Creative Inc &bull; All rights reserved
       </small>
     </div>

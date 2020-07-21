@@ -28,10 +28,11 @@
     <% unless hide_logo %>
       <!-- logo -->
       <div data-ui-bookend-item="left" class="t-align-center">
-        <% link_to '/', class: 'display-inline-block t-decoration-none' do %>
-          <%= image_tag "logos/logo-host#{theme == 'dark' ? '-reverse' : '-positive'}.svg",
-            class: 'display-inline-block',
-            alt: 'H&oslash;st', style: 'max-width: 3.4em;'
+        <% link_to "/", class: "display-inline-block t-decoration-none" do %>
+          <%= image_tag "logos/logo-host-small#{theme == "dark" ? "-reverse" : "-positive"}.svg",
+            class: "display-inline-block",
+            alt: "H&oslash;st",
+            style: "width: 3.4rem;"
           %>
         <% end %>
       </div>
@@ -53,7 +54,6 @@
                 ]
                 link_classes = [
                   'display-block',
-                  't-scale-eta',
                   't-decoration-hover',
                   (item.highlight && 'c-highlight')
                 ]
@@ -84,7 +84,7 @@
                       <%
                         link_classes = [
                           'display-inline-block',
-                          't-scale-eta',
+                          't-scale-zeta',
                           't-decoration-hover',
                           (item.highlight ? 'c-highlight' : 'c-text-primary')
                         ]

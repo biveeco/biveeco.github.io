@@ -19,9 +19,9 @@
   } do %>
     <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
 
-      <h1 class="t-font-display"><%= project.title.long %></h1>
-      <p class="t-scale-gamma"><%= project.client %></p>
-      <p class="t-scale-zeta padding-top-xnarrow no-margin">
+      <h1 class="t-font-display t-leading-xtight padding-bottom-narrow"><%= project.title.long %></h1>
+      <p class="t-scale-delta padding-bottom-xnarrow"><%= project.client %></p>
+      <p class="t-scale-epsilon no-margin">
         <time class="c-text-secondary">
           <%= project.date.respond_to?(:start) ? "#{project.date.start} - #{project.date.end}" : project.date %>
         </time>

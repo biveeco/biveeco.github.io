@@ -1,0 +1,37 @@
+// Columns component
+// -> arrange content side-by-side in 2 columns
+@import 'include-media';
+@import '../config/breakpoints';
+
+$columns-left-w: 30%;
+
+[data-ui-columns] {
+  // --left-col-width: #{$columns-left-w};
+
+  display: block;
+  font-size: 0;
+  overflow: hidden;
+}
+
+[data-ui-columns-item] {
+  display: block;
+  font-size: 1rem;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+@include media('>medium') {
+  [data-ui-columns-item] {
+    display: inline-block;
+  }
+
+  [data-ui-columns-item~='left'] {
+    width: $columns-left-w;
+    // width: var(--left-col-width);
+  }
+
+  [data-ui-columns-item~='right'] {
+    width: (100% - $columns-left-w);
+    // width: calc(100% - var(--left-col-width));
+  }
+}

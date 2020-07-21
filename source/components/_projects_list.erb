@@ -7,14 +7,14 @@
   classes ||= false # STRING (optional): additional modifier classes, if needed
   exclude ||= false # STRING (optional): the slug of the project you don't want to show
     # -> useful for local navs where you don't want to show the current project
-  gutter ||= 'narrow' # STRING (optional): width of the gutter between thumbnails
+  gutter ||= 'medium' # STRING (optional): width of the gutter between thumbnails
 %>
 
-<ul data-ui-gallery="gutter-<%= gutter %>"<%= " class='#{classes}'" if classes %>>
+<ul data-ui-gallery="large gutter-<%= gutter %>"<%= " class='#{classes}'" if classes %>>
   <% projects.each_with_index do |project, index| %>
     <% unless project.slug == exclude || project.title.short == exclude %>
       <li data-ui-gallery-item>
-        <% link_to "/work/#{project.slug.urlize}/", class: 'display-flex-fill display-block t-decoration-none t-align-center' do %>
+        <% link_to "/work/#{project.slug.urlize}/", class: 'display-flex-fill display-block t-decoration-none' do %>
           <div data-ui-aspect="144x100" class="border">
             <div data-ui-aspect-content>
               <%= component 'responsive_image', locals: {

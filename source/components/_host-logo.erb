@@ -1,0 +1,21 @@
+<%
+  # Høst logo
+  #
+  # locals:
+  size ||= "small"
+  width ||= 3.4
+  color ||= "positive"
+
+  path = [
+    "logos/logo-host",
+    (size == "small" && "-small"),
+    "-#{color}",
+    ".svg"
+  ].join("").rstrip
+%>
+
+<%= image_tag path,
+  class: "display-inline-block",
+  alt: "H&oslash;st",
+  style: "width: #{width}rem;"
+%>

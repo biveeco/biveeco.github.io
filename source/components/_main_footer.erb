@@ -3,29 +3,29 @@
   # -> the footer appearing at the bottom of every page
 
   hide_contact ||= false # BOOLEAN (optional): hide the contact form
+  theme ||= "default"
 %>
 
 <% unless hide_contact %>
 
   <!-- Contact us panel -->
-  <% component 'panel', locals: {
-    theme: 'dark',
-    bg: 'dark',
-    id: 'contact'
+  <% component "panel", locals: {
+    id: "contact",
+    theme: theme
   } do %>
 
     <!-- headline and intro (if any) -->
     <h1 class="t-scale-beta t-align-center padding-bottom-wide"><%= data.site.contact.headline %></h1>
     <% if data.site.contact.intro %>
-      <% component 'wrapper', locals: { width: 'narrow' } do %>
-        <p class='t-content padding-bottom'>
+      <% component "wrapper", locals: { width: "narrow" } do %>
+        <p class="t-content padding-bottom">
           <%= data.site.contact.intro %>
         </p>
       <% end %>
     <% end %>
 
     <!-- contact info -->
-    <% component 'wrapper' do %>
+    <% component "wrapper" do %>
       <!-- office addresses -->
       <ul data-ui-gallery>
         <% data.site.contact.locations.each_with_index do |location, index| %>
@@ -43,7 +43,7 @@
             <div data-ui-gutter="flush narrow">
               <!-- Email button -->
               <div data-ui-gutter-item class="display-inline-block">
-                <%= component 'button_link', locals: { label: 'Send us a message', url: "mailto:#{data.site.contact.email}" } %>
+                <%= component "button_link", locals: { label: "Send us a message", url: "mailto:#{data.site.contact.email}" } %>
               </div>
               <p data-ui-gutter-item class="display-inline-block c-text-secondary"><%= data.site.contact.email %></p>
             </div>
@@ -56,8 +56,8 @@
               <ul data-ui-gutter-item class="list-inline display-inline-block padding-x-between-xnarrow">
                 <% data.site.contact.social.each do |channel| %>
                 <li class="list-inline-item">
-                  <% link_to channel.url, class: 'c-text-primary t-decoration-none', target: '_blank', title: "Say hi on #{channel.name}" do %>
-                    <% component 'icon', locals: { id: channel.icon, title: channel.name, role: 'img' } %>
+                  <% link_to channel.url, class: "c-text-primary t-decoration-none", target: "_blank", title: "Say hi on #{channel.name}" do %>
+                    <% component "icon", locals: { id: channel.icon, title: channel.name, role: "img" } %>
                   <% end %>
                 </li>
                 <% end %>
@@ -72,12 +72,12 @@
 <% end %>
 
 <!-- Signoff: logo and copyright -->
-<footer class="c-theme-dark border-top border-secondary padding-x-outside padding-y-narrow overflow-hidden" role="contentinfo">
+<footer class="<%= "c-theme-#{theme} " unless theme == "default" %>border-top border-secondary padding-x-outside padding-y-narrow overflow-hidden" role="contentinfo">
   <div data-ui-gutter="flush narrow">
     <div data-ui-bookend="horizontal@xsmall">
       <div data-ui-bookend-item="left" class="t-align-center t-align-left@xsmall">
-        <% link_to '/', data: { 'ui-gutter-item': '' }, class: 'display-inline-block t-decoration-none', style: 'max-width: 4rem;' do %>
-          <%= image_tag 'logos/logo-host-reverse.svg', alt: 'Host' %>
+        <% link_to "/", data: { "ui-gutter-item": "" }, class: "display-inline-block t-decoration-none", style: "width: 4rem;" do %>
+          <%= image_tag "logos/logo-host-small-#{theme == "dark" ? "reverse" : "positive"}.svg", alt: "Host" %>
         <% end %>
       </div>
       <small data-ui-bookend-item="right" data-ui-gutter-item class="l-margin-top-narrow l-no-margin@xsmall t-align-center t-align-right@xsmall t-scale-zeta c-text-secondary">

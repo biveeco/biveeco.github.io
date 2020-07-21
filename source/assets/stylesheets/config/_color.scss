@@ -43,6 +43,19 @@ $themes: (
     'border': tint($-navy, 30),
     'highlight': highlight(),
   ),
+  // dark blue background, light text
+  'wash': (
+    'text': (
+      'primary': tint($-navy, 10),
+      'secondary': tint($-navy, 10)
+    ),
+    'bg': highlight(),
+    'island': tint(highlight(), 10),
+    'well': shade(highlight(), 10),
+    'shadow': shade(highlight(), 50),
+    'border': tint(highlight(), 30),
+    'highlight': $-white,
+  ),
   // white background, dark text
   'default': (
     'text': (

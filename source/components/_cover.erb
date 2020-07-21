@@ -25,7 +25,12 @@
   <div data-ui-cover-content>
     <%= yield %>
   </div>
-  <p data-ui-cover-prompt class="padding-bottom-narrow t-heading t-scale-delta">
+  <a
+    data-ui-cover-prompt
+    data-js-scroll
+    class="padding-bottom-narrow t-heading t-scale-delta t-decoration-none"
+    href="#work"
+  >
     <%= prompt_label %>
-  </p>
+  </a>
 </div>

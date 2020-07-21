@@ -33,7 +33,7 @@ title: home
   </section>
 
   <!-- Work -->
-  <% component "panel", locals: { border: "none", theme: "dark" } do %>
+  <% component "panel", locals: { border: "none", theme: "dark", id: "work" } do %>
     <% component "wrapper", locals: { width: "wide", classes: "t-align-center" } do %>
       <!-- Case study listings -->
       <%= component "projects_list", locals: { projects: data.work.projects[0...data.work.featured_projects] } %>

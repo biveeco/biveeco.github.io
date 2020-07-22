@@ -15,7 +15,7 @@ featured_projects: 8
 # -> used to construct pages for each case study, based on 'project' template and markdown files in 'work' folders
 # -> title.long is the main headline for the case study, and should be descriptive/editorial
 # -> title.short is a short version of the title used to refer to the project in the UI/navigation. Usually just the project name (e.g. PPP Knowledge Lab) is good.
-# -> title.subtitle is a descriptive/editorial subhead that should be displayed on the case study page. This is helpful if the client logo and long title don't make the project name obvious.
+# -> title.subtitle is a descriptive/editorial subhead that should be displayed on the case study page. This is helpful if the client source and long title don't make the project name obvious.
 projects:
   - title:
       long: Gateway Academy
@@ -62,7 +62,7 @@ projects:
       - Global
     cover:
       thumb:
-        logo: /work/e2a/assets/e2a-thumb.jpg
+        source: /work/e2a/assets/e2a-thumb.jpg
         padding: 22
       full_size:
         source: '/work/e2a/assets/screenshot-analyze@{size}w.jpg'
@@ -88,8 +88,9 @@ projects:
       - developing country partners
     cover:
       thumb:
-        logo: /work/gpe/assets/gpe-thumb.jpg
-        padding: 14
+        source: /work/gpe/assets/gpe-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
+        theme: light
       full_size:
         source: /work/gpe/assets/kix-diagram.png
         width: medium
@@ -111,7 +112,9 @@ projects:
       - US
     cover:
       thumb:
-        logo: /work/forcibly-displaced/assets/fd-thumb.jpg
+        source: /work/forcibly-displaced/assets/displaced-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
+        theme: light
       full_size:
         source: /work/forcibly-displaced/assets/page-layout01.png
         width: medium
@@ -135,7 +138,9 @@ projects:
       - user research
     cover:
       thumb:
-        logo: /work/ppp/assets/ppp-thumb.jpg
+        source: /work/ppp/assets/ppp-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
+        theme: dark
       full_size:
         source: /work/ppp/assets/ppp-cover@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]
@@ -161,7 +166,7 @@ projects:
       - US
     cover:
       thumb:
-        logo: /work/wfp/assets/wfp-thumb.jpg
+        source: /work/wfp/assets/wfp-thumb.jpg
       full_size:
         source: /work/wfp/assets/WFP-mockup@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]
@@ -208,7 +213,7 @@ projects:
       - US
     cover:
       thumb:
-        logo: /work/tela/assets/tela-thumb.jpg
+        source: /work/tela/assets/tela-thumb.jpg
       full_size:
         source: /work/tela/assets/app-mockup.png
 
@@ -252,7 +257,7 @@ projects:
       - US
     cover:
       thumb:
-        logo: /work/sendai/assets/sendai-thumb.jpg
+        source: /work/sendai/assets/sendai-thumb.jpg
       full_size:
         source: /work/sendai/assets/sendai-cover@{size}w.jpg
         sizes: [400, 800, 1200, 1600, 2000]
@@ -275,7 +280,7 @@ projects:
       - US
     cover:
       thumb:
-        logo: /work/gfdrr/assets/gfdrr-thumb.jpg
+        source: /work/gfdrr/assets/gfdrr-thumb.jpg
       full_size:
         source: /work/gfdrr/assets/gfdrr-spread@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]

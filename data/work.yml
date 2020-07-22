@@ -90,7 +90,7 @@ projects:
       thumb:
         source: /work/gpe/assets/gpe-thumb@{size}w.jpg
         sizes: [400, 700, 1000]
-        theme: light
+        theme: default
       full_size:
         source: /work/gpe/assets/kix-diagram.png
         width: medium
@@ -114,7 +114,7 @@ projects:
       thumb:
         source: /work/forcibly-displaced/assets/displaced-thumb@{size}w.jpg
         sizes: [400, 700, 1000]
-        theme: light
+        theme: default
       full_size:
         source: /work/forcibly-displaced/assets/page-layout01.png
         width: medium
@@ -166,7 +166,8 @@ projects:
       - US
     cover:
       thumb:
-        source: /work/wfp/assets/wfp-thumb.jpg
+        source: /work/wfp/assets/wfp-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
       full_size:
         source: /work/wfp/assets/WFP-mockup@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]
@@ -257,7 +258,8 @@ projects:
       - US
     cover:
       thumb:
-        source: /work/sendai/assets/sendai-thumb.jpg
+        source: /work/sendai/assets/sendai-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
       full_size:
         source: /work/sendai/assets/sendai-cover@{size}w.jpg
         sizes: [400, 800, 1200, 1600, 2000]
@@ -280,7 +282,9 @@ projects:
       - US
     cover:
       thumb:
-        source: /work/gfdrr/assets/gfdrr-thumb.jpg
+        source: /work/gfdrr/assets/gfdrr-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
+        theme: default
       full_size:
         source: /work/gfdrr/assets/gfdrr-spread@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]

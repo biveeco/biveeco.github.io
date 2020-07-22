@@ -4,50 +4,37 @@ title: home
 <div class="position-relative">
   <%= component "main_header", locals: {
     overlay: true,
-    theme: "dark"
+    theme: "wash",
+    hide_logo: "medium"
   } %>
   <section class="t-align-center">
     <!-- Cover -->
     <% component "cover", locals: {
-      padding: { y: "xxwide", x: "outside" },
-      header_offset: true,
-      theme: "dark",
-      classes: "c-bg-triangles"
+      padding: { y: "wide", x: "outside" },
+      theme: "wash"
     } do %>
       <% component "wrapper", locals: {
-        width: "default"
+        width: "wide"
       } do %>
-        <%= component "tagline" %>
+        <div data-ui-columns>
+          <div
+            data-ui-columns-item="left"
+            class="hide-below@medium t-align-left"
+            style="padding-top: 0.4em;"
+          >
+            <%= component "host-logo", locals: { width: 5 } %>
+          </div>
+          <div data-ui-columns-item="right">
+            <%= component "tagline" %>
+          </div>
+        </div>
       <% end %>
     <% end %>
-
-    <!-- Intro blurb -->
-    <div class="padding-x-outside padding-y-xwide">
-      <% component "wrapper", locals: {
-        width: "narrow"
-      } do %>
-        <div class="t-content t-align-left">
-          <%= render_markdown(data.site.cover.intro) %>
-        </div>
-        <%#= component "button_link", locals: { label: "More about us", url: "design_thinking", classes: "margin-top-wide", icon: "arrow-right" } %>
-      <% end %>
-    </div>
   </section>
 
   <!-- Work -->
-  <% component "panel" do %>
-    <% if data.work.respond_to?("intro") %>
-      <% component "blurb", locals: {
-        heading: data.work.headline.home,
-        borders: "none",
-        el: "header"
-      } do %>
-        <%= render_markdown(data.work.intro) %>
-      <% end %>
-    <% else %>
-      <h1 class="t-scale-beta t-align-center"><%= data.work.headline.home %></h1>
-    <% end %>
-    <% component "wrapper", locals: { width: "wide", classes: "t-align-center padding-top-wide" } do %>
+  <% component "panel", locals: { border: "none", theme: "dark", id: "work" } do %>
+    <% component "wrapper", locals: { width: "wide", classes: "t-align-center" } do %>
       <!-- Case study listings -->
       <%= component "projects_list", locals: { projects: data.work.projects[0...data.work.featured_projects] } %>
 
@@ -55,7 +42,8 @@ title: home
       <%= component "button_link", locals: {
         label: "See more of our work",
         url: "/work",
-        classes: "margin-top-wide"
+        classes: "margin-top-wide",
+        icon: "arrow-right"
       } if (data.work.projects.length > data.work.featured_projects) %>
     <% end %>
   <% end %>

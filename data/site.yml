@@ -1,5 +1,5 @@
-# Overall site title. Something like "Bivee" ought to do the trick.
-title: H&oslash;st
+# Overall site title
+title: H&oslash;st Creative
 
 # Items in the main nav in the header. Will be displayed in order from top to bottom, and then by prioity (see below).
 # title: [string] the label on the link
@@ -16,6 +16,9 @@ main_nav:
   # - title: How we work
   #   url: 'design_thinking'
   #   priority: 2
+  - title: About
+    url: '/about'
+    priority: 2
   - title: Careers
     url: '/careers'
     priority: 2
@@ -37,19 +40,12 @@ cover:
   intro: |-
     We’re a group of experts who love to work with clients and partners that share our dedication to making an impact. We’re headquartered in Washington D.C., with teams distributed globally. We've launched programs, brands, and products for the World Bank Group, UN Agencies, USAID, CDC, and more.
 
-# About page intro
-# H&oslash;st means _harvest_ in Danish. To us, this means producing something new and vital &mdash; with a lot of hard work. It means going back to basics, finding ways to be more efficient and direct, and working toward a shared goal with a close-knit a team.
-
-# In the design-agency world, a trend has emerged where single companies try to do everything: the so-called "360" service model. We offer a different approach. We want to make the world’s best digital products for social good.
-
-# This requires focus. We know what we are and what we aren’t, and we’ve learned to be true to our own vision.
 
 # Contact/location info that appears in various places around the site
 # -> primarily used in the footer
 contact:
   # Title for contact area in footer, e.g. 'You used to call me on my cell phone'
   headline: Ready to get started?
-  # A short blurb - just one paragraph, please.
   # General email for potential clients/visitors to contact us
   email: newbiz@host-creative.com
   careers:
@@ -70,15 +66,9 @@ contact:
   # -> current icons available: github, linkedin, instagram, pinterest, facebook
   # -> icons are from iconmonstr.com
   social:
-    - name: 'Github'
-      url: https://github.com/hostcreative/
-      icon: 'github'
+    # - name: 'Github'
+    #   url: https://github.com/hostcreative/
+    #   icon: 'github'
     - name: 'LinkedIn'
       url: https://www.linkedin.com/company/hostcreative/
       icon: 'linkedin'
-
-# Painted backgrounds
-# -> this is the number of choices we have, so you can do stuff like `background =  rand(1...data.site.painted_bg_versions.thumbnails)`
-painted_bg_versions:
-  edges: 9
-  thumbnails: 6

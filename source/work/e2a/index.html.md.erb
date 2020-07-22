@@ -4,36 +4,47 @@ weight: 0
 project: E2A
 ---
 
-We partnered with Evidence to Action and Pathfinder International to develop a tool for adolescent and youth reproductive health planning. The tool was designed for use by governments, organisations, and individuals who needed information to make family planning plans more responsive to the reproductive health needs of young people.
+The Evidence to Action Project (E2A) is the US Agency for International Development's (USAID) global flagship for strengthening family planning and reproductive health service (FP/RH) delivery. In cooperation with organizations such as Ouagadougou Partnership Coordination Unit and Pathfinder International, Merck/ MSD, Bill & Melinda Gates Foundation and USAID, E2A created an innovative methodology for analyzing how adolescents and young people and their needs are accounted for. As a result, E2A needed a user-friendly tool to guide stakeholders and help them apply the analysis methodology to assess national costed implementation, as well as other national health and development plans, and improve upon them to better meet AYSRH needs.
 
-The tool evaluates inputs from partners in the field to inform a user whether their plan meets guidelines for their sector and state. Development of the tool, including features and visual function, were informed by a series of meeting with the E2A and Pathfinder teams in DC as well as focus groups in the field conducted by the E2A team.
+### Approach
 
-To view the tool, click [here](https://tarp.e2aproject.org/).
+We partnered with Evidence to Action and Pathfinder International to develop a tool for adolescents and youth reproductive health planning using their AYRHResponsive Planning methodology. The tool was designed for use by governments, organisations, and individuals who needed information to make family planning plans more responsive to the reproductive health needs of young people. The resulting tool evaluates inputs from partners in the field to inform a user whether their plan meets guidelines for their sector and state.
+
+The AYRH-Responsive Planning (TARP) methodology was developed originally as a paper-and-pencil exercise conducted at in-person workshops. E2A facilitators found that while the method was extremely helpful, it was difficult for their partners to share &mdash; and act on &mdash; the results of their analysis. H&oslash;st’s goal, then, was to create an online interface as simple and accessible as the workshop exercises, but which could allow partners to save and share their results and, furthermore, take action based on their insights.
+
+Accessibility, especially in low-bandwidth contexts, was a main requirement, so H&oslash;st created both an offline-capable web application, as well as standalone, native versions for Mac and Windows platforms. The web application used "Progressive Web App" techniques (client-side Javascript rendering, local caching and data storage, and "service workers") which allowed it to run offline after an initial download on supporting browsers. Users could also export their data, at any point, from the web application to save it locally and, in the future, restore a previous session. Finally, users could choose to download the native app if they needed a version that was independent of the browser. The native and web apps had feature parity.
 
 <%= component "feature_image", locals: {
+  source: 'assets/screenshot-report@{size}w.jpg',
+  sizes: [400, 800, 1200, 1600, 2000],
+  screenshot: true,
+  width: 'medium',
+  padding: { y: 'medium' }
+} %>
+
+### Results
+
+Development of the tool, including features and visual function, were informed by a series of meetings with the E2A and Pathfinder teams in DC as well as focus groups in the field conducted by the E2A team. The focus groups provided valuable user testing insights which H&oslash;st used to continue iterating and refining the tool through its beta release. The finished application was well received by E2A, Pathfinder, and USAID teams and their partners, and continues to operate today, providing partners all over the world with valuable insights on youth-focused family planning.
+
+<%#= component "feature_image", locals: {
   source: 'assets/screenshot-config@{size}w.jpg',
   sizes: [400, 800, 1200, 1600, 2000],
   screenshot: true,
   padding: { top: 'wide' }
 } %>
 
-<%= component "feature_image", locals: {
+<%#= component "feature_image", locals: {
   source: 'assets/screenshot-edit@{size}w.jpg',
   sizes: [400, 800, 1200, 1600, 2000],
   screenshot: true,
   padding: { top: 'medium' }
 } %>
 
-<%= component "feature_image", locals: {
+<%#= component "feature_image", locals: {
   source: 'assets/screenshot-analyze@{size}w.jpg',
   sizes: [400, 800, 1200, 1600, 2000],
   screenshot: true,
   padding: { top: 'medium' }
 } %>
 
-<%= component "feature_image", locals: {
-  source: 'assets/screenshot-report@{size}w.jpg',
-  sizes: [400, 800, 1200, 1600, 2000],
-  screenshot: true,
-  padding: { top: 'medium' }
-} %>
+

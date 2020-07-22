@@ -3,11 +3,12 @@
   # -> the header appearing at the top of every page
 
   # Locals:
-  hide_logo ||= false # BOOLEAN (optional): hide the logo/'home' link?
+  hide_logo ||= false # STRING/BOOLEAN (optional): hide the logo/'home' link?
   overlay ||= false # BOOLEAN (optional): turn on 'overlay' styles for the header
   theme ||= 'default' # STRING (optional): color theme
   classes ||= false # STRING (optional): any additional classes to pass in
   breakpoint ||= 'small' # STRING (optional): breakpoint where main menu layout changes
+  border ||= false # BOOLEAN (optional): show a border along the bottom?
 
   props = [
     ("overlay" if overlay)
@@ -15,28 +16,22 @@
 
   utils = [
     'padding-x-outside',
-    'padding-y-narrow',
+    'padding-y',
     ("c-theme-#{theme}" unless theme == 'default'),
     ('c-bg-transparent' if overlay),
-    'border-bottom'
+    ('border-bottom' if border)
   ]
 %>
 
 <header data-ui-main-header<%= props_list(props) %><%= class_list(utils) %> role="banner">
   <div data-ui-bookend="horizontal">
 
-    <% unless hide_logo %>
-      <!-- logo -->
-      <div data-ui-bookend-item="left" class="t-align-center">
-        <% link_to "/", class: "display-inline-block t-decoration-none" do %>
-          <%= image_tag "logos/logo-host-small#{theme == "dark" ? "-reverse" : "-positive"}.svg",
-            class: "display-inline-block",
-            alt: "H&oslash;st",
-            style: "width: 3.4rem;"
-          %>
-        <% end %>
-      </div>
-    <% end %>
+    <!-- logo -->
+    <div data-ui-bookend-item="left" class="t-align-center">
+      <% link_to "/", class: "display-inline-block t-decoration-none #{"hide-above@#{hide_logo}" if hide_logo}" do %>
+        <%= component "host-logo", locals: { color: theme == "dark" ? "reverse" : "positive" } %>
+      <% end %>
+    </div>
 
     <!-- main menu -->
     <nav data-ui-bookend-item="right">

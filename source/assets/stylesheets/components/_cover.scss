@@ -5,16 +5,18 @@
 // sass-lint:disable no-duplicate-properties
 // -> need fallback min-height props for vh units
 
-@import '../config/spacing';
+@import '../config/borders';
 @import '../config/breakpoints';
+@import '../config/color';
+@import '../config/spacing';
 
 // Block
 // -----------------------------------------------------------------------------
 
 [data-ui-cover] {
   display: block;
-  min-height: 300px;
-  min-height: 65vh;
+  height: 500px;
+  height: 100vh;
   position: relative;
 
   @supports (display: flex) {
@@ -43,13 +45,44 @@
 
 [data-ui-cover-content] {
   display: block;
+  margin-top: -5rem;
   width: 100%;
 }
 
-// Traits
-// -----------------------------------------------------------------------------
+[data-ui-cover-prompt] {
+  $path-h: 6rem;
 
-[data-ui-cover~='short'] {
-  min-height: 300px;
-  min-height: 40vh;
+  bottom: $path-h;
+  display: inline-block;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+
+  &::before {
+    $size: 0.6rem;
+
+    @include color-background('text' 'primary');
+    border-radius: 100000px;
+    bottom: ($size * -1);
+    content: '';
+    display: block;
+    height: $size;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: $size;
+  }
+
+  &::after {
+    @include color-background('text' 'primary');
+    bottom: ($path-h * -1);
+    content: '';
+    display: block;
+    height: $path-h;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: border-width('thin');
+  }
 }

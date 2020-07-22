@@ -1,0 +1,10 @@
+<% wrap_layout :layout do %>
+  <%= component "main_header" %>
+
+  <article class="margin-bottom-xwide padding-y-wide padding-x-outside">
+    <h1 class="t-font-display t-align-center padding-bottom"><%= current_page.data.title %></h1>
+    <% component "wrapper", locals: { width: "narrow", classes: "t-content" } do %>
+      <%= yield %>
+    <% end %>
+  </article>
+<% end %>

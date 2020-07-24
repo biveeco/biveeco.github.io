@@ -9,7 +9,7 @@
     # -> useful for local navs where you don't want to show the current project
 %>
 
-<ul data-ui-gallery="large no-gutter" class="<%= classes %>">
+<ul data-ui-gallery="large@xsmall no-gutter" class="<%= classes %>">
   <% projects.each_with_index do |project, index| %>
     <% unless project.slug == exclude || project.title.short == exclude %>
       <li data-ui-gallery-item>

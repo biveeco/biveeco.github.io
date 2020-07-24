@@ -162,7 +162,7 @@ $gallery-gutter: space(); // default gutter width
   @include gallery-variation();
 }
 
-@include breakpointify-attr('data-ui-gallery', $value: 'large', $default: true, $sizes: 'medium' 'large') {
+@include breakpointify-attr('data-ui-gallery', $value: 'large', $default: true, $sizes: 'xsmall') {
   @include gallery-variation(
     $min-width: 360px,
     $breakpoint: 800px,

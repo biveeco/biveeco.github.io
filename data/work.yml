@@ -214,7 +214,8 @@ projects:
       - US
     cover:
       thumb:
-        source: /work/tela/assets/tela-thumb.jpg
+        source: /work/tela/assets/tela-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
       full_size:
         source: /work/tela/assets/app-mockup.png
 
@@ -315,31 +316,6 @@ projects:
         sizes: [400, 800, 1200, 1600]
         width: 30rem
         screenshot: true
-
-  # - title:
-  #     long: Online Community Development
-  #     subtitle: UNICEF's Home Fortification Technical Advisory Group
-  #     short: HF-TAG
-  #   slug: HF-TAG
-  #   client: Home Fortification Technical Advisory Group (HF-TAG), UNICEF, GAIN
-  #   date:
-  #     start: 2016
-  #     end: Present
-  #   categories:
-  #     - data
-  #     - web
-  #     - mobile applications
-  #     - knowledge management
-  #     - community development
-  #   cover:
-  #     thumb:
-  #       source: /work/hf-tag/assets/hftag-thumb@{size}w.png
-  #       sizes: [200, 400, 800, 1200]
-  #       padding: 18
-  #     full_size:
-  #       source: /work/hf-tag/assets/hftag-cover@{size}w.png
-  #       sizes: [400, 800, 1200, 1600]
-  #       width: 23rem
 
 pro_bono:
   title: Pro-bono work

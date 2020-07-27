@@ -15,7 +15,7 @@ featured_projects: 8
 # -> used to construct pages for each case study, based on 'project' template and markdown files in 'work' folders
 # -> title.long is the main headline for the case study, and should be descriptive/editorial
 # -> title.short is a short version of the title used to refer to the project in the UI/navigation. Usually just the project name (e.g. PPP Knowledge Lab) is good.
-# -> title.subtitle is a descriptive/editorial subhead that should be displayed on the case study page. This is helpful if the client logo and long title don't make the project name obvious.
+# -> title.subtitle is a descriptive/editorial subhead that should be displayed on the case study page. This is helpful if the client source and long title don't make the project name obvious.
 projects:
   - title:
       long: Gateway Academy
@@ -39,7 +39,8 @@ projects:
       - digital transformation
     cover:
       thumb:
-        logo: /work/ga/assets/ga-thumb.jpg
+        source: /work/ga/assets/ga-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
       full_size:
         source: /work/ga/assets/GA-home@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]
@@ -61,8 +62,9 @@ projects:
       - Global
     cover:
       thumb:
-        logo: /work/e2a/assets/e2a-thumb.jpg
-        padding: 22
+        source: /work/e2a/assets/e2a-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
+        theme: default
       full_size:
         source: '/work/e2a/assets/screenshot-analyze@{size}w.jpg'
         sizes: [400, 800, 1200, 1600, 2000]
@@ -87,8 +89,9 @@ projects:
       - developing country partners
     cover:
       thumb:
-        logo: /work/gpe/assets/gpe-thumb.jpg
-        padding: 14
+        source: /work/gpe/assets/gpe-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
+        theme: default
       full_size:
         source: /work/gpe/assets/kix-diagram.png
         width: medium
@@ -110,7 +113,9 @@ projects:
       - US
     cover:
       thumb:
-        logo: /work/forcibly-displaced/assets/fd-thumb.jpg
+        source: /work/forcibly-displaced/assets/displaced-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
+        theme: default
       full_size:
         source: /work/forcibly-displaced/assets/page-layout01.png
         width: medium
@@ -134,7 +139,9 @@ projects:
       - user research
     cover:
       thumb:
-        logo: /work/ppp/assets/ppp-thumb.jpg
+        source: /work/ppp/assets/ppp-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
+        theme: dark
       full_size:
         source: /work/ppp/assets/ppp-cover@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]
@@ -160,7 +167,8 @@ projects:
       - US
     cover:
       thumb:
-        logo: /work/wfp/assets/wfp-thumb.jpg
+        source: /work/wfp/assets/wfp-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
       full_size:
         source: /work/wfp/assets/WFP-mockup@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]
@@ -185,7 +193,8 @@ projects:
       - developing country partners
     cover:
       thumb:
-        logo: /work/gpoba/assets/gpoba-thumb.jpg
+        source: /work/gpoba/assets/gpoba-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
       full_size:
         source: /work/gpoba/assets/gpoba-ar-cover@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]
@@ -206,7 +215,8 @@ projects:
       - US
     cover:
       thumb:
-        logo: /work/tela/assets/tela-thumb.jpg
+        source: /work/tela/assets/tela-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
       full_size:
         source: /work/tela/assets/app-mockup.png
 
@@ -224,7 +234,8 @@ projects:
       - US
     cover:
       thumb:
-        logo: /work/handshake/assets/handshake-thumb.jpg
+        source: /work/handshake/assets/handshake-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
       full_size:
         source: /work/handshake/assets/handshake-cover.jpg
         width: 'medium'
@@ -249,7 +260,8 @@ projects:
       - US
     cover:
       thumb:
-        logo: /work/sendai/assets/sendai-thumb.jpg
+        source: /work/sendai/assets/sendai-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
       full_size:
         source: /work/sendai/assets/sendai-cover@{size}w.jpg
         sizes: [400, 800, 1200, 1600, 2000]
@@ -272,14 +284,16 @@ projects:
       - US
     cover:
       thumb:
-        logo: /work/gfdrr/assets/gfdrr-thumb.jpg
+        source: /work/gfdrr/assets/gfdrr-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
+        theme: default
       full_size:
         source: /work/gfdrr/assets/gfdrr-spread@{size}w.jpg
         sizes: [800, 1200, 1600, 2000]
 
   - title:
       long: Micronutrient survey toolkit
-      short: Micronutrient survey toolkit
+      short: Micronutrient toolkit
     slug: CDC
     client: Centers for Disease Control
     project_url: http://mnsurveytoolkit.nutritionintl.org/
@@ -296,45 +310,21 @@ projects:
       - Global
     cover:
       thumb:
-        logo: /work/cdc/assets/cdc-thumb.jpg
+        source: /work/cdc/assets/cdc-thumb@{size}w.jpg
+        sizes: [400, 700, 1000]
       full_size:
         source: /work/cdc/assets/cdc-toolkit-interior@{size}w.jpg
         sizes: [400, 800, 1200, 1600]
         width: 30rem
         screenshot: true
 
-  # - title:
-  #     long: Online Community Development
-  #     subtitle: UNICEF's Home Fortification Technical Advisory Group
-  #     short: HF-TAG
-  #   slug: HF-TAG
-  #   client: Home Fortification Technical Advisory Group (HF-TAG), UNICEF, GAIN
-  #   date:
-  #     start: 2016
-  #     end: Present
-  #   categories:
-  #     - data
-  #     - web
-  #     - mobile applications
-  #     - knowledge management
-  #     - community development
-  #   cover:
-  #     thumb:
-  #       logo: /work/hf-tag/assets/hftag-thumb@{size}w.png
-  #       sizes: [200, 400, 800, 1200]
-  #       padding: 18
-  #     full_size:
-  #       source: /work/hf-tag/assets/hftag-cover@{size}w.png
-  #       sizes: [400, 800, 1200, 1600]
-  #       width: 23rem
-
 pro_bono:
   title: Pro-bono work
   body: |-
-    Bivee regularly does pro-bono work as a way to support missions we care about. We find it’s also a great way to build new relationships, explore exciting new ideas, and learn about new contexts. We're currently able to schedule 3 pro-bono projects each year, and we choose projects based on these criteria:
+    H&oslash;st regularly does pro-bono work as a way to support missions we care about. We find it’s a great way to build new relationships, explore exciting new ideas, and learn about new contexts. We're currently able to schedule 3 pro-bono projects each year, and we choose projects based on these criteria:
 
     - The project can be completed, from green-light to final approval, within a budget of 50 hours.
     - The project is an opportunity to contribute to a mission or idea that we believe in; to explore new design, strategic, or technical approaches; or, ideally, all of the above.
     - When we're done, we can write about the project and publicly share our work.
 
-    If you have a great idea that meets these criteria, we’d love to hear from you. Drop us a line at [getstarted@bivee.co](mailto:getstarted@givee.co).
+    If you have a great idea that meets these criteria, we’d love to hear from you. Drop us a line at [newbiz@host-creative.com](mailto:newbiz@host-creative.com).

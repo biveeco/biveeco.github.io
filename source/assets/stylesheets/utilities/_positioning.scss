@@ -42,3 +42,13 @@
 .position-relative {
   position: relative !important;
 }
+
+.position-absolute {
+  position: absolute !important;
+}
+
+@each $side in [top, bottom, left, right] {
+  .position-#{$side} {
+    #{$side}: 0;
+  }
+}

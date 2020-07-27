@@ -38,7 +38,8 @@ name_banner:
 cover:
   # Blurb introducing us. It'll be followed by a link to the about page.
   intro: |-
-    We’re a **group of experts** who love to work with clients and partners that share our **dedication to making an impact**. We’re headquartered in Washington D.C., with teams distributed globally. We've launched programs, brands, and products for the **World Bank Group**, **UN Agencies**, **USAID**, **CDC**, and more.
+    We’re a group of experts who love to work with clients and partners that share our dedication to making an impact. We’re headquartered in Washington D.C., with teams distributed globally. We've launched programs, brands, and products for the World Bank Group, UN Agencies, USAID, CDC, and more.
+
 
 # Contact/location info that appears in various places around the site
 # -> primarily used in the footer

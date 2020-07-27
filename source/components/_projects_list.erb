@@ -4,28 +4,32 @@
 
   # Locals:
   # ARRAY projects: the projects to display
-  classes ||= false # STRING (optional): additional modifier classes, if needed
+  classes ||= "" # STRING (optional): additional modifier classes, if needed
   exclude ||= false # STRING (optional): the slug of the project you don't want to show
     # -> useful for local navs where you don't want to show the current project
-  gutter ||= 'medium' # STRING (optional): width of the gutter between thumbnails
 %>
 
-<ul data-ui-gallery="large gutter-<%= gutter %>"<%= " class='#{classes}'" if classes %>>
+<ul data-ui-gallery="large@xsmall no-gutter" class="<%= classes %>">
   <% projects.each_with_index do |project, index| %>
     <% unless project.slug == exclude || project.title.short == exclude %>
       <li data-ui-gallery-item>
-        <% link_to "/work/#{project.slug.urlize}/", class: 'display-flex-fill display-block t-decoration-none' do %>
-          <div data-ui-aspect="144x100" class="border">
+        <% link_to "/work/#{project.slug.urlize}/", class: "display-flex-fill display-block t-decoration-none" do %>
+          <figure
+            data-ui-aspect="1x1"
+            class="c-theme-<%= project.cover.thumb.theme || "dark" %> t-align-left position-relative"
+          >
             <div data-ui-aspect-content>
-              <%= component 'responsive_image', locals: {
-                source: project.cover.thumb.logo,
+              <%= component "responsive_image", locals: {
+                source: project.cover.thumb.source,
                 sizes: project.cover.thumb.sizes || [],
                 alt: project.title.short,
-                data: { 'ui-aspect-image': ''}
+                data: { "ui-aspect-image": "scale-cover"}
               } %>
+              <figcaption class="padding position-absolute position-left position-bottom">
+                <p class="t-heading t-scale-delta"><%= project.title.short %></p>
+              </figcaption>
             </div>
-          </div>
-          <h3 class="t-scale-epsilon padding-top-narrow"><%= project.title.short %></h3>
+          </figure>
         <% end %>
       </li>
     <% end %>

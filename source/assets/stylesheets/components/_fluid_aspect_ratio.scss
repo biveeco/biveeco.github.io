@@ -113,6 +113,10 @@
   }
 }
 
+[data-ui-aspect~='fill'] {
+  height: 100%;
+}
+
 // Modifiers
 // -----------------------------------------------------------------------------
 @include _aspect-variation(16, 9, $use-scale: false);

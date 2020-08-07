@@ -4,27 +4,32 @@
 
   # Locals:
   # STRING source: if you want to use an image, pass in a path
-  alt ||= '' # STRING (optional): alt tag if you're using an image
-  ratio ||= '3x1' # STRING (optional): the aspect ratio
-  bg_size ||= 'contain' # STRING (optional): how the image is scaled in the container.
-      # -> default is 'contain', which scales the whole image to fit
-      # -> 'cover' will stretch the image to cover the whole frame in either direction
-  classes ||= false # STRING (optional): list of additional util classes, if needed
+  alt ||= "" # STRING (optional): alt tag if you"re using an image
+  ratio ||= "3x1" # STRING (optional): the aspect ratio
+  bg_size ||= "contain" # STRING (optional): how the image is scaled in the container.
+      # -> default is "contain", which scales the whole image to fit
+      # -> "cover" will stretch the image to cover the whole frame in either direction
+  fill ||= false # BOOLEAN (optional): should the image fill its container if it"s taller than the aspect ratio? (use with bg_size = "cover")
+  classes ||= "" # STRING (optional): list of additional util classes, if needed
 
   # list of props to pass to the data-ui attributes
   props = [
-    'bg',
-    'swap',
-    ("scale-#{bg_size}" unless bg_size == 'contain')
+    "bg",
+    "swap",
+    ("scale-#{bg_size}" unless bg_size == "contain")
   ]
 %>
 
-<div data-ui-aspect="<%= ratio %>">
-  <div data-ui-aspect-content<%= props_list(props) %><%= " class='#{classes}'" if classes %> style="background-image: url('<%= asset_url(source) %>');">
-    <%= component 'responsive_image', locals: {
+<div data-ui-aspect="<%= ratio %><%= " fill" if fill %>">
+  <div
+    data-ui-aspect-content<%= props_list(props) %>
+    class="<%= classes %>"
+    style="background-image: url('<%= asset_url(source) %>');"
+  >
+    <%= component "responsive_image", locals: {
       source: source,
       alt: alt,
-      data: { 'ui-aspect-image': "scale-#{bg_size}" }
+      data: { "ui-aspect-image": "scale-#{bg_size}" }
     } %>
   </div>
 </div>

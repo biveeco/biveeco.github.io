@@ -1,18 +1,21 @@
 - name: World Bank Group
   acronym: WBG
   logo: assets/images/logos/clients/wbg.svg
+- name: European Union
+  acronym: EU
+  logo: assets/images/logos/clients/eu.svg
 - name: International Financial Corporation
   acronym: IFC
   logo: assets/images/logos/clients/ifc-full.svg
+- name: World Food Programme
+  acronym: WFP
+  logo: assets/images/logos/clients/wfp.svg
 - name: Center for Disease Control
   acronym: CDC
   logo: assets/images/logos/clients/cdc.svg
 - name: Consultative Group to Assist the Poor
   acronym: CGAP
   logo: assets/images/logos/clients/cgap.svg
-- name: European Union
-  acronym: EU
-  logo: assets/images/logos/clients/eu.svg
 - name: Global Facility for Disaster Reduction and Recovery
   acronym: GFDRR
   logo: assets/images/logos/clients/gfdrr.svg
@@ -27,9 +30,3 @@
   logo: assets/images/logos/clients/unops.svg
 - name: USAID
   logo: assets/images/logos/clients/usaid.svg
-- name: World Bank Group
-  acronym: WBG
-  logo: assets/images/logos/clients/wbg.svg
-- name: World Food Programme
-  acronym: WFP
-  logo: assets/images/logos/clients/wfp.svg

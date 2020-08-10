@@ -42,7 +42,7 @@ title: home
     }
   } do %>
     <% component "wrapper", locals: { width: "wide" } do %>
-      <div data-ui-columns="50-50@medium" data-ui-gutter="flush">
+      <div data-ui-columns="50-50@medium" data-ui-gutter="xwide flush">
         <section
           data-ui-columns-item="right"
           data-ui-gutter-item
@@ -60,7 +60,7 @@ title: home
           data-ui-gutter-item
           class="padding-y-xwide"
         >
-          <ul data-ui-gallery="small">
+          <ul data-ui-gallery="small gutter-wide">
             <% data.clients.each do |client| %>
               <li data-ui-gallery-item>
                 <%= component "fluid_aspect_image", locals: {

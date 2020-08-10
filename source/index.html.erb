@@ -61,11 +61,11 @@ title: home
           class="padding-y-xwide"
         >
           <ul data-ui-gallery="small">
-            <% (1...12).each do |logo| %>
+            <% data.clients.each do |client| %>
               <li data-ui-gallery-item>
                 <%= component "fluid_aspect_image", locals: {
-                  source: "https://placehold.it/1000x444",
-                  alt: "logo"
+                  source: client.logo,
+                  alt: "#{client.name}#{" (#{client.acronym})" if client.acronym.present?}"
                 } %>
               </li>
             <% end %>

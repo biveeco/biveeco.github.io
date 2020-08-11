@@ -84,29 +84,31 @@ title: home
     <h2 class="t-scale-epsilon t-align-center padding-bottom-narrow">Our work</h2>
     <!-- Case study listings -->
     <ul class="list-undecorated border-y-between">
-      <% (1...4).each do |project| %>
+      <% data.work.projects.select(&:featured).each do |project| %>
         <li class="display-block no-margin c-theme-dark">
           <article data-ui-columns="50-50@small">
             <div data-ui-columns-item="left" class="padding-x-outside padding-y-wide">
               <% component "wrapper", locals: { width: "narrow" } do %>
                 <h3 class="t-scale-beta t-font-display t-leading-xtight">
-                  Awesome project title lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  <%= link_to project.title.long, "/work/#{project.slug.urlize}/", class: "t-decoration-none" %>
                 </h3>
                 <p class="t-heading t-scale-delta padding-top-narrow c-highlight t-weight-normal">
-                  Client name lorem ipsum
+                  <%= project.client %>
                 </p>
                 <%= component "button_link", locals: {
                   label: "Read more",
-                  url: "#",
+                  url: "/work/#{project.slug.urlize}/",
                   icon: "arrow-right",
                   classes: "margin-top-wide"
                 } %>
               <% end %>
             </div>
             <div data-ui-columns-item="right">
+              <% image = project.cover.poster || project.cover.thumb %>
               <%= component "fluid_aspect_image", locals: {
-                source: "https://placehold.it/1500x1500",
-                alt: "project poster",
+                source: image.source,
+                sizes: image.sizes || [],
+                alt: project.title.short,
                 ratio: "2x1",
                 bg_size: "cover",
                 fill: true

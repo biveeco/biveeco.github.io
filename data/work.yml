@@ -22,6 +22,7 @@ projects:
       short: Gateway Academy
     slug: GA
     client: CGAP and Mastercard Foundation
+    featured: true
     project_url: https://gateway.academy
     date:
       start: 2017
@@ -153,6 +154,7 @@ projects:
       short: World Food Programme ad campaign
     slug: WFP
     client: World Food Programme
+    featured: true
     date: 2016
     type: pro-bono
     categories:
@@ -247,6 +249,7 @@ projects:
       short: Sendai report
     slug: Sendai
     client: Global Facility for Disaster Reduction and Recovery
+    featured: true
     date:
       start: 2015
       end: 2015

@@ -12,6 +12,7 @@
   content_position ||= "default"
   header_offset ||= false
   prompt_label ||= "About us"
+  prompt_link ||= "#intro"
 
   # Private
   utils = [
@@ -29,7 +30,7 @@
     data-ui-cover-prompt
     data-js-scroll
     class="padding-bottom-narrow t-heading t-scale-epsilon t-decoration-none"
-    href="#work"
+    href="<%= prompt_link %>"
   >
     <%= prompt_label %>
   </a>

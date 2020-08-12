@@ -2,8 +2,11 @@
 // Positioning utilities
 // ==========================================================================
 
-// Allow 'important!' here because we want the styles to always apply in small utility classes
 // sass-lint:disable no-important
+// -> Allow 'important!' here because we want the styles to always apply in small utility classes
+// sass-lint:disable no-duplicate-properties
+// sass-lint:disable no-vendor-prefixes
+// -> need fallback/mobile min-height props for vh units
 
 @import '../config/libs';
 @import '../config/positioning';
@@ -26,8 +29,30 @@
   display: inline-block !important;
 }
 
+.display-flex {
+  display: block;
+
+  @supports (display: flex) {
+    display: flex !important;
+  }
+}
+
+.display-flex-column {
+  @supports (flex-direction: column) {
+    flex-direction: column;
+  }
+}
+
+.display-flex-centered {
+  @supports (justify-content: center) {
+    justify-content: center;
+  }
+}
+
 .display-flex-fill {
-  flex: 1;
+  @supports (flex: 1) {
+    flex: 1;
+  }
 }
 
 .overflow-hidden {
@@ -51,4 +76,11 @@
   .position-#{$side} {
     #{$side}: 0;
   }
+}
+
+// make an element the same height as the browser window
+.fill-browser {
+  min-height: 40rem;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }

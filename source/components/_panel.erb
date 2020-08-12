@@ -10,22 +10,21 @@
   el ||= 'section' # What HTML element should the wrapper be?
   padding ||= { x: 'outside', y: 'xwide' } # STRING/HASH: outside padding - see padding_classes helper in config.rb
   header_offset ||= false # BOOLEAN (optional): add some padding to the top to offset an 'overlay'-style header?
+  fill_browser ||= false # BOOLEAN (optional): make the panel the same height as the browser window?
+  center_content ||= false # BOOLEAN (optional): center the content vertically?
 
-  wrapper = [
+  utils = [
     ("c-theme-#{theme}" if theme != 'default'),
     ("c-bg-#{bg}" if bg != 'inherit'),
+    ("fill-browser" if fill_browser),
+    ("display-flex display-flex-column display-flex-centered" if center_content),
+    border_classes(border),
+    padding_classes(padding),
     'position-relative',
     (classes if classes)
   ]
-
-  utils = [
-    border_classes(border),
-    padding_classes(padding)
-  ]
 %>
 
-<<%= el %><%= ' data-ui-main-header-offset' if header_offset %><%= class_list(wrapper) %><%= " id='#{id}'" if id %>>
-  <div<%= class_list(utils) %>>
-    <%= yield %>
-  </div>
+<<%= el %><%= ' data-ui-main-header-offset' if header_offset %><%= class_list(utils) %><%= " id='#{id}'" if id %>>
+  <%= yield %>
 </<%= el %>>

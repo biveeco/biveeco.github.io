@@ -3,7 +3,8 @@
 //  -> a big splashy 'book cover' for a page of content
 // =============================================================================
 // sass-lint:disable no-duplicate-properties
-// -> need fallback min-height props for vh units
+// sass-lint:disable no-vendor-prefixes
+// -> need fallback/mobile min-height props for vh units
 
 @import '../config/borders';
 @import '../config/breakpoints';
@@ -15,8 +16,9 @@
 
 [data-ui-cover] {
   display: block;
-  height: 500px;
+  height: 40rem;
   height: 100vh;
+  min-height: -webkit-fill-available;
   position: relative;
 
   @supports (display: flex) {
@@ -24,20 +26,6 @@
     flex-direction: column;
     justify-content: center;
   }
-
-  // @include media('height>60em') {
-  //   min-height: 60vh;
-  // }
-
-  // // for larger, wider screens, increase the height of the hero unit so the background covers the content well enough
-  // // -> this is a hacky magic numbers bad solution. @jay TODO refactor
-  // @include media('height>60em', '>medium') {
-  //   min-height: 70vh;
-  // }
-
-  // @include media('height>60em', '>large') {
-  //   min-height: 75vh;
-  // }
 }
 
 // Elements

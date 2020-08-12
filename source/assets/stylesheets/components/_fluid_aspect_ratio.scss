@@ -57,11 +57,13 @@
 
 // change the object-fit scaling
 [data-ui-aspect-image~='scale-contain'] {
+  font-family: 'object-fit: contain;'; // special prop for ObjectFitImages polyfill
   object-fit: contain;
 }
 
 [data-ui-aspect-image~='scale-cover'] {
   bottom: 0;
+  font-family: 'object-fit: cover;'; // special prop for ObjectFitImages polyfill
   height: 100%;
   left: 0;
   margin: 0;
@@ -73,6 +75,7 @@
 }
 
 [data-ui-aspect-image~='align-bottom'] {
+  font-family: 'object-fit: cover; object-position: bottom;';
   object-position: bottom;
 }
 

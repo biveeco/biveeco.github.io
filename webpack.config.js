@@ -8,8 +8,7 @@ const buildPath = '.tmp/assets/javascripts'
 module.exports = env => {
   return {
     entry: {
-      critical: ['picturefill'],
-      main: './source/assets/javascripts/main.js',
+      main: './source/assets/javascripts/main.js'
     },
     output: {
       path: path.resolve(__dirname, buildPath),

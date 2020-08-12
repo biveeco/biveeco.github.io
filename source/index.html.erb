@@ -38,15 +38,15 @@ title: home
     theme: "default",
     id: "intro",
     padding: {
-      x: "outside"
+      x: "outside",
+      y: "xwide"
     }
   } do %>
-    <% component "wrapper", locals: { width: "wide" } do %>
+    <% component "wrapper", locals: { width: "wide", classes: "overflow-hidden" } do %>
       <div data-ui-columns="50-50@medium" data-ui-gutter="xwide flush">
         <section
           data-ui-columns-item="right"
           data-ui-gutter-item
-          class="padding-y-xwide"
         >
           <% component "wrapper", locals: { width: "narrow" } do %>
             <h2 class="t-scale-gamma">We're a <strong>group of experts</strong> who love to work with clients and partners that share our dedication to <strong>making an impact</strong>.</h2>
@@ -58,7 +58,6 @@ title: home
         <div
           data-ui-columns-item="left"
           data-ui-gutter-item
-          class="padding-y-xwide"
         >
           <ul data-ui-gallery="small gutter-wide">
             <% data.clients.each do |client| %>
@@ -81,10 +80,11 @@ title: home
     id: "work",
     padding: "none"
   } do %>
-    <h2 class="t-scale-epsilon t-align-center padding-bottom-narrow">Our work</h2>
+    <!-- <h2 class="t-scale-epsilon t-align-center padding-bottom-narrow">Our work</h2> -->
     <!-- Case study listings -->
     <ul class="list-undecorated border-y-between">
-      <% data.work.projects.select(&:featured).each do |project| %>
+      <% data.work.featured_projects.each do |slug| %>
+        <% project = data.work.projects.find {|p| p.slug === slug } %>
         <li class="display-block no-margin c-theme-dark">
           <article data-ui-columns="50-50@small">
             <div data-ui-columns-item="left" class="padding-x-outside padding-y-wide">
@@ -111,6 +111,7 @@ title: home
                 alt: project.title.short,
                 ratio: "2x1",
                 bg_size: "cover",
+                align: image.align || "center",
                 fill: true
               } %>
             </div>
@@ -130,6 +131,7 @@ title: home
               data-ui-columns-item="left"
               data-ui-gutter-item
             >
+              <!-- scoot up a little to optically align with blurb to the right -->
               <h2 class="t-scale-delta t-align-center" style="margin-top: -1rem;">
                 <strong class="t-scale-alpha t-weight-bold c-highlight">100&plus;</strong><br>
                 Assignments
@@ -145,7 +147,7 @@ title: home
           </div>
         <% end %>
       <%# this button appears when there"s more than 3 case studies to display %>
-      <% if (data.work.projects.length > data.work.featured_projects) %>
+      <% if (data.work.projects.length > data.work.featured_projects.length) %>
         <div class="t-align-center padding-top">
           <%= component "button_link", locals: {
             label: "See more of our work",

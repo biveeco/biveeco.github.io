@@ -10,6 +10,7 @@
   bg_size ||= "contain" # STRING (optional): how the image is scaled in the container.
       # -> default is "contain", which scales the whole image to fit
       # -> "cover" will stretch the image to cover the whole frame in either direction
+  align ||= "center"
   fill ||= false # BOOLEAN (optional): should the image fill its container if it"s taller than the aspect ratio? (use with bg_size = "cover")
   classes ||= "" # STRING (optional): list of additional util classes, if needed
 
@@ -28,7 +29,7 @@
       source: source,
       sizes: sizes,
       alt: alt,
-      data: { "ui-aspect-image": "scale-#{bg_size}" }
+      data: { "ui-aspect-image": "scale-#{bg_size}#{" align-#{align}" unless align === "center"}" }
     } %>
   </div>
 </div>

@@ -72,6 +72,10 @@
   width: 100%;
 }
 
+[data-ui-aspect-image~='align-bottom'] {
+  object-position: bottom;
+}
+
 // display a background image on the item
 // -> pass in the background image inline, e.g. style="background-image: url(...);"
 [data-ui-aspect-content~='bg'] {

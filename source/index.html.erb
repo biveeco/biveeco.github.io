@@ -16,7 +16,7 @@ title: home
       <% component "wrapper", locals: {
         width: "wide"
       } do %>
-        <div data-ui-columns>
+        <div data-ui-columns="30-70@medium">
           <div
             data-ui-columns-item="left"
             class="hide-below@medium t-align-left"
@@ -32,19 +32,130 @@ title: home
     <% end %>
   </section>
 
-  <!-- Work -->
-  <% component "panel", locals: { border: "none", theme: "dark", id: "work" } do %>
-    <% component "wrapper", locals: { width: "wide", classes: "t-align-center" } do %>
-      <!-- Case study listings -->
-      <%= component "projects_list", locals: { projects: data.work.projects[0...data.work.featured_projects] } %>
-
-      <%# this button appears when there"s more than 3 case studies to display %>
-      <%= component "button_link", locals: {
-        label: "See more of our work",
-        url: "/work",
-        classes: "margin-top-wide",
-        icon: "arrow-right"
-      } if (data.work.projects.length > data.work.featured_projects) %>
+  <!-- Logo wall and intro -->
+  <% component "panel", locals: {
+    border: "none",
+    theme: "default",
+    id: "intro",
+    padding: {
+      x: "outside",
+      y: "xwide"
+    }
+  } do %>
+    <% component "wrapper", locals: { width: "wide", classes: "overflow-hidden" } do %>
+      <div data-ui-columns="50-50@medium" data-ui-gutter="xwide flush">
+        <section
+          data-ui-columns-item="right"
+          data-ui-gutter-item
+        >
+          <% component "wrapper", locals: { width: "narrow" } do %>
+            <h2 class="t-scale-gamma">We're a <strong>group of experts</strong> who love to work with clients and partners that share our dedication to <strong>making an impact</strong>.</h2>
+            <div class="t-content padding-top">
+              <p>We're headquartered in Washington D.C., with teams distributed globally. We've launched programs, brands, and products for the World Bank Group, UN Agencies, USAID, CDC, and more.</p>
+            </div>
+          <% end %>
+        </section>
+        <div
+          data-ui-columns-item="left"
+          data-ui-gutter-item
+        >
+          <ul data-ui-gallery="small gutter-wide">
+            <% data.clients.each do |client| %>
+              <li data-ui-gallery-item>
+                <%= component "fluid_aspect_image", locals: {
+                  source: client.logo,
+                  alt: "#{client.name}#{" (#{client.acronym})" if client.acronym.present?}"
+                } %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     <% end %>
+  <% end %>
+
+  <!-- Work -->
+  <% component "panel", locals: {
+    border: "none",
+    id: "work",
+    padding: "none"
+  } do %>
+    <!-- <h2 class="t-scale-epsilon t-align-center padding-bottom-narrow">Our work</h2> -->
+    <!-- Case study listings -->
+    <ul class="list-undecorated border-y-between">
+      <% data.work.featured_projects.each do |slug| %>
+        <% project = data.work.projects.find {|p| p.slug === slug } %>
+        <li class="display-block no-margin c-theme-dark">
+          <article data-ui-columns="50-50@small">
+            <div data-ui-columns-item="left" class="padding-x-outside padding-y-wide">
+              <% component "wrapper", locals: { width: "narrow" } do %>
+                <h3 class="t-scale-beta t-font-display t-leading-xtight">
+                  <%= link_to project.title.long, "/work/#{project.slug.urlize}/", class: "t-decoration-none" %>
+                </h3>
+                <p class="t-heading t-scale-delta padding-top-narrow c-highlight t-weight-normal">
+                  <%= project.client %>
+                </p>
+                <%= component "button_link", locals: {
+                  label: "Read more",
+                  url: "/work/#{project.slug.urlize}/",
+                  icon: "arrow-right",
+                  classes: "margin-top-wide"
+                } %>
+              <% end %>
+            </div>
+            <div data-ui-columns-item="right">
+              <% image = project.cover.poster || project.cover.thumb %>
+              <%= component "fluid_aspect_image", locals: {
+                source: image.source,
+                sizes: image.sizes || [],
+                alt: project.title.short,
+                ratio: "2x1",
+                bg_size: "cover",
+                align: image.align || "center",
+                fill: true
+              } %>
+            </div>
+          </article>
+        </li>
+      <% end %>
+    </ul>
+
+    <aside class="c-theme-dark padding-x-outside padding-top-xwide padding-bottom-wide border-top">
+        <% component "wrapper" do %>
+          <div
+            data-ui-columns="30-70@small"
+            data-ui-gutter="flush"
+            style="overflow: visible;"
+          >
+            <div
+              data-ui-columns-item="left"
+              data-ui-gutter-item
+            >
+              <!-- scoot up a little to optically align with blurb to the right -->
+              <h2 class="t-scale-delta t-align-center" style="margin-top: -1rem;">
+                <strong class="t-scale-alpha t-weight-bold c-highlight">100&plus;</strong><br>
+                Assignments
+              </h2>
+            </div>
+            <div
+              data-ui-columns-item="right"
+              data-ui-gutter-item
+              class="t-content"
+            >
+              <p>For the better part of a decade, we have helped some of the world’s most recognizable organizations build and launch products time and time again.</p>
+            </div>
+          </div>
+        <% end %>
+      <%# this button appears when there"s more than 3 case studies to display %>
+      <% if (data.work.projects.length > data.work.featured_projects.length) %>
+        <div class="t-align-center padding-top">
+          <%= component "button_link", locals: {
+            label: "See more of our work",
+            url: "/work",
+            icon: "arrow-right"
+          }  %>
+        </div>
+      <% end %>
+    </aside>
   <% end %>
 </div>

@@ -183,7 +183,7 @@ helpers do
 
   # Responsive image component methods
   def default_source(path, sizes)
-    return path_template(path, sizes[0]) unless sizes.empty?
+    return asset_url(path_template(path, sizes[0])) unless sizes.empty?
     path
   end
 

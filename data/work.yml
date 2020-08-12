@@ -6,7 +6,11 @@ headline:
 
 
 # the number of projects featured on the homepage
-featured_projects: 8
+featured_projects:
+  - GA
+  - PPP
+  - E2A
+  - CDC
 
 # an intro blurb describing our work
 # intro: |-
@@ -18,7 +22,7 @@ featured_projects: 8
 # -> title.subtitle is a descriptive/editorial subhead that should be displayed on the case study page. This is helpful if the client source and long title don't make the project name obvious.
 projects:
   - title:
-      long: Gateway Academy
+      long: Digital learning for emerging markets
       short: Gateway Academy
     slug: GA
     client: CGAP and Mastercard Foundation
@@ -38,6 +42,10 @@ projects:
       - learner operations
       - digital transformation
     cover:
+      poster:
+        source: /work/ga/assets/ga-poster-r2@{size}w.jpg
+        sizes: [400, 800, 1200, 1600]
+        align: bottom
       thumb:
         source: /work/ga/assets/ga-thumb@{size}w.jpg
         sizes: [400, 700, 1000]
@@ -61,6 +69,9 @@ projects:
     locations:
       - Global
     cover:
+      poster:
+        source: /work/e2a/assets/e2a-poster@{size}w.jpg
+        sizes: [400, 800, 1200, 1600]
       thumb:
         source: /work/e2a/assets/e2a-thumb@{size}w.jpg
         sizes: [400, 700, 1000]
@@ -122,7 +133,7 @@ projects:
         borders: true
 
   - title:
-      long: PPP Knowledge Lab
+      long: Rethinking knowledge management for PPPs
       short: PPP Knowledge Lab
     slug: PPP
     client: World Bank Group PPP CSA
@@ -138,6 +149,9 @@ projects:
       - information architecture
       - user research
     cover:
+      poster:
+        source: /work/ppp/assets/ppp-poster@{size}w.jpg
+        sizes: [400, 800, 1200, 1600]
       thumb:
         source: /work/ppp/assets/ppp-thumb@{size}w.jpg
         sizes: [400, 700, 1000]
@@ -309,6 +323,9 @@ projects:
     locations:
       - Global
     cover:
+      poster:
+        source: /work/cdc/assets/cdc-poster@{size}w.jpg
+        sizes: [400, 800, 1200, 1600]
       thumb:
         source: /work/cdc/assets/cdc-thumb@{size}w.jpg
         sizes: [400, 700, 1000]

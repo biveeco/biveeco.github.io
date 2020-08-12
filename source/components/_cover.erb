@@ -11,7 +11,8 @@
   borders ||= false # STRING/ARRAY: borders - see border_classes in config.rb
   content_position ||= "default"
   header_offset ||= false
-  prompt_label ||= "Our work"
+  prompt_label ||= "About us"
+  prompt_link ||= "#intro"
 
   # Private
   utils = [
@@ -28,8 +29,8 @@
   <a
     data-ui-cover-prompt
     data-js-scroll
-    class="padding-bottom-narrow t-heading t-scale-delta t-decoration-none"
-    href="#work"
+    class="padding-bottom-narrow t-heading t-scale-epsilon t-decoration-none"
+    href="<%= prompt_link %>"
   >
     <%= prompt_label %>
   </a>

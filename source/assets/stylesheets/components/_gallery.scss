@@ -152,7 +152,7 @@ $gallery-gutter: space(); // default gutter width
 
 [data-ui-gallery~='small'] {
   @include gallery-variation(
-    $min-width: 180px,
+    $min-width: 115px,
     $breakpoint: 480px,
     $min-percentage: 25%
   );

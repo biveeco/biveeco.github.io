@@ -1,7 +1,10 @@
-import SmoothScroll from 'smooth-scroll'
 import flyout from './modules/flyout.js'
+import objectFitImages from 'object-fit-images'
+import SmoothScroll from 'smooth-scroll'
 
 document.addEventListener('DOMContentLoaded', () => {
+  // run polyfill for object-fit on older browsers
+  objectFitImages('img[data-ui-aspect-image]')
   // set up flyout toggle buttons
   flyout('data-js-toggle')
 })

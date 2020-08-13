@@ -19,5 +19,6 @@ insert_final_newline = true
 [*.md]
 trim_trailing_whitespace = false
 
-[*.{yaml,yml}]
+# space indentation for formats sensitive to whitespace
+[*.{yaml,yml,rb}]
 indent_style = space

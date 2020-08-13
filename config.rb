@@ -58,9 +58,10 @@ helpers do
   def render_markdown(content, inline: false)
     render = Kramdown::Document.new(content).to_html
     if inline
-	    # remove surround "p" tags if "inline" argument is true
-    	return render.gsub(/<\/?p>/, "")
+      # remove surround "p" tags if "inline" argument is true
+      return render.gsub(%r{</?p>}, '')
     end
+
     render
   end
 
@@ -120,13 +121,15 @@ helpers do
   def border_classes(sides, class_prefix = 'border')
     if sides.is_a?(String)
       return '' if sides == 'none'
+
       return class_prefix if sides == 'all'
-      "#{class_prefix}-#{sides}"
-    else
-      sides.collect do |side|
-        "#{class_prefix}-#{side}"
-      end.join(' ').rstrip
+
+      return "#{class_prefix}-#{sides}"
     end
+
+    sides.collect do |side|
+      "#{class_prefix}-#{side}"
+    end.join(' ').rstrip
   end
 
   # is this url the current page?
@@ -189,6 +192,7 @@ helpers do
   # Responsive image component methods
   def default_source(path, sizes)
     return asset_url(path_template(path, sizes[0])) unless sizes.empty?
+
     path
   end
 

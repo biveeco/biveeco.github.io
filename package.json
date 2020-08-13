@@ -15,6 +15,7 @@
   },
   "config": {
     "css_src": "./source/assets/stylesheets",
+    "css_dist": "./build/assets/stylesheets",
     "icons_src": "./source/assets/images/icons"
   },
   "sassLintConfig": ".sass-lint.yml",
@@ -23,6 +24,7 @@
     "javascripts:watch": "echo '--- Bundling & Linting JS ---' && webpack --watch -d --env.development --",
     "icons": "svgo -f $npm_package_config_icons_src && svgstore -o ./source/components/_spritemap.erb --inline $npm_package_config_icons_src/**/*.svg",
     "middleman": "bundle exec middleman build --",
+    "purgecss": "purgecss --css $npm_package_config_css_dist/*.css --content ./build/**/*.html --output ./build/assets/stylesheets/ --whitelist c-theme-default c-theme-wash c-theme-dark",
     "lint:styles": "echo '--- Linting CSS ---' && npx stylelint $npm_package_config_css_src/**/*.scss",
     "lint:ruby": "echo '--- Linting Ruby ---' && bundle exec rubocop",
     "lint:watch": "onchange $npm_package_config_css_src -- npm run lint:styles",
@@ -31,6 +33,7 @@
     "favicon:update": "real-favicon check-for-update --fail-on-update data/favicon.json",
     "dev": "run-p javascripts:watch lint:watch",
     "build": "run-s favicon lint:ruby lint:styles javascripts:build",
+    "deploy": "bundle exec middleman build && npm run purgecss",
     "test": "run-s lint:styles javascripts:build lint:ruby"
   },
   "dependencies": {
@@ -64,6 +67,7 @@
     "npm-run-all": "^4.1.5",
     "onchange": "^6.1.1",
     "path": "^0.12.7",
+    "purgecss": "^2.3.0",
     "stylelint": "^13.6.1",
     "stylelint-config-sass-guidelines": "^7.0.0",
     "stylelint-order": "^4.1.0",

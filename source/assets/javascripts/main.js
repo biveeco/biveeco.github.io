@@ -1,6 +1,7 @@
 import flyout from './modules/flyout.js'
 import objectFitImages from 'object-fit-images'
 import SmoothScroll from 'smooth-scroll'
+// import FeaturePoster from '/modules/feature-poster.js'
 
 document.addEventListener('DOMContentLoaded', () => {
 	// run polyfill for object-fit on older browsers

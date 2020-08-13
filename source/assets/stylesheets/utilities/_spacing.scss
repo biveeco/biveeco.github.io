@@ -10,122 +10,122 @@
 // -----------------------------------------------------------------------------
 
 @each $prop in (padding, margin) {
-  // add space on all sides, e.g. padding or margin
-  .#{$prop} {
-    #{$prop}: space();
-  }
+	// add space on all sides, e.g. padding or margin
+	.#{$prop} {
+		#{$prop}: space();
+	}
 
-  // remove space from all sides
-  .no-#{$prop} {
-    #{$prop}: 0 !important;
-  }
+	// remove space from all sides
+	.no-#{$prop} {
+		#{$prop}: 0 !important;
+	}
 
-  // add space on x and y axes, e.g. padding-y, margin-x
-  .#{$prop}-x {
-    #{$prop}-left: space();
-    #{$prop}-right: space();
-  }
+	// add space on x and y axes, e.g. padding-y, margin-x
+	.#{$prop}-x {
+		#{$prop}-left: space();
+		#{$prop}-right: space();
+	}
 
-  .#{$prop}-y {
-    #{$prop}-bottom: space();
-    #{$prop}-top: space();
-  }
+	.#{$prop}-y {
+		#{$prop}-bottom: space();
+		#{$prop}-top: space();
+	}
 
-  // add space between all children on a given axis
-  .#{$prop}-x-between {
-    > * + * {
-      #{$prop}-left: space();
-    }
-  }
+	// add space between all children on a given axis
+	.#{$prop}-x-between {
+		> * + * {
+			#{$prop}-left: space();
+		}
+	}
 
-  .#{$prop}-y-between {
-    > * + * {
-      #{$prop}-top: space();
-    }
-  }
+	.#{$prop}-y-between {
+		> * + * {
+			#{$prop}-top: space();
+		}
+	}
 
-  // remove space on x and y axes
-  .no-#{$prop}-x {
-    #{$prop}-left: 0 !important;
-    #{$prop}-right: 0 !important;
-  }
+	// remove space on x and y axes
+	.no-#{$prop}-x {
+		#{$prop}-left: 0 !important;
+		#{$prop}-right: 0 !important;
+	}
 
-  .no-#{$prop}-y {
-    #{$prop}-bottom: 0 !important;
-    #{$prop}-top: 0 !important;
-  }
+	.no-#{$prop}-y {
+		#{$prop}-bottom: 0 !important;
+		#{$prop}-top: 0 !important;
+	}
 
-  // spacing variations
-  @each $name, $length in $spacing {
-    @if $name != 'medium' {
-      .#{$prop}-#{$name} {
-        #{$prop}: space($name) !important;
-      }
+	// spacing variations
+	@each $name, $length in $spacing {
+		@if $name != 'medium' {
+			.#{$prop}-#{$name} {
+				#{$prop}: space($name) !important;
+			}
 
-      .offset-#{$prop}-#{$name} {
-        margin: -(space($name));
-      }
+			.offset-#{$prop}-#{$name} {
+				margin: -(space($name));
+			}
 
-      .#{$prop}-x-#{$name} {
-        #{$prop}-left: space($name) !important;
-        #{$prop}-right: space($name) !important;
-      }
+			.#{$prop}-x-#{$name} {
+				#{$prop}-left: space($name) !important;
+				#{$prop}-right: space($name) !important;
+			}
 
-      .#{$prop}-y-#{$name} {
-        #{$prop}-bottom: space($name) !important;
-        #{$prop}-top: space($name) !important;
-      }
+			.#{$prop}-y-#{$name} {
+				#{$prop}-bottom: space($name) !important;
+				#{$prop}-top: space($name) !important;
+			}
 
-      // add space between all children
-      .#{$prop}-x-between-#{$name} {
-        > * + * {
-          #{$prop}-left: space($name) !important;
-        }
-      }
+			// add space between all children
+			.#{$prop}-x-between-#{$name} {
+				> * + * {
+					#{$prop}-left: space($name) !important;
+				}
+			}
 
-      .#{$prop}-y-between-#{$name} {
-        > * + * {
-          #{$prop}-top: space($name) !important;
-        }
-      }
-    }
-  }
+			.#{$prop}-y-between-#{$name} {
+				> * + * {
+					#{$prop}-top: space($name) !important;
+				}
+			}
+		}
+	}
 
-  // add or remove space from a specific side
-  @each $side in (top, right, bottom, left) {
-    .#{$prop}-#{$side} {
-      #{$prop}-#{$side}: space() !important;
-    }
+	// add or remove space from a specific side
+	@each $side in (top, right, bottom, left) {
+		.#{$prop}-#{$side} {
+			#{$prop}-#{$side}: space() !important;
+		}
 
-    .no-#{$prop}-#{$side} {
-      #{$prop}-#{$side}: 0 !important;
-    }
+		.no-#{$prop}-#{$side} {
+			#{$prop}-#{$side}: 0 !important;
+		}
 
-    // variations
-    @each $name, $length in $spacing {
-      @if $name != 'medium' {
-        .#{$prop}-#{$side}-#{$name} {
-          #{$prop}-#{$side}: space($name) !important;
-        }
-      }
-    }
-  }
+		// variations
+		@each $name, $length in $spacing {
+			@if $name != 'medium' {
+				.#{$prop}-#{$side}-#{$name} {
+					#{$prop}-#{$side}: space($name) !important;
+				}
+			}
+		}
+	}
 }
 
 // Outside gutters
 // -> opinionated class to set consistent, responsive outside padding on full-width containers
 .padding-x-outside {
-  padding-left: space(space-outside('default'));
-  padding-right: space(space-outside('default'));
+	padding-left: space(space-outside('default'));
+	padding-right: space(space-outside('default'));
 
-  @each $screen, $width in $spacing-outside {
-    @if $screen != 'default' {
-      @include media('>#{$screen}') {
-        padding-left: space($width);
-        padding-right: space($width);
-      }
-    }
-  }
+	@each $screen, $width in $spacing-outside {
+		@if $screen != 'default' {
+			@include media('>#{$screen}') {
+				padding-left: space($width);
+				padding-right: space($width);
+			}
+		}
+	}
 }
 
 // "Offset" negative spacing
@@ -133,17 +133,17 @@
 //    or create an 'outdent' on a child element
 
 .offset-margin {
-  margin: -(space());
+	margin: -(space());
 }
 
 @each $side in (top, right, bottom, left) {
-  .offset-margin-#{$side} {
-    margin-#{$side}: -(space());
-  }
+	.offset-margin-#{$side} {
+		margin-#{$side}: -(space());
+	}
 
-  @each $name, $length in $spacing {
-    .offset-margin-#{$side}-#{$name} {
-      margin-#{$side}: -(space($name));
-    }
-  }
+	@each $name, $length in $spacing {
+		.offset-margin-#{$side}-#{$name} {
+			margin-#{$side}: -(space($name));
+		}
+	}
 }

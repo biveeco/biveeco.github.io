@@ -8,13 +8,13 @@
 
 // standard spacing for margins and padding, etc.
 $spacing: (
-  'xxwide': ms(6),
-  'xwide': ms(4),
-  'wide': ms(3),
-  'medium': ms(1),
-  'narrow': ms(0),
-  'xnarrow': ms(-2),
-  'xxnarrow': ms(-4)
+	'xxwide': ms(6),
+	'xwide': ms(4),
+	'wide': ms(3),
+	'medium': ms(1),
+	'narrow': ms(0),
+	'xnarrow': ms(-2),
+	'xxnarrow': ms(-4)
 );
 
 // outside margins for full-width containers
@@ -22,21 +22,21 @@ $spacing: (
 // -> need to be responsive to keep content from getting too scrunched on small screens, and to add more air on larger screens
 // -> used for both spacing utils also decorated borders
 $spacing-outside: (
-  'default': 'narrow',
-  'small': 'medium',
-  'medium': 'wide'
+	'default': 'narrow',
+	'small': 'medium',
+	'medium': 'wide'
 );
 
 // getter function for $gutters map
 @function space($name: 'medium', $split: false) {
-  @if $split == false {
-    @return map-get($spacing, $name);
-  } @else {
-    @return (map-get($spacing, $name) / 2);
-  }
+	@if $split == false {
+		@return map-get($spacing, $name);
+	} @else {
+		@return (map-get($spacing, $name) / 2);
+	}
 }
 
 // getter function for outside spacing
 @function space-outside($name) {
-  @return map-get($spacing-outside, $name);
+	@return map-get($spacing-outside, $name);
 }

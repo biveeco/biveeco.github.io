@@ -2,171 +2,181 @@
 title: home
 ---
 <div class="position-relative">
-  <%= component "main_header", locals: {
-    overlay: true,
-    theme: "wash",
-    hide_logo: "medium"
-  } %>
-  <section class="t-align-center">
-    <!-- Cover -->
-    <% component "cover", locals: {
-      padding: { y: "wide", x: "outside" },
-      theme: "wash"
-    } do %>
-      <% component "wrapper", locals: {
-        width: "wide"
-      } do %>
-        <div data-ui-columns="30-70@medium">
-          <div
-            data-ui-columns-item="left"
-            class="hide-below@medium t-align-left"
-            style="padding-top: 0.4em;"
-          >
-            <%= component "host-logo", locals: { width: 5 } %>
-          </div>
-          <div data-ui-columns-item="right">
-            <%= component "tagline" %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </section>
+	<%= component "main_header", locals: {
+		overlay: true,
+		theme: "wash",
+		hide_logo: "medium"
+	} %>
+	<section class="t-align-center">
+		<!-- Cover -->
+		<% component "cover", locals: {
+			padding: { y: "wide", x: "outside" },
+			theme: "wash"
+		} do %>
+			<% component "wrapper", locals: {
+				width: "wide"
+			} do %>
+				<div data-ui-columns="30-70@medium">
+					<div
+						data-ui-columns-item="left"
+						class="hide-below@medium t-align-left"
+						style="padding-top: 0.4em;"
+					>
+						<%= component "host-logo", locals: { width: 5 } %>
+					</div>
+					<div data-ui-columns-item="right">
+						<%= component "tagline" %>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</section>
 
-  <!-- Logo wall and intro -->
-  <% component "panel", locals: {
-    border: "none",
-    theme: "default",
-    id: "intro",
-    padding: {
-      x: "outside",
-      y: "xwide"
-    },
-    fill_browser: true,
-    center_content: true
-  } do %>
-    <% component "wrapper", locals: { width: "wide", classes: "overflow-hidden" } do %>
-      <div data-ui-columns="50-50@medium" data-ui-gutter="xwide flush">
-        <section
-          data-ui-columns-item="right"
-          data-ui-gutter-item
-        >
-          <% component "wrapper", locals: { width: "narrow" } do %>
-            <h2 class="t-scale-gamma">We're a <strong>group of experts</strong> who love to work with clients and partners that share our dedication to <strong>making an impact</strong>.</h2>
-            <div class="t-content padding-top">
-              <p>We're headquartered in Washington D.C., with teams distributed globally. We've launched programs, brands, and products for the World Bank Group, UN Agencies, USAID, CDC, and more.</p>
-            </div>
-          <% end %>
-        </section>
-        <div
-          data-ui-columns-item="left"
-          data-ui-gutter-item
-        >
-          <ul data-ui-gallery="small gutter-wide">
-            <% data.clients.each do |client| %>
-              <li data-ui-gallery-item>
-                <%= component "fluid_aspect_image", locals: {
-                  source: client.logo,
-                  alt: "#{client.name}#{" (#{client.acronym})" if client.acronym.present?}"
-                } %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+	<!-- Logo wall and intro -->
+	<% component "panel", locals: {
+		border: "none",
+		theme: "default",
+		id: "intro",
+		padding: {
+			x: "outside",
+			y: "xwide"
+		},
+		fill_browser: true,
+		center_content: true
+	} do %>
+		<% component "wrapper", locals: { width: "wide", classes: "overflow-hidden" } do %>
+			<div data-ui-columns="50-50@medium" data-ui-gutter="xwide flush">
+				<section
+					data-ui-columns-item="right"
+					data-ui-gutter-item
+				>
+					<% component "wrapper", locals: { width: "narrow" } do %>
+						<h2 class="t-scale-gamma">We're a <strong>group of experts</strong> who love to work with clients and partners that share our dedication to <strong>making an impact</strong>.</h2>
+						<div class="t-content padding-top">
+							<p>We're headquartered in Washington D.C., with teams distributed globally. We've launched programs, brands, and products for the World Bank Group, UN Agencies, USAID, CDC, and more.</p>
+						</div>
+					<% end %>
+				</section>
+				<div
+					data-ui-columns-item="left"
+					data-ui-gutter-item
+				>
+					<ul data-ui-gallery="small gutter-wide">
+						<% data.clients.each do |client| %>
+							<li data-ui-gallery-item>
+								<%= component "fluid_aspect_image", locals: {
+									source: client.logo,
+									alt: "#{client.name}#{" (#{client.acronym})" if client.acronym.present?}"
+								} %>
+							</li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
 
-  <!-- Work -->
-  <% component "panel", locals: {
-    border: "none",
-    id: "work",
-    padding: "none"
-  } do %>
-    <!-- <h2 class="t-scale-epsilon t-align-center padding-bottom-narrow">Our work</h2> -->
+	<!-- Work -->
+	<% component "panel", locals: {
+		border: "none",
+		id: "work",
+		padding: "none"
+	} do %>
+		<!-- <h2 class="t-scale-epsilon t-align-center padding-bottom-narrow">Our work</h2> -->
 
-    <!-- Case study listings -->
-    <div class="c-theme-dark">
-      <div class="z-low fill-browser c-bg-midtone" style="width: 50%; height: 100vh; position: sticky; top: 0; margin-left: auto;"></div>
-      <ul class="list-undecorated | z-middle position-relative" style="margin-top: -100vh;">
-        <% data.work.featured_projects.each do |slug| %>
-          <% project = data.work.projects.find {|p| p.slug === slug } %>
-          <li class="
-            no-margin
-            fill-browser display-flex display-flex-centered display-flex-column
-          ">
-            <article data-ui-columns="50-50@small">
-              <div data-ui-columns-item="left" class="padding-x-outside padding-y-wide">
-                <% component "wrapper", locals: { width: "narrow" } do %>
-                  <h3 class="t-scale-beta t-font-display t-leading-xtight">
-                    <%= link_to project.title.long, "/work/#{project.slug.urlize}/", class: "t-decoration-none" %>
-                  </h3>
-                  <p class="
-                    t-heading t-scale-delta t-weight-normal
-                    padding-top-narrow
-                    c-highlight
-                  ">
-                    <%= project.client %>
-                  </p>
-                  <%= component "button_link", locals: {
-                    label: "Read more",
-                    url: "/work/#{project.slug.urlize}/",
-                    icon: "arrow-right",
-                    classes: "margin-top-wide"
-                  } %>
-                <% end %>
-              </div>
-              <div data-ui-columns-item="right">
-                <% image = project.cover.poster || project.cover.thumb %>
-                <%= component "fluid_aspect_image", locals: {
-                  source: "https://placehold.it/1000x600",
-                  sizes: image.sizes || [],
-                  alt: project.title.short,
-                  ratio: "2x1",
-                  bg_size: "contain",
-                } %>
-              </div>
-            </article>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+		<!-- Case study listings -->
+		<div class="c-theme-dark">
+			<div class="z-low fill-browser" style="
+				width: 50%;
+				position: sticky;
+				top: 0;
+				margin-left: auto;
+				transition: all 0.25s ease-in-out;
+				background: #188794;
+			"></div>
+			<ul class="list-undecorated | z-middle position-relative" style="margin-top: -100vh;">
+				<% data.work.featured_projects.each do |slug| %>
+					<% project = data.work.projects.find {|p| p.slug === slug } %>
+					<li
+						class="
+							no-margin
+							fill-browser display-flex display-flex-centered display-flex-column
+						"
+						data-bg="<%= project.background || '#000' %>"
+					>
+						<article data-ui-columns="50-50@small">
+							<div data-ui-columns-item="left" class="padding-x-outside padding-y-wide">
+								<% component "wrapper", locals: { width: "narrow" } do %>
+									<h3 class="t-scale-beta t-font-display t-leading-xtight">
+										<%= link_to project.title.long, "/work/#{project.slug.urlize}/", class: "t-decoration-none" %>
+									</h3>
+									<p class="
+										t-heading t-scale-delta t-weight-normal
+										padding-top-narrow
+										c-highlight
+									">
+										<%= project.client %>
+									</p>
+									<%= component "button_link", locals: {
+										label: "Read more",
+										url: "/work/#{project.slug.urlize}/",
+										icon: "arrow-right",
+										classes: "margin-top-wide"
+									} %>
+								<% end %>
+							</div>
+							<div data-ui-columns-item="right">
+								<% image = project.cover.poster || project.cover.thumb %>
+								<%= component "fluid_aspect_image", locals: {
+									source: "https://placehold.it/1000x600",
+									sizes: image.sizes || [],
+									alt: project.title.short,
+									ratio: "2x1",
+									bg_size: "contain",
+								} %>
+							</div>
+						</article>
+					</li>
+				<% end %>
+			</ul>
+		</div>
 
-    <aside class="c-theme-dark padding-x-outside padding-top-xwide padding-bottom-wide border-top">
-        <% component "wrapper" do %>
-          <div
-            data-ui-columns="30-70@small"
-            data-ui-gutter="flush"
-            style="overflow: visible;"
-          >
-            <div
-              data-ui-columns-item="left"
-              data-ui-gutter-item
-            >
-              <!-- scoot up a little to optically align with blurb to the right -->
-              <h2 class="t-scale-delta t-align-center" style="margin-top: -1rem;">
-                <strong class="t-scale-alpha t-weight-bold c-highlight">100&plus;</strong><br>
-                Assignments
-              </h2>
-            </div>
-            <div
-              data-ui-columns-item="right"
-              data-ui-gutter-item
-              class="t-content"
-            >
-              <p>For the better part of a decade, we have helped some of the world’s most recognizable organizations build and launch products time and time again.</p>
-            </div>
-          </div>
-        <% end %>
-      <%# this button appears when there"s more than 3 case studies to display %>
-      <% if (data.work.projects.length > data.work.featured_projects.length) %>
-        <div class="t-align-center padding-top">
-          <%= component "button_link", locals: {
-            label: "See more of our work",
-            url: "/work",
-            icon: "arrow-right"
-          }  %>
-        </div>
-      <% end %>
-    </aside>
-  <% end %>
+		<aside class="c-theme-dark padding-x-outside padding-top-xwide padding-bottom-wide border-top">
+				<% component "wrapper" do %>
+					<div
+						data-ui-columns="30-70@small"
+						data-ui-gutter="flush"
+						style="overflow: visible;"
+					>
+						<div
+							data-ui-columns-item="left"
+							data-ui-gutter-item
+						>
+							<!-- scoot up a little to optically align with blurb to the right -->
+							<h2 class="t-scale-delta t-align-center" style="margin-top: -1rem;">
+								<strong class="t-scale-alpha t-weight-bold c-highlight">100&plus;</strong><br>
+								Assignments
+							</h2>
+						</div>
+						<div
+							data-ui-columns-item="right"
+							data-ui-gutter-item
+							class="t-content"
+						>
+							<p>For the better part of a decade, we have helped some of the world’s most recognizable organizations build and launch products time and time again.</p>
+						</div>
+					</div>
+				<% end %>
+			<%# this button appears when there"s more than 3 case studies to display %>
+			<% if (data.work.projects.length > data.work.featured_projects.length) %>
+				<div class="t-align-center padding-top">
+					<%= component "button_link", locals: {
+						label: "See more of our work",
+						url: "/work",
+						icon: "arrow-right"
+					}  %>
+				</div>
+			<% end %>
+		</aside>
+	<% end %>
 </div>

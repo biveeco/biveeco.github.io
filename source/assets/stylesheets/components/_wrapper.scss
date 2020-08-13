@@ -11,154 +11,154 @@
 // build a rule where all the wrapper width variations are chained in a :not() selector
 // -> needed to fix a specificity issue where [data-ui-wrapper~='outcrop'] selects all the
 //    other widths; this selects ONLY the default width
-@function _only-the-default-width() {
-  $selector: '&';
+@function only-the-default-width() {
+	$selector: '&';
 
-  @each $name, $width in $layout-widths {
-    @if $name != 'default' {
-      $selector: $selector + ':not([data-ui-wrapper~=#{$name}])';
-    }
-  }
+	@each $name, $width in $layout-widths {
+		@if $name != 'default' {
+			$selector: $selector + ':not([data-ui-wrapper~=#{$name}])';
+		}
+	}
 
-  @return unquote($selector);
+	@return unquote($selector);
 }
 
 // find the correct breakpoint to transition an 'outcrop' wrapper from being screen-width
 // to its maximum size
-@function _find-breakpoint($width) {
-  $screen: null;
+@function find-breakpoint($width) {
+	$screen: null;
 
-  // loop through the breakpoints until a screen size is bigger than the container width
-  @each $name, $size in $breakpoints {
-    @if (strip-unit($width) >= strip-unit($size)) {
-      $screen: $name;
-    }
-  }
+	// loop through the breakpoints until a screen size is bigger than the container width
+	@each $name, $size in $breakpoints {
+		@if (strip-unit($width) >= strip-unit($size)) {
+			$screen: $name;
+		}
+	}
 
-  // multiply the container width by the base type size at the right screen size
-  // -> e.g. if the wrapper will be 72rem, then that size is between the 'medium' (62em)
-  //    and 'large' (75em) breakpoints
-  // -> above the medium breakpoint, base type size is 120%
-  // -> so we need to multiply the width by 120% (or 1.2) to get a correct breakpoint of
-  //    73.2em to avoid side-scrolling or overflows
-  @return #{strip-unit($width) * (scale-base-type-size($screen) / 100%)}em;
+	// multiply the container width by the base type size at the right screen size
+	// -> e.g. if the wrapper will be 72rem, then that size is between the 'medium' (62em)
+	//    and 'large' (75em) breakpoints
+	// -> above the medium breakpoint, base type size is 120%
+	// -> so we need to multiply the width by 120% (or 1.2) to get a correct breakpoint of
+	//    73.2em to avoid side-scrolling or overflows
+	@return #{strip-unit($width) * (scale-base-type-size($screen) / 100%)}em;
 }
 
 // create overrides for an 'outcrop' version of the wrapper at a given width
 // -> see 'outcrop' styles below
-@mixin _wrapper-outcrop-variation($width, $parent-width: 'default', $padding: 'none') {
-  $margin: if(layout-w-difference($parent-width, $width) < 0, (layout-w-difference($parent-width, $width) / 2), auto);
+@mixin wrapper-outcrop-variation($width, $parent-width: 'default', $padding: 'none') {
+	$margin: if(layout-w-difference($parent-width, $width) < 0, (layout-w-difference($parent-width, $width) / 2), auto);
 
-  left: 0;
-  margin-left: $margin;
-  margin-right: $margin;
-  right: 0;
-  width: if(layout-w-difference($parent-width, $width) > 0, layout-w($width), auto);
+	left: 0;
+	margin-left: $margin;
+	margin-right: $margin;
+	right: 0;
+	width: if(layout-w-difference($parent-width, $width) > 0, layout-w($width), auto);
 
-  @if $padding != 'none' {
-    padding-left: if(type-of($padding) == 'string', space($padding), $padding);
-    padding-right: if(type-of($padding) == 'string', space($padding), $padding);
-  }
+	@if $padding != 'none' {
+		padding-left: if(type-of($padding) == 'string', space($padding), $padding);
+		padding-right: if(type-of($padding) == 'string', space($padding), $padding);
+	}
 }
 
 // Block
 // -----------------------------------------------------------------------------
 
 [data-ui-wrapper] {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: layout-w();
-  width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: layout-w();
+	width: 100%;
 }
 
 // Traits
 // -----------------------------------------------------------------------------
 
 @each $name, $width in $layout-widths {
-  [data-ui-wrapper~='#{$name}'] {
-    max-width: layout-w($name);
-  }
+	[data-ui-wrapper~='#{$name}'] {
+		max-width: layout-w($name);
+	}
 }
 
 // a child element of a layout wrapper which is actually wider than its parent
 // -> a great trick from CSS-Tricks: https://css-tricks.com/full-width-containers-limited-width-parents/
 [data-ui-wrapper~='outcrop'] {
-  display: block;
-  left: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  // padding-left: space('wide');
-  // padding-right: space('wide');
-  position: relative;
-  right: 50%;
-  width: 100vw;
+	display: block;
+	left: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	// padding-left: space('wide');
+	// padding-right: space('wide');
+	position: relative;
+	right: 50%;
+	width: 100vw;
 
-  // if nested in a default wrapper
-  // -> in this case both are the same width, so just kill everything
-  [data-ui-wrapper] & {
-    // if a specific width is nested in a default wrapper
-    @each $name, $width in $layout-widths {
-      // only create rules for widths that are bigger than the parent
-      // -> e.g. 'default' > 'wide'
-      @if (layout-w-difference('default', $name) < 0) {
-        // @TODO jay - multiply screen size by 1.25 to account for 125% type size at largest breakpoint. prob need to do this more accurately and actually compare to type sizes at this screen size (e.g. 110% or whatever)
-        @include media('>#{_find-breakpoint($width)}') {
-          &[data-ui-wrapper~='#{$name}'] {
-            @include _wrapper-outcrop-variation($name);
-          }
-        }
-      } @else {
-        // otherwise, reset it and make it act like a regular container
-        @if $name == 'default' {
-          #{_only-the-default-width()} {
-            @include _wrapper-outcrop-variation($name, $padding: 0);
-          }
-        } @else {
-          &[data-ui-wrapper~='#{$name}'] {
-            @include _wrapper-outcrop-variation($name, $padding: 0);
-          }
-        }
-      }
-    }
-  }
+	// if nested in a default wrapper
+	// -> in this case both are the same width, so just kill everything
+	[data-ui-wrapper] & {
+		// if a specific width is nested in a default wrapper
+		@each $name, $width in $layout-widths {
+			// only create rules for widths that are bigger than the parent
+			// -> e.g. 'default' > 'wide'
+			@if (layout-w-difference('default', $name) < 0) {
+				// @TODO jay - multiply screen size by 1.25 to account for 125% type size at largest breakpoint. prob need to do this more accurately and actually compare to type sizes at this screen size (e.g. 110% or whatever)
+				@include media('>#{find-breakpoint($width)}') {
+					&[data-ui-wrapper~='#{$name}'] {
+						@include wrapper-outcrop-variation($name);
+					}
+				}
+			} @else {
+				// otherwise, reset it and make it act like a regular container
+				@if $name == 'default' {
+					#{only-the-default-width()} {
+						@include wrapper-outcrop-variation($name, $padding: 0);
+					}
+				} @else {
+					&[data-ui-wrapper~='#{$name}'] {
+						@include wrapper-outcrop-variation($name, $padding: 0);
+					}
+				}
+			}
+		}
+	}
 
-  // if nested in a parent with a specific width
-  // -> e.g. [data-ui-wrapper~='narrow'] [data-ui-wrapper~='outcrop'] {...}
-  //    or [data-ui-wrapper~='narrow'] [data-ui-wrapper~='wide'][data-ui-wrapper~='outcrop'] {...}
-  @each $parent-name, $parent-width in $layout-widths {
-    @if ($parent-name != 'default') {
-      [data-ui-wrapper~='#{$parent-name}'] & {
-        @each $child-name, $child-width in $layout-widths {
-          // only create rules for widths that are bigger than the parent
-          // -> e.g. 'narrow' > 'wide'
-          @if (layout-w-difference($parent-name, $child-name) < 0) {
-            // @TODO jay - multiply screen size by 1.25 to account for 125% type size at largest breakpoint. prob need to do this more accurately and actually compare to type sizes at this screen size (e.g. 110% or whatever)
-            @include media('>#{_find-breakpoint($child-width)}') {
-              @if($child-name == 'default') {
-                #{_only-the-default-width()} {
-                  @include _wrapper-outcrop-variation($child-name, $parent-name);
-                }
-              } @else {
-                &[data-ui-wrapper~='#{$child-name}'] {
-                  @include _wrapper-outcrop-variation($child-name, $parent-name);
-                }
-              }
-            }
-          } @else {
-            // otherwise, reset it and make it act like a regular container
-            @if $child-name == 'default' {
-              #{_only-the-default-width()} {
-                @include _wrapper-outcrop-variation($child-name, $parent-name, $padding: 0);
-              }
-            } @else {
-              &[data-ui-wrapper~='#{$child-name}'] {
-                @include _wrapper-outcrop-variation($child-name, $parent-name, $padding: 0);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+	// if nested in a parent with a specific width
+	// -> e.g. [data-ui-wrapper~='narrow'] [data-ui-wrapper~='outcrop'] {...}
+	//    or [data-ui-wrapper~='narrow'] [data-ui-wrapper~='wide'][data-ui-wrapper~='outcrop'] {...}
+	@each $parent-name, $parent-width in $layout-widths {
+		@if ($parent-name != 'default') {
+			[data-ui-wrapper~='#{$parent-name}'] & {
+				@each $child-name, $child-width in $layout-widths {
+					// only create rules for widths that are bigger than the parent
+					// -> e.g. 'narrow' > 'wide'
+					@if (layout-w-difference($parent-name, $child-name) < 0) {
+						// @TODO jay - multiply screen size by 1.25 to account for 125% type size at largest breakpoint. prob need to do this more accurately and actually compare to type sizes at this screen size (e.g. 110% or whatever)
+						@include media('>#{find-breakpoint($child-width)}') {
+							@if($child-name == 'default') {
+								#{only-the-default-width()} {
+									@include wrapper-outcrop-variation($child-name, $parent-name);
+								}
+							} @else {
+								&[data-ui-wrapper~='#{$child-name}'] {
+									@include wrapper-outcrop-variation($child-name, $parent-name);
+								}
+							}
+						}
+					} @else {
+						// otherwise, reset it and make it act like a regular container
+						@if $child-name == 'default' {
+							#{only-the-default-width()} {
+								@include wrapper-outcrop-variation($child-name, $parent-name, $padding: 0);
+							}
+						} @else {
+							&[data-ui-wrapper~='#{$child-name}'] {
+								@include wrapper-outcrop-variation($child-name, $parent-name, $padding: 0);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }

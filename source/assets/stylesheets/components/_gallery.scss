@@ -16,110 +16,110 @@ $gallery-gutter: space(); // default gutter width
 // -----------------------------------------------------------------------------
 
 [data-ui-gallery] {
-  display: block;
-  font-size: 0;
-  list-style: none;
-  margin: -($gallery-gutter / 2); // offset for column gutters
-  position: relative; // in case flexbox isn't supported
-  text-align: left;
+	display: block;
+	font-size: 0;
+	list-style: none;
+	margin: -($gallery-gutter / 2); // offset for column gutters
+	position: relative; // in case flexbox isn't supported
+	text-align: left;
 
-  > ul {
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-  }
+	> ul {
+		list-style: none;
+		margin-left: 0;
+		padding-left: 0;
+	}
 
-  // use flexbox if supported
-  @supports (display: flex) {
-    display: flex;
-    flex-wrap: wrap;
-  }
+	// use flexbox if supported
+	@supports (display: flex) {
+		display: flex;
+		flex-wrap: wrap;
+	}
 
-  @supports (display: grid) {
-    // Disable 'spelling' linter b/c it doesn't recognize grid properties
-    // scss-lint:disable PropertySpelling
-    display: grid;
-    grid-column-gap: $gallery-gutter;
-    grid-row-gap: $gallery-gutter;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    margin: 0;
-  }
+	@supports (display: grid) {
+		// Disable 'spelling' linter b/c it doesn't recognize grid properties
+		// scss-lint:disable PropertySpelling
+		display: grid;
+		grid-column-gap: $gallery-gutter;
+		grid-row-gap: $gallery-gutter;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		margin: 0;
+	}
 }
 
 @each $name, $width in $spacing {
-  [data-ui-gallery~='gutter-#{$name}'] {
-    margin: -($width / 2);
+	[data-ui-gallery~='gutter-#{$name}'] {
+		margin: -($width / 2);
 
-    @supports (display: grid) {
-      // Disable 'spelling' linter b/c it doesn't recognize grid properties
-      // scss-lint:disable PropertySpelling
-      grid-column-gap: $width;
-      grid-row-gap: $width;
-      margin: 0;
-    }
+		@supports (display: grid) {
+			// Disable 'spelling' linter b/c it doesn't recognize grid properties
+			// scss-lint:disable PropertySpelling
+			grid-column-gap: $width;
+			grid-row-gap: $width;
+			margin: 0;
+		}
 
-    [data-ui-gallery-item] {
-      padding: ($width / 2);
+		[data-ui-gallery-item] {
+			padding: ($width / 2);
 
-      @supports (display: grid) {
-        padding: 0;
-      }
-    }
-  }
+			@supports (display: grid) {
+				padding: 0;
+			}
+		}
+	}
 }
 
 [data-ui-gallery~='no-gutter'] {
-  margin: 0;
+	margin: 0;
 
-  @supports (display: grid) {
-    // Disable 'spelling' linter b/c it doesn't recognize grid properties
-    // scss-lint:disable PropertySpelling
-    grid-column-gap: 0;
-    grid-row-gap: 0;
-    margin: 0;
-  }
+	@supports (display: grid) {
+		// Disable 'spelling' linter b/c it doesn't recognize grid properties
+		// scss-lint:disable PropertySpelling
+		grid-column-gap: 0;
+		grid-row-gap: 0;
+		margin: 0;
+	}
 
-  [data-ui-gallery-item] {
-    padding: 0;
-  }
+	[data-ui-gallery-item] {
+		padding: 0;
+	}
 }
 
 // Elements
 // -----------------------------------------------------------------------------
 
 [data-ui-gallery-item] {
-  // Need to break the alphabetical rule order here so it's easier to see how the fallbacks work
-  // sass-lint:disable property-sort-order
-  display: inline-block;
-  font-size: $type-size-default;
-  margin: 0;
-  padding: ($gallery-gutter / 2);
-  position: relative;
-  vertical-align: top;
+	// Need to break the alphabetical rule order here so it's easier to see how the fallbacks work
+	// stylelint-disable order/properties-alphabetical-order
+	display: inline-block;
+	font-size: $type-size-default;
+	margin: 0;
+	padding: ($gallery-gutter / 2);
+	position: relative;
+	vertical-align: top;
 
-  // fallback fluid sizing method using a calc() hack
-  // -> allows grid to be somewhat responsive without media queries
-  // -> mainly for IE and old browsers
-  // https://www.sitepoint.com/responsive-css-patterns-without-media-queries/
-  max-width: 100%;
-  min-width: (100% / 3);
-  width: calc((600px - 100%) * 1000);
+	// fallback fluid sizing method using a calc() hack
+	// -> allows grid to be somewhat responsive without media queries
+	// -> mainly for IE and old browsers
+	// https://www.sitepoint.com/responsive-css-patterns-without-media-queries/
+	max-width: 100%;
+	min-width: (100% / 3);
+	width: calc((600px - 100%) * 1000);
 
-  @supports (display: flex) {
-    display: flex;
-    flex-direction: column;
-  }
+	@supports (display: flex) {
+		display: flex;
+		flex-direction: column;
+	}
 
-  // CSS grid version
-  // -> all the responsive things, all the time, all the glory
-  // -> for modern browsers
-  @supports (display: grid) {
-    // set the grid item as a flex container itself, so it can position its children better
-    max-width: auto;
-    min-width: auto;
-    padding: 0;
-    width: auto;
-  }
+	// CSS grid version
+	// -> all the responsive things, all the time, all the glory
+	// -> for modern browsers
+	@supports (display: grid) {
+		// set the grid item as a flex container itself, so it can position its children better
+		max-width: auto;
+		min-width: auto;
+		padding: 0;
+		width: auto;
+	}
 }
 
 // Traits
@@ -132,44 +132,44 @@ $gallery-gutter: space(); // default gutter width
 // -> @param NUMBER $min-percentage: the smallest pecentage width the col can be
 // -> @param NUMBER $max-percentage: the largest percentage width the col can be
 @mixin gallery-variation(
-  $min-width: 240px,
-  $breakpoint: 600px,
-  $min-percentage: 33%,
-  $max-percentage: 100%
+	$min-width: 240px,
+	$breakpoint: 600px,
+	$min-percentage: 33%,
+	$max-percentage: 100%
 ) {
-  @supports (display: grid) {
-    // Disable 'spelling' linter b/c it doesn't recognize grid properties
-    // scss-lint:disable PropertySpelling
-    grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
-  }
+	@supports (display: grid) {
+		// Disable 'spelling' linter b/c it doesn't recognize grid properties
+		// scss-lint:disable PropertySpelling
+		grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+	}
 
-  [data-ui-gallery-item] {
-    max-width: $max-percentage;
-    min-width: $min-percentage;
-    width: calc((#{$breakpoint} - 100%) * 1000);
-  }
+	[data-ui-gallery-item] {
+		max-width: $max-percentage;
+		min-width: $min-percentage;
+		width: calc((#{$breakpoint} - 100%) * 1000);
+	}
 }
 
 [data-ui-gallery~='small'] {
-  @include gallery-variation(
-    $min-width: 115px,
-    $breakpoint: 480px,
-    $min-percentage: 25%
-  );
+	@include gallery-variation(
+		$min-width: 115px,
+		$breakpoint: 480px,
+		$min-percentage: 25%
+	);
 }
 
 @include breakpointify-attr($attr: 'data-ui-gallery', $value: 'default', $default: true, $sizes: 'small' 'medium') {
-  @include gallery-variation();
+	@include gallery-variation();
 }
 
 @include breakpointify-attr('data-ui-gallery', $value: 'large', $default: true, $sizes: 'xsmall') {
-  @include gallery-variation(
-    $min-width: 360px,
-    $breakpoint: 800px,
-    $min-percentage: 33%
-  );
+	@include gallery-variation(
+		$min-width: 360px,
+		$breakpoint: 800px,
+		$min-percentage: 33%
+	);
 }
 
 [data-ui-gallery~='flush'] [data-ui-gallery-item] {
-  padding: 0;
+	padding: 0;
 }

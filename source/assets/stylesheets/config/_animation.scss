@@ -10,5 +10,5 @@ $transition-ease: ease-in-out !default;
 
 // base transition used globally
 @mixin transition($props: all, $duration: $transition-duration, $ease: $transition-ease) {
-  transition: #{$props} #{$duration} #{$ease};
+	transition: #{$props} #{$duration} #{$ease};
 }

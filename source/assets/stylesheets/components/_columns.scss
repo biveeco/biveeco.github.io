@@ -4,61 +4,64 @@
 @import '../config/breakpoints';
 
 $ratios: (
-  '50-50': 50%,
-  '30-70': 30%
+	'50-50': 50%,
+	'30-70': 30%
 );
 
 @mixin columns-variation($left-w: 50%) {
-  [data-ui-columns-item~='left'] {
-    width: $left-w;
-    // width: var(--left-col-width);
-  }
+	[data-ui-columns-item~='left'] {
+		width: $left-w;
+		// width: var(--left-col-width);
+	}
 
-  [data-ui-columns-item~='right'] {
-    width: (100% - $left-w);
-    // width: calc(100% - var(--left-col-width));
-  }
+	[data-ui-columns-item~='right'] {
+		width: (100% - $left-w);
+		// width: calc(100% - var(--left-col-width));
+	}
 }
 
 // --- base ---
 [data-ui-columns] {
-  // --left-col-width: #{$columns-left-w};
+	// --left-col-width: #{$columns-left-w};
 
-  display: block;
-  font-size: 0;
-  overflow: hidden;
+	display: block;
+	font-size: 0;
+	overflow: hidden;
 }
 
 // --- elements ---
 [data-ui-columns-item] {
-  display: block;
-  font-size: 1rem;
-  max-width: 100%;
-  vertical-align: top;
+	display: block;
+	font-size: 1rem;
+	max-width: 100%;
+	vertical-align: top;
 }
 
 // --- variations ---
 @each $name, $width in $ratios {
-  @include breakpointify-attr('data-ui-columns', $value: $name, $sizes: 'small' 'medium') {
-    @supports (display: flex) {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
+	@include breakpointify-attr('data-ui-columns', $value: $name, $sizes: 'small' 'medium') {
+		@supports (display: flex) {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
 
-    [data-ui-columns-item] {
-      display: inline-block;
+		[data-ui-columns-item] {
+			display: inline-block;
 
-      @supports (display: flex) {
-        display: block;
-      }
-    }
+			@supports (display: flex) {
+				display: block;
+			}
+		}
 
-    [data-ui-columns-item~='left'] {
-      order: -1;
-    }
+		[data-ui-columns-item~='left'] {
+			order: -1;
+		}
 
-    // 50-50 default layout
-    @include columns-variation($width);
-  }
+		// stylelint-disable order/order
+		// -> need this to come after the rules above so it overrides
+		// 50-50 default layout
+		@include columns-variation($width);
+		// stylelint-enable order/order
+	}
 }

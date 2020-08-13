@@ -28,7 +28,8 @@ module.exports = env => {
             options: {
               formatter: require('eslint-friendly-formatter'),
               cache: env.development && true,
-              failOnWarning: env.production && true
+              failOnWarning: env.production && true,
+              configFile: path.resolve(__dirname, '.eslintrc.yml')
             }
           }
         },

@@ -16,71 +16,74 @@
 // -> useful if it contains, for instance, stuff like a jump nav that needs to overlay elements below
 
 @each $name, $level in $z-indexes {
-  .z-#{$name} {
-    z-index: z($name) !important;
-  }
+	.z-#{$name} {
+		z-index: z($name) !important;
+	}
 }
 
 .display-block {
-  display: block !important;
+	display: block !important;
 }
 
 .display-inline-block {
-  display: inline-block !important;
+	display: inline-block !important;
 }
 
 .display-flex {
-  display: block;
+	display: block;
 
-  @supports (display: flex) {
-    display: flex !important;
-  }
+	@supports (display: flex) {
+		display: flex !important;
+	}
 }
 
 .display-flex-column {
-  @supports (flex-direction: column) {
-    flex-direction: column;
-  }
+	@supports (flex-direction: column) {
+		flex-direction: column;
+	}
 }
 
 .display-flex-centered {
-  @supports (justify-content: center) {
-    justify-content: center;
-  }
+	@supports (justify-content: center) {
+		justify-content: center;
+	}
 }
 
 .display-flex-fill {
-  @supports (flex: 1) {
-    flex: 1;
-  }
+	@supports (flex: 1) {
+		flex: 1;
+	}
 }
 
 .overflow-hidden {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .align-center-block {
-  margin-left: auto;
-  margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .position-relative {
-  position: relative !important;
+	position: relative !important;
 }
 
 .position-absolute {
-  position: absolute !important;
+	position: absolute !important;
 }
 
 @each $side in [top, bottom, left, right] {
-  .position-#{$side} {
-    #{$side}: 0;
-  }
+	.position-#{$side} {
+		#{$side}: 0;
+	}
 }
 
 // make an element the same height as the browser window
 .fill-browser {
-  min-height: 40rem;
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
+	min-height: 40rem;
+	min-height: 100vh;
+	// stylelint-disable value-no-vendor-prefix
+	// -> need this specific rule to fix 100vh bug in iOS
+	min-height: -webkit-fill-available;
+	// stylelint-enable value-no-vendor-prefix
 }

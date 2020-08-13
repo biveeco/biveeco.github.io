@@ -6,20 +6,20 @@
 @import '../config/breakpoints';
 
 html {
-  box-sizing: border-box;
-  font-size: scale-base-type-size();
+	box-sizing: border-box;
+	font-size: scale-base-type-size();
 
-  @each $screen, $size in $scale-base-type-percentages {
-    @if $screen != 'default' {
-      @include media('>#{$screen}') {
-        font-size: $size;
-      }
-    }
-  }
+	@each $screen, $size in $scale-base-type-percentages {
+		@if $screen != 'default' {
+			@include media('>#{$screen}') {
+				font-size: $size;
+			}
+		}
+	}
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+	box-sizing: inherit;
 }

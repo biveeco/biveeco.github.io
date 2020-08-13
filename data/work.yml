@@ -46,6 +46,7 @@ projects:
         source: /work/ga/assets/ga-poster-r2@{size}w.jpg
         sizes: [400, 800, 1200, 1600]
         align: bottom
+        background: '#43bbc7'
       thumb:
         source: /work/ga/assets/ga-thumb@{size}w.jpg
         sizes: [400, 700, 1000]

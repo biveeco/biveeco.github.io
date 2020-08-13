@@ -1,37 +1,37 @@
 <%
-  # Cover component
-  # - A "hero" with a full-bleed image and headline
+	# Cover component
+	# - A "hero" with a full-bleed image and headline
 
-  # Locals:
-  headline ||= false # STRING: a headline, if you"d like one
-  # bg_image ||= false # STRING: image for the background
-  theme ||= "default" # STRING: color theme
-  classes ||= false # STRING: additional utilitiy classes you"d like to pass in
-  padding ||= { x: "outside", y: "wide" } # STRING/HASH: outside padding - see padding_classes in config.rb
-  borders ||= false # STRING/ARRAY: borders - see border_classes in config.rb
-  content_position ||= "default"
-  header_offset ||= false
-  prompt_label ||= "About us"
-  prompt_link ||= "#intro"
+	# Locals:
+	headline ||= false # STRING: a headline, if you"d like one
+	# bg_image ||= false # STRING: image for the background
+	theme ||= "default" # STRING: color theme
+	classes ||= false # STRING: additional utilitiy classes you"d like to pass in
+	padding ||= { x: "outside", y: "wide" } # STRING/HASH: outside padding - see padding_classes in config.rb
+	borders ||= false # STRING/ARRAY: borders - see border_classes in config.rb
+	content_position ||= "default"
+	header_offset ||= false
+	prompt_label ||= "About us"
+	prompt_link ||= "#intro"
 
-  # Private
-  utils = [
-    "c-theme-#{theme}",
-    padding_classes(padding),
-    (classes if classes)
-  ]
+	# Private
+	utils = [
+		"c-theme-#{theme}",
+		padding_classes(padding),
+		(classes if classes)
+	]
 %>
 
 <div data-ui-cover<%= " data-ui-main-header-offset" if header_offset %><%= class_list(utils) %>>
-  <div data-ui-cover-content>
-    <%= yield %>
-  </div>
-  <a
-    data-ui-cover-prompt
-    data-js-scroll
-    class="padding-bottom-narrow t-heading t-scale-epsilon t-decoration-none"
-    href="<%= prompt_link %>"
-  >
-    <%= prompt_label %>
-  </a>
+	<div data-ui-cover-content>
+		<%= yield %>
+	</div>
+	<a
+		data-ui-cover-prompt
+		data-js-scroll
+		class="padding-bottom-narrow t-heading t-scale-epsilon t-decoration-none"
+		href="<%= prompt_link %>"
+	>
+		<%= prompt_label %>
+	</a>
 </div>

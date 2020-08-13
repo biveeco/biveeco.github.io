@@ -10,14 +10,14 @@
 // -----------------------------------------------------------------------------
 
 [data-ui-gutter] {
-  padding: space($split: true);
+	padding: space($split: true);
 }
 
 // Elements
 // -----------------------------------------------------------------------------
 
 [data-ui-gutter-item] {
-  padding: space($split: true);
+	padding: space($split: true);
 }
 
 // Traits
@@ -27,22 +27,22 @@
 // outside gutter
 // -> note this will cause horizontal scrolling if outside margins are narrower than the inside gutter. add .overflow-hidden to a parent to prevent this.
 [data-ui-gutter~='flush'] {
-  margin: -(space());
+	margin: -(space());
 }
 
 
 @each $name, $width in $spacing {
-  @if $name != 'medium' {
-    [data-ui-gutter~='#{$name}'] {
-      padding: space($name, $split: true);
+	@if $name != 'medium' {
+		[data-ui-gutter~='#{$name}'] {
+			padding: space($name, $split: true);
 
-      &[data-ui-gutter~='flush'] {
-        margin: -(space($name));
-      }
+			&[data-ui-gutter~='flush'] {
+				margin: -(space($name));
+			}
 
-      [data-ui-gutter-item] {
-        padding: space($name, $split: true);
-      }
-    }
-  }
+			[data-ui-gutter-item] {
+				padding: space($name, $split: true);
+			}
+		}
+	}
 }

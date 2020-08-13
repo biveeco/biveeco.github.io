@@ -51,9 +51,11 @@ title: home
 					data-ui-gutter-item
 				>
 					<% component "wrapper", locals: { width: "narrow" } do %>
-						<h2 class="t-scale-gamma">We're a <strong>group of experts</strong> who love to work with clients and partners that share our dedication to <strong>making an impact</strong>.</h2>
+						<h2 class="t-scale-gamma">
+							<%= render_markdown(data.site.intro.headline, inline: true) %>
+						</h2>
 						<div class="t-content padding-top">
-							<p>We're headquartered in Washington D.C., with teams distributed globally. We've launched programs, brands, and products for the World Bank Group, UN Agencies, USAID, CDC, and more.</p>
+							<%= render_markdown(data.site.intro.blurb) %>
 						</div>
 					<% end %>
 				</section>

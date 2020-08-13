@@ -55,8 +55,13 @@ end
 helpers do
   # render markdown from an any string
   # https://stackoverflow.com/questions/43926754/how-to-output-data-from-yaml-variables-written-in-markdown-into-an-html-haml-f#44014190
-  def render_markdown(content)
-    Kramdown::Document.new(content).to_html
+  def render_markdown(content, inline: false)
+    render = Kramdown::Document.new(content).to_html
+    if inline
+	    # remove surround "p" tags if "inline" argument is true
+    	return render.gsub(/<\/?p>/, "")
+    end
+    render
   end
 
   # 'Component' decorator for partial function

@@ -21,18 +21,6 @@
 @import 'base/type';
 
 ////////////////////////////////////////////////////////////////////////////////
-// Utility classes
-// -> global element styles: lists, text, images, etc.
-////////////////////////////////////////////////////////////////////////////////
-
-@import 'utilities/borders';
-@import 'utilities/color';
-@import 'utilities/positioning';
-@import 'utilities/spacing';
-@import 'utilities/special_effects';
-@import 'utilities/visibility';
-
-////////////////////////////////////////////////////////////////////////////////
 // Component styles
 // -> self-contained, namespaced, opinionated UI elements
 ////////////////////////////////////////////////////////////////////////////////
@@ -47,3 +35,15 @@
 @import 'components/icon';
 @import 'components/main_header';
 @import 'components/wrapper';
+
+////////////////////////////////////////////////////////////////////////////////
+// Utility classes
+// -> global element styles: lists, text, images, etc.
+////////////////////////////////////////////////////////////////////////////////
+
+@import 'utilities/borders';
+@import 'utilities/color';
+@import 'utilities/positioning';
+@import 'utilities/spacing';
+@import 'utilities/special_effects';
+@import 'utilities/visibility';

@@ -97,11 +97,11 @@ title: home
 					top: 0;
 					margin-left: auto;
 					transition: all 0.25s ease-in-out;
-					background: #188794;
+					background: <%= data.work.projects.find {|p| p.slug === data.work.featured_projects.first }.cover.poster.background %>;
 				"
 			></div>
 			<ul
-				class="list-undecorated | z-middle position-relative | border-y-between"
+				class="list-undecorated | z-middle position-relative overflow-hidden | border-y-between"
 				style="margin-top: -100vh;"
 			>
 				<% data.work.featured_projects.each do |slug| %>
@@ -113,17 +113,19 @@ title: home
 						"
 						data-bg="<%= project.cover.poster.background || '#000' %>"
 					>
-						<article data-ui-columns="50-50@small">
+						<article data-ui-columns="50-50@small" class="overflow-visible">
 							<div data-ui-columns-item="left" class="padding-x-outside padding-y-wide">
 								<% component "wrapper", locals: { width: "narrow" } do %>
 									<h3 class="t-scale-beta t-font-display t-leading-xtight">
 										<%= link_to project.title.long, "/work/#{project.slug.urlize}/", class: "t-decoration-none" %>
 									</h3>
-									<p class="
-										t-heading t-scale-delta t-weight-normal
-										padding-top-narrow
-										c-highlight
-									">
+									<p
+										class="
+											t-heading t-scale-delta t-weight-normal
+											padding-top-narrow
+										"
+										style="color: <%= project.cover.poster.background %>;"
+									>
 										<%= project.client %>
 									</p>
 									<%= component "button_link", locals: {
@@ -136,13 +138,15 @@ title: home
 							</div>
 							<div data-ui-columns-item="right">
 								<% image = project.cover.poster || project.cover.thumb %>
-								<%= component "fluid_aspect_image", locals: {
-									source: "https://placehold.it/1000x600",
-									sizes: image.sizes || [],
-									alt: project.title.short,
-									ratio: "2x1",
-									bg_size: "contain",
-								} %>
+								<div data-js-rellax>
+									<%= component "fluid_aspect_image", locals: {
+										source: "https://placehold.it/1000x600",
+										sizes: image.sizes || [],
+										alt: project.title.short,
+										ratio: "2x1",
+										bg_size: "contain",
+									} %>
+								</div>
 							</div>
 						</article>
 					</li>

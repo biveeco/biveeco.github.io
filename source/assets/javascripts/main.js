@@ -1,16 +1,21 @@
 import flyout from './modules/flyout.js'
 import objectFitImages from 'object-fit-images'
 import SmoothScroll from 'smooth-scroll'
-import FeaturePoster from './modules/feature-poster.js'
+import ChangeOnIntersect from './modules/change-on-intersect.js'
 import Rellax from 'rellax'
 
 document.addEventListener('DOMContentLoaded', () => {
 	// run polyfill for object-fit on older browsers
 	objectFitImages('img[data-ui-aspect-image]')
+
 	// set up flyout toggle buttons
 	flyout('data-js-toggle')
+
 	// change bg color of featured projects on scroll
-	FeaturePoster('li[data-bg]', '[data-bg-target]')
+	const featureBG = document.querySelector('[data-bg-target]')
+	ChangeOnIntersect('li[data-bg]', (entry) => {
+		featureBG.style['background'] = entry.target.dataset.bg
+	})
 })
 
 // -> need to declare this variable per SmoothScroll's API

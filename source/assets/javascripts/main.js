@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	objectFitImages('img[data-ui-aspect-image]')
 	// set up flyout toggle buttons
 	flyout('data-js-toggle')
+
+	featurePosterBG('li[data-bg]', '[data-bg-target]')
 })
 
 // -> need to declare this variable per SmoothScroll's API
@@ -17,3 +19,20 @@ let scroll = new SmoothScroll('[data-js-scroll], a[href*="#"]', {
 	speed: 600,
 	easing: 'easeInOutCubic'
 })
+
+function featurePosterBG (targets, bgElement) {
+	if ('IntersectionObserver' in window) {
+		const targetList = Array.from(document.querySelectorAll(targets))
+		const bg = document.querySelector(bgElement)
+
+		const projectObserver = new IntersectionObserver((entries, observer) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					bg.style['background'] = entry.target.dataset.bg
+				}
+			})
+		})
+
+		targetList.forEach(project => projectObserver.observe(project))
+	}
+}

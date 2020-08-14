@@ -88,15 +88,22 @@ title: home
 
 		<!-- Case study listings -->
 		<div class="c-theme-dark">
-			<div class="z-low fill-browser" style="
-				width: 50%;
-				position: sticky;
-				top: 0;
-				margin-left: auto;
-				transition: all 0.25s ease-in-out;
-				background: #188794;
-			"></div>
-			<ul class="list-undecorated | z-middle position-relative" style="margin-top: -100vh;">
+			<div
+				class="z-low fill-browser"
+				data-bg-target
+				style="
+					width: 50%;
+					position: sticky;
+					top: 0;
+					margin-left: auto;
+					transition: all 0.25s ease-in-out;
+					background: #188794;
+				"
+			></div>
+			<ul
+				class="list-undecorated | z-middle position-relative | border-y-between"
+				style="margin-top: -100vh;"
+			>
 				<% data.work.featured_projects.each do |slug| %>
 					<% project = data.work.projects.find {|p| p.slug === slug } %>
 					<li
@@ -104,7 +111,7 @@ title: home
 							no-margin
 							fill-browser display-flex display-flex-centered display-flex-column
 						"
-						data-bg="<%= project.background || '#000' %>"
+						data-bg="<%= project.cover.poster.background || '#000' %>"
 					>
 						<article data-ui-columns="50-50@small">
 							<div data-ui-columns-item="left" class="padding-x-outside padding-y-wide">

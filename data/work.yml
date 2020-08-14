@@ -73,6 +73,7 @@ projects:
       poster:
         source: /work/e2a/assets/e2a-poster@{size}w.jpg
         sizes: [400, 800, 1200, 1600]
+        background: '#CE28F3'
       thumb:
         source: /work/e2a/assets/e2a-thumb@{size}w.jpg
         sizes: [400, 700, 1000]
@@ -153,6 +154,7 @@ projects:
       poster:
         source: /work/ppp/assets/ppp-poster@{size}w.jpg
         sizes: [400, 800, 1200, 1600]
+        background: '#645F71'
       thumb:
         source: /work/ppp/assets/ppp-thumb@{size}w.jpg
         sizes: [400, 700, 1000]
@@ -327,6 +329,7 @@ projects:
       poster:
         source: /work/cdc/assets/cdc-poster@{size}w.jpg
         sizes: [400, 800, 1200, 1600]
+        background: '#55FFC8'
       thumb:
         source: /work/cdc/assets/cdc-thumb@{size}w.jpg
         sizes: [400, 700, 1000]

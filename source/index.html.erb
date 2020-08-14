@@ -117,7 +117,10 @@ title: home
 							<div data-ui-columns-item="left" class="padding-x-outside padding-y-wide">
 								<% component "wrapper", locals: { width: "narrow" } do %>
 									<h3 class="t-scale-beta t-font-display t-leading-xtight">
-										<%= link_to project.title.long, "/work/#{project.slug.urlize}/", class: "t-decoration-none" %>
+										<%= link_to project.title.long,
+											"/work/#{project.slug.urlize}/",
+											class: "t-decoration-none"
+										%>
 									</h3>
 									<p
 										class="
@@ -138,7 +141,11 @@ title: home
 							</div>
 							<div data-ui-columns-item="right">
 								<% image = project.cover.poster || project.cover.thumb %>
-								<div data-js-rellax>
+								<div
+									data-js-rellax
+									data-rellax-percentage="0.5"
+									data-rellax-speed="3"
+								>
 									<%= component "fluid_aspect_image", locals: {
 										source: "https://placehold.it/1000x600",
 										sizes: image.sizes || [],

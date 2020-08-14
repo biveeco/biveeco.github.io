@@ -1,4 +1,4 @@
-export default function (targets, bgElement, options = { threshold: 0.6 }) {
+export default function (targets, bgElement, options = { threshold: 0.5 }) {
 	if ('IntersectionObserver' in window) {
 		const targetList = Array.from(document.querySelectorAll(targets))
 		const bg = document.querySelector(bgElement)

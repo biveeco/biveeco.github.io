@@ -8,9 +8,9 @@ headline:
 # the number of projects featured on the homepage
 featured_projects:
   - GA
-  # - PPP
+  - PPP
   - E2A
-  # - CDC
+  - CDC
 
 # an intro blurb describing our work
 # intro: |-
@@ -76,7 +76,7 @@ projects:
           - source: /work/e2a/assets/screenshot-analyze@{size}w.jpg
             sizes: [400, 800, 1200, 1600, 2000]
         wallpaper: {h: 289, s: 46, l: 51}
-        highlight_color: {h: 289, s: 46, l: 40}
+        highlight_color: {h: 289, s: 46, l: 60}
       thumb:
         source: /work/e2a/assets/e2a-thumb@{size}w.jpg
         sizes: [400, 700, 1000]
@@ -155,9 +155,11 @@ projects:
       - user research
     cover:
       poster:
-        source: /work/ppp/assets/ppp-poster@{size}w.jpg
-        sizes: [400, 800, 1200, 1600]
-        background: '#645F71'
+        elements:
+          - source: /work/ppp/assets/ppp-poster@{size}w.jpg
+            sizes: [400, 800, 1200, 1600, 2000]
+        wallpaper: {h: 37, s: 94, l: 67}
+        highlight_color: {h: 37, s: 94, l: 67}
       thumb:
         source: /work/ppp/assets/ppp-thumb@{size}w.jpg
         sizes: [400, 700, 1000]
@@ -315,7 +317,7 @@ projects:
       long: Micronutrient survey toolkit
       short: Micronutrient toolkit
     slug: CDC
-    client: Centers for Disease Control
+    client: Centers for Disease Control and Prevention
     project_url: http://mnsurveytoolkit.nutritionintl.org/
     date:
       start: 2016
@@ -330,9 +332,11 @@ projects:
       - Global
     cover:
       poster:
-        source: /work/cdc/assets/cdc-poster@{size}w.jpg
-        sizes: [400, 800, 1200, 1600]
-        background: '#55FFC8'
+        elements:
+          - source: /work/cdc/assets/cdc-poster@{size}w.jpg
+            sizes: [400, 800, 1200, 1600, 2000]
+        wallpaper: {h: 161, s: 69, l: 45}
+        highlight_color: {h: 161, s: 69, l: 45}
       thumb:
         source: /work/cdc/assets/cdc-thumb@{size}w.jpg
         sizes: [400, 700, 1000]

@@ -13,6 +13,7 @@
 	align ||= "center"
 	fill ||= false # BOOLEAN (optional): should the image fill its container if it"s taller than the aspect ratio? (use with bg_size = "cover")
 	classes ||= "" # STRING (optional): list of additional util classes, if needed
+	image_classes ||= "" # STRING (optional): list of classes for the image, if needed
 
 	# list of props to pass to the data-ui attributes
 	props = [
@@ -29,7 +30,8 @@
 			source: source,
 			sizes: sizes,
 			alt: alt,
-			data: { "ui-aspect-image": "scale-#{bg_size}#{" align-#{align}" unless align === "center"}" }
+			data: { "ui-aspect-image": "scale-#{bg_size}#{" align-#{align}" unless align === "center"}" },
+			classes: image_classes
 		} %>
 	</div>
 </div>

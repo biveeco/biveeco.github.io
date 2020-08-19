@@ -8,9 +8,9 @@ headline:
 # the number of projects featured on the homepage
 featured_projects:
   - GA
-  - PPP
-  - E2A
-  - CDC
+  # - PPP
+  # - E2A
+  # - CDC
 
 # an intro blurb describing our work
 # intro: |-
@@ -43,10 +43,13 @@ projects:
       - digital transformation
     cover:
       poster:
-        source: /work/ga/assets/ga-poster-r2@{size}w.jpg
-        sizes: [400, 800, 1200, 1600]
-        align: bottom
-        background: '#43bbc7'
+        elements:
+          - source: /work/ga/assets/ga-poster-tablet@{size}w.png
+            sizes: [400, 800, 1200, 1600]
+            speed: 2
+        background:
+          color: '#43bbc7'
+          vignette: 20
       thumb:
         source: /work/ga/assets/ga-thumb@{size}w.jpg
         sizes: [400, 700, 1000]

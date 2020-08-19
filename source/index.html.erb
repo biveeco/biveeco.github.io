@@ -97,7 +97,7 @@ title: home
 					top: 0;
 					margin-left: auto;
 					transition: all 0.25s ease-in-out;
-					background: <%= data.work.projects.find {|p| p.slug === data.work.featured_projects.first }.cover.poster.background %>;
+					background: <%= data.work.projects.find {|p| p.slug === data.work.featured_projects.first }.cover.poster.background.color %>;
 				"
 			></div>
 			<ul
@@ -111,7 +111,7 @@ title: home
 							no-margin
 							fill-browser display-flex display-flex-centered display-flex-column
 						"
-						data-bg="<%= project.cover.poster.background || '#000' %>"
+						data-bg="<%= project.cover.poster.background.color || '#000' %>"
 					>
 						<article data-ui-columns="50-50@small" class="overflow-visible">
 							<div data-ui-columns-item="left" class="padding-x-outside padding-y-wide">
@@ -127,7 +127,7 @@ title: home
 											t-heading t-scale-delta t-weight-normal
 											padding-top-narrow
 										"
-										style="color: <%= project.cover.poster.background %>;"
+										style="color: <%= project.cover.poster.background.color %>;"
 									>
 										<%= project.client %>
 									</p>
@@ -140,18 +140,17 @@ title: home
 								<% end %>
 							</div>
 							<div data-ui-columns-item="right">
-								<% image = project.cover.poster || project.cover.thumb %>
+								<% image = project.cover.poster.elements[0] %>
 								<div
 									data-js-rellax
-									data-rellax-percentage="0.5"
-									data-rellax-speed="3"
+									data-rellax-percentage="<%= image.position || 0.5 %>"
+									data-rellax-speed="<%= image.speed || 3 %>"
+									class="padding-x-outside"
+									style="margin: 0 auto; max-width: 35rem;"
 								>
-									<%= component "fluid_aspect_image", locals: {
-										source: "https://placehold.it/1000x600",
-										sizes: image.sizes || [],
-										alt: project.title.short,
-										ratio: "2x1",
-										bg_size: "contain",
+									<%= component "device", locals: {
+										source: "https://placehold.it/1200x2000",
+										alt: project.title.short
 									} %>
 								</div>
 							</div>

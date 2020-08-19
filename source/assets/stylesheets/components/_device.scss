@@ -1,0 +1,29 @@
+// Device component
+// -> display a screenshot or image inside a device "frame"
+// -> use with fluid_aspect styles to preserve the device's aspect ratio
+
+@import '../config/positioning';
+
+[data-ui-device] {
+	position: relative;
+}
+
+[data-ui-device-frame] {
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: z('high');
+}
+
+[data-ui-device-mask] {
+	$inside-margin: 1.1rem;
+	bottom: $inside-margin;
+	left: $inside-margin;
+	overflow: hidden;
+	position: absolute;
+	right: $inside-margin;
+	top: $inside-margin;
+	// add modifiers for phone, laptop
+}

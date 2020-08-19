@@ -86,8 +86,4 @@
 .fill-browser {
 	min-height: 40rem;
 	min-height: 100vh;
-	// stylelint-disable value-no-vendor-prefix
-	// -> need this specific rule to fix 100vh bug in iOS
-	min-height: -webkit-fill-available;
-	// stylelint-enable value-no-vendor-prefix
 }

@@ -66,9 +66,9 @@ helpers do
   end
 
   # Render hsl() and hsla() CSS functions from data
-  def hsl(h, s, l, alpha: 1)
-    return "hsla(#{h}, #{s}%, #{l}%, #{alpha})" if alpha != 1
-    "hsl(#{h}, #{s}%, #{l}%)"
+  def hsl(color)
+    return color if (color.is_a?(String))
+    "hsl(#{color.h}, #{color.s}%, #{color.l}%)"
   end
 
   # 'Component' decorator for partial function

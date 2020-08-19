@@ -90,55 +90,46 @@ title: home
 		<!-- Case study listings -->
 		<div class="c-theme-dark">
 			<%
-				wallpaper = data.work.projects.find do |p|
+				first_wallpaper = data.work.projects.find do |p|
 					p.slug === data.work.featured_projects.first
 				end.cover.poster.wallpaper
-
-				bg_color = {
-					start: hsl(
-						wallpaper.color.h,
-						wallpaper.color.s,
-						wallpaper.color.l
-					),
-					end: hsl(
-						wallpaper.color.h,
-						wallpaper.color.s,
-						wallpaper.color.l - wallpaper.shading
-					)
-				}
-
-				bg_gradient = "linear-gradient(180deg, #{bg_color[:start]}, #{bg_color[:end]})"
 			%>
 			<div
 				class="z-low fill-browser"
-				data-bg-target
+				data-js-feature-bg-target
 				style="
 					width: 50%;
 					position: sticky;
 					top: 0;
 					margin-left: auto;
 					transition: all 0.25s ease-in-out;
-					background: <%= bg_color[:start] %>;
-					background: <%= bg_gradient %>;
+					background: <%= hsl(first_wallpaper) %>;
 				"
 			></div>
 			<ul
-				class="list-undecorated | z-middle position-relative overflow-hidden | border-y-between"
+				class="
+					list-undecorated
+					z-middle position-relative overflow-hidden
+					border-y-between
+				"
 				style="margin-top: -100vh;"
 			>
 				<% data.work.featured_projects.each do |slug| %>
 					<%
 						project = data.work.projects.find {|p| p.slug === slug }
-						highlight_color = project.cover.poster.highlight_color || project.cover.poster.wallpaper.color
+						wallpaper = project.cover.poster.wallpaper
+						highlight_color = project.cover.poster.highlight_color || wallpaper
 					%>
 					<li
 						class="
 							no-margin
 							fill-browser display-flex display-flex-centered display-flex-column
 						"
-						data-bg="<%= bg_color.to_json %>"
+						data-js-feature-bg="<%= hsl(wallpaper) %>"
 					>
 						<article data-ui-columns="50-50@small" class="overflow-visible">
+
+							<!-- Case study title -->
 							<div data-ui-columns-item="left" class="padding-x-outside padding-y-wide">
 								<% component "wrapper", locals: { width: "narrow" } do %>
 									<h3 class="t-scale-beta t-font-display t-leading-xtight">
@@ -152,7 +143,7 @@ title: home
 											t-heading t-scale-delta t-weight-normal
 											padding-top-narrow
 										"
-										style="color: <%= hsl(highlight_color.h, highlight_color.s, highlight_color.l) %>;"
+										style="color: <%= hsl(highlight_color) %>;"
 									>
 										<%= project.client %>
 									</p>
@@ -164,6 +155,8 @@ title: home
 									} %>
 								<% end %>
 							</div>
+
+							<!-- Case study "poster" -->
 							<div data-ui-columns-item="right">
 								<% project.cover.poster.elements.each do |element| %>
 									<div
@@ -187,7 +180,11 @@ title: home
 			</ul>
 		</div>
 
-		<aside class="c-theme-dark padding-x-outside padding-top-xwide padding-bottom-wide border-top">
+		<aside class="
+			c-theme-dark
+			padding-x-outside padding-top-xwide padding-bottom-wide
+			border-top
+		">
 				<% component "wrapper" do %>
 					<div
 						data-ui-columns="30-70@small"
@@ -200,7 +197,7 @@ title: home
 						>
 							<!-- scoot up a little to optically align with blurb to the right -->
 							<h2 class="t-scale-delta t-align-center" style="margin-top: -1rem;">
-								<strong class="t-scale-alpha t-weight-bold c-highlight">100&plus;</strong><br>
+								<strong class="t-scale-alpha t-weight-bold c-highlight_color">100&plus;</strong><br>
 								Assignments
 							</h2>
 						</div>

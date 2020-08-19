@@ -9,7 +9,7 @@ headline:
 featured_projects:
   - GA
   # - PPP
-  # - E2A
+  - E2A
   # - CDC
 
 # an intro blurb describing our work
@@ -44,11 +44,9 @@ projects:
     cover:
       poster:
         elements:
-          - source: /work/ga/assets/ga-poster-tablet@{size}w.png
-            sizes: [400, 800, 1200, 1600]
-        wallpaper:
-          color: {h: 185, s: 54, l: 60}
-          shading: 20
+          - source: /work/ga/assets/ga-poster@{size}w.jpg
+            sizes: [400, 800, 1200, 1600, 2000]
+        wallpaper: {h: 185, s: 54, l: 60}
         highlight_color: {h: 185, s: 54, l: 60}
       thumb:
         source: /work/ga/assets/ga-thumb@{size}w.jpg
@@ -74,9 +72,11 @@ projects:
       - Global
     cover:
       poster:
-        source: /work/e2a/assets/e2a-poster@{size}w.jpg
-        sizes: [400, 800, 1200, 1600]
-        background: '#CE28F3'
+        elements:
+          - source: /work/e2a/assets/screenshot-analyze@{size}w.jpg
+            sizes: [400, 800, 1200, 1600, 2000]
+        wallpaper: {h: 289, s: 46, l: 51}
+        highlight_color: {h: 289, s: 46, l: 51}
       thumb:
         source: /work/e2a/assets/e2a-thumb@{size}w.jpg
         sizes: [400, 700, 1000]

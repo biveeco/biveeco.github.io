@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	flyout('data-js-toggle')
 
 	// change bg color of featured projects on scroll
-	const featureBG = document.querySelector('[data-bg-target]')
-	ChangeOnIntersect('li[data-bg]', (entry) => {
-		featureBG.style['background'] = entry.target.dataset.bg
+	const featureBG = document.querySelector('[data-js-feature-bg-target]')
+	ChangeOnIntersect('li[data-js-feature-bg]', (entry) => {
+		featureBG.style['background'] = entry.target.dataset.jsFeatureBg
 	})
 })
 

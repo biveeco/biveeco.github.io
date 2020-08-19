@@ -1,0 +1,6 @@
+// Animation utilities
+@import '../config/animation';
+
+.transition {
+	@include transition();
+}

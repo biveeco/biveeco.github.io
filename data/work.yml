@@ -76,7 +76,7 @@ projects:
           - source: /work/e2a/assets/screenshot-analyze@{size}w.jpg
             sizes: [400, 800, 1200, 1600, 2000]
         wallpaper: {h: 289, s: 46, l: 51}
-        highlight_color: {h: 289, s: 46, l: 51}
+        highlight_color: {h: 289, s: 46, l: 40}
       thumb:
         source: /work/e2a/assets/e2a-thumb@{size}w.jpg
         sizes: [400, 700, 1000]

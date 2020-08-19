@@ -76,6 +76,10 @@
 	position: absolute !important;
 }
 
+.position-sticky {
+	position: sticky;
+}
+
 @each $side in [top, bottom, left, right] {
 	.position-#{$side} {
 		#{$side}: 0;
@@ -86,4 +90,14 @@
 .fill-browser {
 	min-height: 40rem;
 	min-height: 100vh;
+}
+
+.fill-half-browser-right {
+	margin-left: auto;
+	width: 50%;
+}
+
+// move an element up so it overlaps with a preceding .fill-browser element
+.fill-browser-overlap {
+	margin-top: -100vh;
 }

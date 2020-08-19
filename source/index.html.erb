@@ -1,6 +1,7 @@
 ---
 title: home
 ---
+
 <div class="position-relative">
 	<%= component "main_header", locals: {
 		overlay: true,
@@ -88,6 +89,26 @@ title: home
 
 		<!-- Case study listings -->
 		<div class="c-theme-dark">
+			<%
+				wallpaper = data.work.projects.find do |p|
+					p.slug === data.work.featured_projects.first
+				end.cover.poster.wallpaper
+
+				bg_color = {
+					start: hsl(
+						wallpaper.color.h,
+						wallpaper.color.s,
+						wallpaper.color.l
+					),
+					end: hsl(
+						wallpaper.color.h,
+						wallpaper.color.s,
+						wallpaper.color.l - wallpaper.shading
+					)
+				}
+
+				bg_gradient = "linear-gradient(180deg, #{bg_color[:start]}, #{bg_color[:end]})"
+			%>
 			<div
 				class="z-low fill-browser"
 				data-bg-target
@@ -97,7 +118,8 @@ title: home
 					top: 0;
 					margin-left: auto;
 					transition: all 0.25s ease-in-out;
-					background: <%= data.work.projects.find {|p| p.slug === data.work.featured_projects.first }.cover.poster.background.color %>;
+					background: <%= bg_color[:start] %>;
+					background: <%= bg_gradient %>;
 				"
 			></div>
 			<ul
@@ -105,13 +127,16 @@ title: home
 				style="margin-top: -100vh;"
 			>
 				<% data.work.featured_projects.each do |slug| %>
-					<% project = data.work.projects.find {|p| p.slug === slug } %>
+					<%
+						project = data.work.projects.find {|p| p.slug === slug }
+						highlight_color = project.cover.poster.highlight_color || project.cover.poster.wallpaper.color
+					%>
 					<li
 						class="
 							no-margin
 							fill-browser display-flex display-flex-centered display-flex-column
 						"
-						data-bg="<%= project.cover.poster.background.color || '#000' %>"
+						data-bg="<%= bg_color.to_json %>"
 					>
 						<article data-ui-columns="50-50@small" class="overflow-visible">
 							<div data-ui-columns-item="left" class="padding-x-outside padding-y-wide">
@@ -127,7 +152,7 @@ title: home
 											t-heading t-scale-delta t-weight-normal
 											padding-top-narrow
 										"
-										style="color: <%= project.cover.poster.background.color %>;"
+										style="color: <%= hsl(highlight_color.h, highlight_color.s, highlight_color.l) %>;"
 									>
 										<%= project.client %>
 									</p>
@@ -140,19 +165,21 @@ title: home
 								<% end %>
 							</div>
 							<div data-ui-columns-item="right">
-								<% image = project.cover.poster.elements[0] %>
-								<div
-									data-js-rellax
-									data-rellax-percentage="<%= image.position || 0.5 %>"
-									data-rellax-speed="<%= image.speed || 3 %>"
-									class="padding-x-outside"
-									style="margin: 0 auto; max-width: 35rem;"
-								>
-									<%= component "device", locals: {
-										source: "https://placehold.it/1200x2000",
-										alt: project.title.short
-									} %>
-								</div>
+								<% project.cover.poster.elements.each do |element| %>
+									<div
+										data-ui-wrapper="narrow"
+										data-js-rellax
+										data-rellax-percentage="<%= element.position || 0.5 %>"
+										data-rellax-speed="<%= element.speed || 2 %>"
+										class="padding-x-outside"
+									>
+										<%= component "device", locals: {
+											source: element.source,
+											sizes: element.sizes,
+											alt: project.title.short
+										} %>
+									</div>
+								<% end %>
 							</div>
 						</article>
 					</li>

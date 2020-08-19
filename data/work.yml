@@ -46,10 +46,10 @@ projects:
         elements:
           - source: /work/ga/assets/ga-poster-tablet@{size}w.png
             sizes: [400, 800, 1200, 1600]
-            speed: 2
-        background:
-          color: '#43bbc7'
-          vignette: 20
+        wallpaper:
+          color: {h: 185, s: 54, l: 60}
+          shading: 20
+        highlight_color: {h: 185, s: 54, l: 60}
       thumb:
         source: /work/ga/assets/ga-thumb@{size}w.jpg
         sizes: [400, 700, 1000]

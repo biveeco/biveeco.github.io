@@ -1,10 +1,12 @@
 // Device component
 // -> display a screenshot or image inside a device "frame"
 // -> use with fluid_aspect styles to preserve the device's aspect ratio
-
 @import '../config/positioning';
 
+$device-bgcolor: color('bg');
+
 [data-ui-device] {
+	--background-color: #{$device-bgcolor};
 	position: relative;
 }
 
@@ -19,6 +21,9 @@
 
 [data-ui-device-mask] {
 	$inside-margin: 1.1rem;
+
+	background-color: $device-bgcolor;
+	background-color: var(--background-color);
 	bottom: $inside-margin;
 	left: $inside-margin;
 	overflow: hidden;

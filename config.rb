@@ -65,6 +65,12 @@ helpers do
     render
   end
 
+  # Render hsl() and hsla() CSS functions from data
+  def hsl(h, s, l, alpha: 1)
+    return "hsla(#{h}, #{s}%, #{l}%, #{alpha})" if alpha != 1
+    "hsl(#{h}, #{s}%, #{l}%)"
+  end
+
   # 'Component' decorator for partial function
   # -> just used to point automatically to 'components' dir so you don't have
   #    to type the full path

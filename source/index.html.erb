@@ -152,19 +152,54 @@ title: home
 							<!-- Case study "poster" -->
 							<div data-ui-columns-item="right">
 								<% project.cover.poster.elements.each do |element| %>
-									<div
-										data-ui-wrapper="narrow"
-										data-js-rellax
-										data-rellax-percentage="<%= element.position || 0.5 %>"
-										data-rellax-speed="<%= element.speed || 2 %>"
-										class="padding-x-outside"
-									>
-										<%= component "device", locals: {
-											source: element.source,
-											sizes: element.sizes,
-											alt: project.title.short
-										} %>
-									</div>
+									<%
+										device = element.device || "tablet"
+										orientation = element.orientation || "vertical"
+										position = element.position || 0.5
+										speed = element.speed || 2
+									%>
+
+									<!-- tablet -->
+									<% if device == "tablet" %>
+
+										<!-- vertical -->
+										<% if orientation == "vertical" %>
+											<div
+												data-ui-wrapper="narrow"
+												data-js-rellax
+												data-rellax-percentage="<%= position %>"
+												data-rellax-speed="<%= speed %>"
+												class="padding-x-outside"
+											>
+												<%= component "device", locals: {
+													device: device,
+													orientation: orientation,
+													source: element.source,
+													sizes: element.sizes,
+													alt: project.title.short
+												} %>
+											</div>
+
+										<!-- horizontal -->
+										<% else %>
+											<div
+												data-ui-wrapper
+												data-js-rellax
+												data-rellax-percentage="<%= position %>"
+												data-rellax-speed="<%= speed %>"
+												class=""
+												style="margin-left: -8%;"
+											>
+												<%= component "device", locals: {
+													device: device,
+													orientation: orientation,
+													source: element.source,
+													sizes: element.sizes,
+													alt: project.title.short
+												} %>
+											</div>
+										<% end %>
+									<% end %>
 								<% end %>
 							</div>
 						</article>
@@ -175,7 +210,7 @@ title: home
 
 		<aside class="
 			c-theme-dark
-			padding-x-outside padding-top-xwide padding-bottom-wide
+			padding-x-outside padding-top-xwide padding-bottom-wide overflow-hidden
 			border-top
 		">
 				<% component "wrapper" do %>

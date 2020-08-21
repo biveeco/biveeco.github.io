@@ -19,16 +19,28 @@ $device-bgcolor: color('bg');
 	z-index: z('high');
 }
 
+// defaults to 'tablet'
 [data-ui-device-mask] {
-	$inside-margin: 1.1rem;
+	// inset the mask so it aligns with the inside edges of the device's frame
+	// -> use percentages so positioning scales fluidly
+	$inside-margin-y: 3.5%;
+	$inside-margin-x: 4.3%;
 
 	background-color: $device-bgcolor;
 	background-color: var(--background-color);
-	bottom: $inside-margin;
-	left: $inside-margin;
+	bottom: $inside-margin-y;
+	left: $inside-margin-x;
 	overflow: hidden;
 	position: absolute;
-	right: $inside-margin;
-	top: $inside-margin;
+	right: $inside-margin-x;
+	top: $inside-margin-y;
 	// add modifiers for phone, laptop
+
+	[data-ui-device~='horizontal'] & {
+		// reverse the margins for horizontal orientation
+		bottom: $inside-margin-x;
+		left: $inside-margin-y;
+		right: $inside-margin-y;
+		top: $inside-margin-x;
+	}
 }

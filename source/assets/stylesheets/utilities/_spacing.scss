@@ -2,9 +2,11 @@
 // Spacing layout utilities
 // -> used to keep whitespace in the layout consistent
 // =============================================================================
-// sass-lint:disable no-important
+// stylelint-disable order/order
+// -> need to put mixins after rules here so the class names are generated in the right order
 
 @import '../config/spacing';
+@import '../config/breakpoints';
 
 // Margin & padding utils
 // -----------------------------------------------------------------------------
@@ -16,7 +18,7 @@
 	}
 
 	// remove space from all sides
-	.no-#{$prop} {
+	@include breakpointify('.no-#{$prop}', $default: true) {
 		#{$prop}: 0 !important;
 	}
 
@@ -45,12 +47,12 @@
 	}
 
 	// remove space on x and y axes
-	.no-#{$prop}-x {
+	@include breakpointify('.no-#{$prop}-x', $default: true) {
 		#{$prop}-left: 0 !important;
 		#{$prop}-right: 0 !important;
 	}
 
-	.no-#{$prop}-y {
+	@include breakpointify('.no-#{$prop}-y', $default: true) {
 		#{$prop}-bottom: 0 !important;
 		#{$prop}-top: 0 !important;
 	}
@@ -97,10 +99,6 @@
 			#{$prop}-#{$side}: space() !important;
 		}
 
-		.no-#{$prop}-#{$side} {
-			#{$prop}-#{$side}: 0 !important;
-		}
-
 		// variations
 		@each $name, $length in $spacing {
 			@if $name != 'medium' {
@@ -108,6 +106,10 @@
 					#{$prop}-#{$side}: space($name) !important;
 				}
 			}
+		}
+
+		@include breakpointify('.no-#{$prop}-#{$side}', $default: true) {
+			#{$prop}-#{$side}: 0 !important;
 		}
 	}
 }

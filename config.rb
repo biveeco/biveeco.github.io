@@ -68,6 +68,7 @@ helpers do
   # Render hsl() and hsla() CSS functions from data
   def hsl(color)
     return color if color.is_a?(String)
+
     "hsl(#{color.h}, #{color.s}%, #{color.l}%)"
   end
 

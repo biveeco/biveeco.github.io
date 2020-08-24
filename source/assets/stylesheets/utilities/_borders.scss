@@ -80,3 +80,22 @@ $-sides: ['top', 'right', 'bottom', 'left'];
 		}
 	}
 }
+
+@include breakpointify('.border-roadmap-right', $sizes: 'medium') {
+	@include border('right', $style: 'secondary', $color: 'text' 'primary');
+
+	&::after {
+		$size: 0.6rem;
+
+		@include color-background('text' 'primary');
+		border-radius: 100000px;
+		bottom: 0;
+		content: '';
+		display: block;
+		height: $size;
+		position: absolute;
+		right: -($size / 2);
+		width: $size;
+		z-index: z('middle');
+	}
+}

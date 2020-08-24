@@ -34,22 +34,20 @@ title: home
 	</section>
 
 	<!-- Logo wall and intro -->
+	<% intro_breakpoint = "medium" %>
 	<% component "panel", locals: {
 		border: "none",
 		theme: "default",
 		id: "intro",
-		padding: {
-			x: "outside",
-			y: "xwide"
-		},
+		padding: "none",
 		fill_browser: true,
 		center_content: true
 	} do %>
-		<% component "wrapper", locals: { width: "wide", classes: "overflow-hidden" } do %>
-			<div data-ui-columns="50-50@medium" data-ui-gutter="xwide flush">
+		<% component "wrapper", locals: { width: "xwide", classes: "overflow-hidden" } do %>
+			<div data-ui-columns="50-50@<%= intro_breakpoint %>">
 				<section
 					data-ui-columns-item="right"
-					data-ui-gutter-item
+					class="padding-x-outside padding-top-xwide"
 				>
 					<% component "wrapper", locals: { width: "narrow" } do %>
 						<h2 class="t-scale-gamma">
@@ -62,7 +60,7 @@ title: home
 				</section>
 				<div
 					data-ui-columns-item="left"
-					data-ui-gutter-item
+					class="padding-x-outside padding-y-xwide border-roadmap-right@<%= intro_breakpoint %> position-relative"
 				>
 					<ul data-ui-gallery="small gutter-wide">
 						<% data.clients.each do |client| %>
@@ -85,7 +83,7 @@ title: home
 		id: "work",
 		padding: "none"
 	} do %>
-		<!-- <h2 class="t-scale-epsilon t-align-center padding-bottom-narrow">Our work</h2> -->
+		<h2 class="t-scale-epsilon t-align-center padding-y-narrow hide-below@<%= intro_breakpoint %>">Our work</h2>
 
 		<!-- Case study listings -->
 		<div class="c-theme-dark">
@@ -94,16 +92,16 @@ title: home
 					p.slug === data.work.featured_projects.first
 				end.cover.poster.wallpaper
 
-				breakpoint = 'medium'
+				work_breakpoint = 'medium'
 			%>
 			<div
-				class="z-low fill-browser fill-half-browser-right position-sticky position-top transition hide-below@<%= breakpoint %>"
+				class="z-low fill-browser fill-half-browser-right position-sticky position-top transition hide-below@<%= work_breakpoint %>"
 				data-js-feature-bg-target
 				style="background: <%= hsl(first_wallpaper) %>;"
 			></div>
 			<ul class="
 				list-undecorated
-				z-middle position-relative overflow-hidden fill-browser-overlap@<%= breakpoint %>
+				z-middle position-relative overflow-hidden fill-browser-overlap@<%= work_breakpoint %>
 				border-y-between
 			">
 				<% data.work.featured_projects.each do |slug| %>
@@ -120,8 +118,8 @@ title: home
 						data-js-feature-bg="<%= hsl(wallpaper) %>"
 					>
 						<article
-							data-ui-columns="50-50@<%= breakpoint %>"
-							class="overflow-visible display-flex display-flex-fill display-flex-column display-flex-row@<%= breakpoint %> display-flex-align-items-center@<%= breakpoint %>"
+							data-ui-columns="50-50@<%= work_breakpoint %>"
+							class="overflow-visible display-flex display-flex-fill display-flex-column display-flex-row@<%= work_breakpoint %> display-flex-align-items-center@<%= work_breakpoint %>"
 					>
 
 							<!-- Case study title -->
@@ -211,7 +209,7 @@ title: home
 								<% end %>
 								<div
 									class="
-										hide-above@<%= breakpoint %>
+										hide-above@<%= work_breakpoint %>
 										position-absolute position-top position-left position-right position-bottom z-low
 									"
 									style="background-color: <%= hsl(wallpaper) %>;"></div>

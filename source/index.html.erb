@@ -95,7 +95,7 @@ title: home
 				end.cover.poster.wallpaper
 			%>
 			<div
-				class="z-low fill-browser fill-half-browser-right position-sticky position-top transition"
+				class="z-low fill-browser fill-half-browser-right position-sticky position-top transition hide-below@medium"
 				data-js-feature-bg-target
 				style="background: <%= hsl(first_wallpaper) %>;"
 			></div>
@@ -109,6 +109,7 @@ title: home
 						project = data.work.projects.find {|p| p.slug === slug }
 						wallpaper = project.cover.poster.wallpaper
 						highlight_color = project.cover.poster.highlight_color || wallpaper
+						breakpoint = 'medium'
 					%>
 					<li
 						class="
@@ -117,7 +118,10 @@ title: home
 						"
 						data-js-feature-bg="<%= hsl(wallpaper) %>"
 					>
-						<article data-ui-columns="50-50@small" class="overflow-visible">
+						<article
+							data-ui-columns="50-50@<%= breakpoint %>"
+							class="overflow-visible display-flex display-flex-fill display-flex-column display-flex-row@<%= breakpoint %> display-flex-align-items-center@<%= breakpoint %>"
+						>
 
 							<!-- Case study title -->
 							<div
@@ -150,13 +154,16 @@ title: home
 							</div>
 
 							<!-- Case study "poster" -->
-							<div data-ui-columns-item="right">
+							<div
+								data-ui-columns-item="right"
+								class="position-relative display-flex display-flex-fill display-flex-column display-flex-centered"
+							>
 								<% project.cover.poster.elements.each do |element| %>
 									<%
 										device = element.device || "tablet"
 										orientation = element.orientation || "vertical"
 										position = element.position || 0.5
-										speed = element.speed || 2
+										speed = element.speed || 1
 									%>
 
 									<!-- tablet -->
@@ -169,7 +176,7 @@ title: home
 												data-js-rellax
 												data-rellax-percentage="<%= position %>"
 												data-rellax-speed="<%= speed %>"
-												class="padding-x-outside"
+												class="padding-x-outside z-middle"
 											>
 												<%= component "device", locals: {
 													device: device,
@@ -187,8 +194,8 @@ title: home
 												data-js-rellax
 												data-rellax-percentage="<%= position %>"
 												data-rellax-speed="<%= speed %>"
-												class=""
-												style="margin-left: -8%;"
+												class="padding-x-outside z-middle"
+												style=""
 											>
 												<%= component "device", locals: {
 													device: device,
@@ -201,6 +208,12 @@ title: home
 										<% end %>
 									<% end %>
 								<% end %>
+								<div
+									class="
+										hide-above@<%= breakpoint %>
+										position-absolute position-top position-left position-right position-bottom z-low
+									"
+									style="background-color: <%= hsl(wallpaper) %>;"></div>
 							</div>
 						</article>
 					</li>

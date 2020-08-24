@@ -20,8 +20,8 @@
 // Block
 // -----------------------------------------------------------------------------
 [data-ui-aspect] {
+	max-width: 100%;
 	position: relative;
-	width: 100%;
 
 	&::before {
 		content: '';

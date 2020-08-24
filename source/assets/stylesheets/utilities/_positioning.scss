@@ -116,6 +116,6 @@
 }
 
 // move an element up so it overlaps with a preceding .fill-browser element
-.fill-browser-overlap {
+@include breakpointify('.fill-browser-overlap', $default: true, $sizes: 'medium') {
 	margin-top: -100vh;
 }

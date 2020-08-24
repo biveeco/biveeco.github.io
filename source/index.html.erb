@@ -93,15 +93,17 @@ title: home
 				first_wallpaper = data.work.projects.find do |p|
 					p.slug === data.work.featured_projects.first
 				end.cover.poster.wallpaper
+
+				breakpoint = 'medium'
 			%>
 			<div
-				class="z-low fill-browser fill-half-browser-right position-sticky position-top transition hide-below@medium"
+				class="z-low fill-browser fill-half-browser-right position-sticky position-top transition hide-below@<%= breakpoint %>"
 				data-js-feature-bg-target
 				style="background: <%= hsl(first_wallpaper) %>;"
 			></div>
 			<ul class="
 				list-undecorated
-				z-middle position-relative overflow-hidden fill-browser-overlap
+				z-middle position-relative overflow-hidden fill-browser-overlap@<%= breakpoint %>
 				border-y-between
 			">
 				<% data.work.featured_projects.each do |slug| %>
@@ -109,7 +111,6 @@ title: home
 						project = data.work.projects.find {|p| p.slug === slug }
 						wallpaper = project.cover.poster.wallpaper
 						highlight_color = project.cover.poster.highlight_color || wallpaper
-						breakpoint = 'medium'
 					%>
 					<li
 						class="
@@ -121,12 +122,12 @@ title: home
 						<article
 							data-ui-columns="50-50@<%= breakpoint %>"
 							class="overflow-visible display-flex display-flex-fill display-flex-column display-flex-row@<%= breakpoint %> display-flex-align-items-center@<%= breakpoint %>"
-						>
+					>
 
 							<!-- Case study title -->
 							<div
 								data-ui-columns-item="left"
-								class="padding-x-outside padding-y-wide"
+								class="padding-x-outside padding-y-xwide"
 							>
 								<% component "wrapper", locals: { width: "narrow" } do %>
 									<h3 class="t-scale-beta t-font-display t-leading-xtight">
@@ -156,7 +157,7 @@ title: home
 							<!-- Case study "poster" -->
 							<div
 								data-ui-columns-item="right"
-								class="position-relative display-flex display-flex-fill display-flex-column display-flex-centered"
+								class="position-relative display-flex display-flex-fill display-flex-column display-flex-centered | padding-x-outside padding-y-wide"
 							>
 								<% project.cover.poster.elements.each do |element| %>
 									<%
@@ -172,11 +173,11 @@ title: home
 										<!-- vertical -->
 										<% if orientation == "vertical" %>
 											<div
-												data-ui-wrapper="narrow"
+												data-ui-wrapper="xnarrow"
 												data-js-rellax
 												data-rellax-percentage="<%= position %>"
 												data-rellax-speed="<%= speed %>"
-												class="padding-x-outside z-middle"
+												class="z-middle"
 											>
 												<%= component "device", locals: {
 													device: device,
@@ -190,11 +191,11 @@ title: home
 										<!-- horizontal -->
 										<% else %>
 											<div
-												data-ui-wrapper
+												data-ui-wrapper="narrow"
 												data-js-rellax
 												data-rellax-percentage="<%= position %>"
 												data-rellax-speed="<%= speed %>"
-												class="padding-x-outside z-middle"
+												class="z-middle"
 												style=""
 											>
 												<%= component "device", locals: {

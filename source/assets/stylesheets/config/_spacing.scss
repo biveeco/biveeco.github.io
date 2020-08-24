@@ -23,8 +23,9 @@ $spacing: (
 // -> used for both spacing utils also decorated borders
 $spacing-outside: (
 	'default': 'narrow',
-	'small': 'medium',
-	'medium': 'wide'
+	'xsmall': 'medium',
+	'small': 'wide',
+	'large': 'xwide'
 );
 
 // getter function for $gutters map

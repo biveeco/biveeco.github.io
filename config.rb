@@ -1,3 +1,4 @@
+require 'json'
 # frozen_string_literal: true
 
 ###
@@ -70,6 +71,10 @@ helpers do
     return color if color.is_a?(String)
 
     "hsl(#{color.h}, #{color.s}%, #{color.l}%)"
+  end
+
+  def json(hash)
+    hash.to_json
   end
 
   # 'Component' decorator for partial function

@@ -59,16 +59,18 @@ title: home
 						</div>
 					<% end %>
 				</section>
+
 				<div
 					data-ui-columns-item="left"
 					data-js-scroll-reveal="show"
+					data-js-scroll-reveal-targets="logo"
 					class="padding-x-outside padding-y-xwide position-relative"
 				>
 					<ul data-ui-gallery="small gutter-wide">
 						<% data.clients.each_with_index do |client, index| %>
 							<li
 								data-ui-gallery-item
-								data-js-scroll-reveal-target
+								data-js-scroll-reveal-target="logo"
 								class="transition-fade hide-opacity"
 								style="--delay: <%= index * 0.2 %>s;"
 							>
@@ -97,7 +99,7 @@ title: home
 			<%
 				first_wallpaper = data.work.projects.find do |p|
 					p.slug === data.work.featured_projects.first
-				end.cover.poster.wallpaper
+				end.cover.poster.wallpaper.color
 
 				work_breakpoint = 'medium'
 			%>
@@ -115,19 +117,19 @@ title: home
 					<%
 						project = data.work.projects.find {|p| p.slug === slug }
 						wallpaper = project.cover.poster.wallpaper
-						highlight_color = project.cover.poster.highlight_color || wallpaper
+						highlight_color = project.cover.poster.highlight_color || wallpaper.color
 					%>
 					<li
 						class="
 							no-margin
 							fill-browser display-flex display-flex-centered display-flex-column
 						"
-						data-js-feature-bg="<%= hsl(wallpaper) %>"
+						data-js-feature-bg="<%= hsl(wallpaper.color) %>"
 					>
 						<article
 							data-ui-columns="50-50@<%= work_breakpoint %>"
-							class="overflow-visible display-flex display-flex-fill display-flex-column display-flex-row@<%= work_breakpoint %> display-flex-align-items-center@<%= work_breakpoint %>"
-					>
+							class="overflow-hidden position-relative display-flex display-flex-fill display-flex-column display-flex-row@<%= work_breakpoint %> display-flex-align-items-center@<%= work_breakpoint %>"
+						>
 
 							<!-- Case study title -->
 							<div
@@ -180,7 +182,7 @@ title: home
 											<div
 												data-ui-wrapper="xnarrow"
 												data-js-rellax
-												data-rellax-percentage="<%= position %>"
+												data-rellax-percentage="0.5"
 												data-rellax-speed="<%= speed %>"
 												class="z-middle"
 											>
@@ -200,7 +202,7 @@ title: home
 												data-js-rellax
 												data-rellax-percentage="<%= position %>"
 												data-rellax-speed="<%= speed %>"
-												class="z-middle"
+												class="z-high"
 												style=""
 											>
 												<%= component "device", locals: {
@@ -214,13 +216,32 @@ title: home
 										<% end %>
 									<% end %>
 								<% end %>
-								<div
-									class="
-										hide-above@<%= work_breakpoint %>
-										position-absolute position-top position-left position-right position-bottom z-low
-									"
-									style="background-color: <%= hsl(wallpaper) %>;"></div>
 							</div>
+							<% if wallpaper.image.present? %>
+								<div
+									data-js-rellax
+									data-rellax-percentage="0.5"
+									data-rellax-speed="-2"
+									class="
+										position-absolute position-top position-bottom position-right
+										z-middle
+										fill-browser fill-half-browser-right
+										<%= wallpaper.type == "image" ? "c-bg-image-cover" : c-bg-pattern %>
+									"
+									style="
+										background-image: url(<%= wallpaper.image %>);
+									"
+								></div>
+							<% end %>
+							<div
+								class="
+									hide-above@<%= work_breakpoint %>
+									position-absolute position-top position-left position-right position-bottom
+									z-low
+									fill-browser fill-half-browser-right
+								"
+								style="background-color: <%= hsl(wallpaper.color) %>;"
+							></div>
 						</article>
 					</li>
 				<% end %>

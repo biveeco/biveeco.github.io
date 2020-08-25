@@ -48,7 +48,11 @@ projects:
             sizes: [400, 800, 1200, 1600, 2000]
             device: tablet
             orientation: horizontal
-        wallpaper: {h: 185, s: 54, l: 60}
+        wallpaper:
+          color: {h: 185, s: 54, l: 60}
+          image: /work/ga/assets/background-test.png
+          type: image
+          speed: -3
         highlight_color: {h: 185, s: 54, l: 60}
       thumb:
         source: /work/ga/assets/ga-thumb@{size}w.jpg
@@ -78,7 +82,8 @@ projects:
           - source: /work/e2a/assets/screenshot-analyze@{size}w.jpg
             sizes: [400, 800, 1200, 1600, 2000]
             device: tablet
-        wallpaper: {h: 289, s: 46, l: 51}
+        wallpaper:
+          color: {h: 289, s: 46, l: 51}
         highlight_color: {h: 289, s: 46, l: 60}
       thumb:
         source: /work/e2a/assets/e2a-thumb@{size}w.jpg
@@ -162,7 +167,8 @@ projects:
           - source: /work/ppp/assets/ppp-poster@{size}w.jpg
             sizes: [400, 800, 1200, 1600, 2000]
             device: tablet
-        wallpaper: {h: 37, s: 94, l: 67}
+        wallpaper:
+          color: {h: 37, s: 94, l: 67}
         highlight_color: {h: 37, s: 94, l: 67}
       thumb:
         source: /work/ppp/assets/ppp-thumb@{size}w.jpg
@@ -341,7 +347,8 @@ projects:
             sizes: [400, 800, 1200, 1600, 2000]
             device: tablet
             orientation: horizontal
-        wallpaper: {h: 161, s: 69, l: 45}
+        wallpaper:
+          color: {h: 161, s: 69, l: 45}
         highlight_color: {h: 161, s: 69, l: 45}
       thumb:
         source: /work/cdc/assets/cdc-thumb@{size}w.jpg

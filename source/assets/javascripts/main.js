@@ -18,14 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 
 	// fade in certain elements when they are scrolled inside the window
-	const fadeInTargets = document.querySelectorAll('[data-js-scroll-reveal-target]')
-	ChangeOnIntersect("[data-js-scroll-reveal='show']", (entry) => {
-		const targetList = Array.from(fadeInTargets)
+	ChangeOnIntersect('[data-js-scroll-reveal]', (entry, observer) => {
+		const types = entry.target.dataset.jsScrollReveal.split(' ')
+		const toggleClass = entry.target.dataset.jsScrollRevealToggleClass || 'hide-opacity'
+		const targetName = entry.target.dataset.jsScrollRevealTargets
+		const targetList = Array.from(document.querySelectorAll(`[data-js-scroll-reveal-target='${targetName}']`))
 
 		if (targetList.length > 0) {
-			targetList.forEach((target) => {
-				target.classList.remove('hide-opacity')
-			})
+			if (types.includes('show')) {
+				targetList.forEach((target) => {
+					target.classList.remove(toggleClass)
+				})
+			}
 		}
 	})
 })

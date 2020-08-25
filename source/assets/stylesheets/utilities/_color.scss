@@ -75,9 +75,13 @@ body,
 	background-color: transparent !important;
 }
 
-.c-bg-triangles {
-	background-image: url('#{$asset-path-images}/covers/triangle-v1.svg');
-	background-position: left;
+.c-bg-pattern {
+	background-position: center;
+	background-repeat: repeat;
+}
+
+.c-bg-image-cover {
+	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }

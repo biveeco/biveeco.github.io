@@ -13,23 +13,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// change bg color of featured projects on scroll
 	const featureBG = document.querySelector('[data-js-feature-bg-target]')
-	ChangeOnIntersect('li[data-js-feature-bg]', (entry) => {
-		featureBG.style['background'] = entry.target.dataset.jsFeatureBg
+	ChangeOnIntersect('[data-js-feature-bg]', (entry) => {
+		if (entry.isIntersecting) {
+			featureBG.style['background'] = entry.target.dataset.jsFeatureBg
+		}
 	})
 
 	// fade in certain elements when they are scrolled inside the window
-	ChangeOnIntersect('[data-js-scroll-reveal]', (entry, observer) => {
+	ChangeOnIntersect('[data-js-scroll-reveal]', (entry) => {
 		const types = entry.target.dataset.jsScrollReveal.split(' ')
 		const toggleClass = entry.target.dataset.jsScrollRevealToggleClass || 'hide-opacity'
 		const targetName = entry.target.dataset.jsScrollRevealTargets
 		const targetList = Array.from(document.querySelectorAll(`[data-js-scroll-reveal-target='${targetName}']`))
 
 		if (targetList.length > 0) {
-			if (types.includes('show')) {
-				targetList.forEach((target) => {
-					target.classList.remove(toggleClass)
-				})
-			}
+			targetList.forEach((target) => {
+				if (entry.isIntersecting) {
+					types.includes('show') && target.classList.remove(toggleClass)
+					return
+				}
+				types.includes('hide') && target.classList.add(toggleClass)
+			})
 		}
 	})
 })

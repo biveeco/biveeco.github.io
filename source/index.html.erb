@@ -71,7 +71,7 @@ title: home
 							<li
 								data-ui-gallery-item
 								data-js-scroll-reveal-target="logo"
-								class="transition-fade hide-opacity"
+								class="transition-fade | hide-opacity"
 								style="--delay: <%= index * 0.2 %>s;"
 							>
 								<%= component "fluid_aspect_image", locals: {
@@ -113,11 +113,12 @@ title: home
 				z-middle position-relative overflow-hidden fill-browser-overlap@<%= work_breakpoint %>
 				border-y-between
 			">
-				<% data.work.featured_projects.each do |slug| %>
+				<% data.work.featured_projects.each_with_index do |slug, index| %>
 					<%
 						project = data.work.projects.find {|p| p.slug === slug }
 						wallpaper = project.cover.poster.wallpaper
 						highlight_color = project.cover.poster.highlight_color || wallpaper.color
+						project_id = "project-#{index}"
 					%>
 					<li
 						class="
@@ -127,6 +128,8 @@ title: home
 						data-js-feature-bg="<%= hsl(wallpaper.color) %>"
 					>
 						<article
+							data-js-scroll-reveal="show hide"
+							data-js-scroll-reveal-targets="<%= project_id %>"
 							data-ui-columns="50-50@<%= work_breakpoint %>"
 							class="overflow-hidden position-relative display-flex display-flex-fill display-flex-column display-flex-row@<%= work_breakpoint %> display-flex-align-items-center@<%= work_breakpoint %>"
 						>
@@ -164,7 +167,11 @@ title: home
 							<!-- Case study "poster" -->
 							<div
 								data-ui-columns-item="right"
-								class="position-relative display-flex display-flex-fill display-flex-column display-flex-centered | padding-x-outside padding-y-wide"
+								class="
+									position-relative
+									display-flex display-flex-fill display-flex-column display-flex-centered
+									padding-x-outside padding-y-wide
+								"
 							>
 								<% project.cover.poster.elements.each do |element| %>
 									<%
@@ -186,13 +193,18 @@ title: home
 												data-rellax-speed="<%= speed %>"
 												class="z-middle"
 											>
-												<%= component "device", locals: {
-													device: device,
-													orientation: orientation,
-													source: element.source,
-													sizes: element.sizes,
-													alt: project.title.short
-												} %>
+												<div
+													data-js-scroll-reveal-target="<%= project_id %>"
+													class="transition-fade | hide-opacity"
+												>
+													<%= component "device", locals: {
+														device: device,
+														orientation: orientation,
+														source: element.source,
+														sizes: element.sizes,
+														alt: project.title.short
+													} %>
+												</div>
 											</div>
 
 										<!-- horizontal -->
@@ -205,43 +217,56 @@ title: home
 												class="z-high"
 												style=""
 											>
-												<%= component "device", locals: {
-													device: device,
-													orientation: orientation,
-													source: element.source,
-													sizes: element.sizes,
-													alt: project.title.short
-												} %>
+												<div
+													data-js-scroll-reveal-target="<%= project_id %>"
+													class="transition-fade | hide-opacity"
+												>
+													<%= component "device", locals: {
+														device: device,
+														orientation: orientation,
+														source: element.source,
+														sizes: element.sizes,
+														alt: project.title.short
+													} %>
+												</div>
 											</div>
 										<% end %>
 									<% end %>
 								<% end %>
+								<div
+									class="
+										hide-above@<%= work_breakpoint %>
+										position-absolute position-top position-left position-right position-bottom
+										z-low
+									"
+									style="background-color: <%= hsl(wallpaper.color) %>;"
+								></div>
 							</div>
 							<% if wallpaper.image.present? %>
 								<div
 									data-js-rellax
 									data-rellax-percentage="0.5"
-									data-rellax-speed="-2"
+									data-rellax-speed="<%= wallpaper.speed || -2 %>"
 									class="
 										position-absolute position-top position-bottom position-right
 										z-middle
 										fill-browser fill-half-browser-right
-										<%= wallpaper.type == "image" ? "c-bg-image-cover" : c-bg-pattern %>
 									"
-									style="
-										background-image: url(<%= wallpaper.image %>);
-									"
-								></div>
+								>
+									<div
+										data-js-scroll-reveal-target="<%= project_id %>"
+										class="
+											position-absolute position-top position-bottom position-right position-left
+											<%= wallpaper.type == "image" ? "c-bg-image-cover" : c-bg-pattern %>
+											transition-fade
+											hide-opacity
+										"
+										style="
+											background-image: url(<%= wallpaper.image %>);
+										"
+									></div>
+								</div>
 							<% end %>
-							<div
-								class="
-									hide-above@<%= work_breakpoint %>
-									position-absolute position-top position-left position-right position-bottom
-									z-low
-									fill-browser fill-half-browser-right
-								"
-								style="background-color: <%= hsl(wallpaper.color) %>;"
-							></div>
 						</article>
 					</li>
 				<% end %>

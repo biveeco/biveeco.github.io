@@ -11,7 +11,7 @@
 
 .transition-fade {
 	--delay: 0s;
-	$speed: 0.25s;
-	@include transition(opacity);
-	@include transition(opacity, $delay: var(--delay));
+	$speed: 0.5s;
+	@include transition(opacity, $duration: $speed);
+	@include transition(opacity, $duration: $speed, $delay: var(--delay));
 }

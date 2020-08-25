@@ -9,10 +9,7 @@ export default function (targets, callback, options = {}) {
 		if (targetList.length > 0) {
 			const targetObserver = new IntersectionObserver((entries, observer) => {
 				entries.forEach((entry) => {
-					entry.isIntersecting && callback(entry)
-					if (userOptions.resetCallback) {
-						!entry.isIntersecting && userOptions.resetCallback(entry)
-					}
+					callback(entry)
 				})
 			}, userOptions)
 

@@ -16,6 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	ChangeOnIntersect('li[data-js-feature-bg]', (entry) => {
 		featureBG.style['background'] = entry.target.dataset.jsFeatureBg
 	})
+
+	// fade in certain elements when they are scrolled inside the window
+	const fadeInTargets = document.querySelectorAll('[data-js-scroll-reveal-target]')
+	ChangeOnIntersect("[data-js-scroll-reveal='show']", (entry) => {
+		const targetList = Array.from(fadeInTargets)
+
+		if (targetList.length > 0) {
+			targetList.forEach((target) => {
+				target.classList.remove('hide-opacity')
+			})
+		}
+	})
 })
 
 // -> need to declare this variable per SmoothScroll's API

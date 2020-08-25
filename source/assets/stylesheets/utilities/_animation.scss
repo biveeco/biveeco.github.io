@@ -4,3 +4,14 @@
 .transition {
 	@include transition();
 }
+
+.transition-slow {
+	@include transition($duration: 0.5s);
+}
+
+.transition-fade {
+	--delay: 0s;
+	$speed: 0.25s;
+	@include transition(opacity);
+	@include transition(opacity, $delay: var(--delay));
+}

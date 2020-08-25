@@ -81,8 +81,23 @@ $-sides: ['top', 'right', 'bottom', 'left'];
 	}
 }
 
-@include breakpointify('.border-roadmap-right', $sizes: 'medium') {
-	@include border('right', $style: 'secondary', $color: 'text' 'primary');
+@include breakpointify('.border-roadmap-center-bottom', $default: true, $sizes: 'medium') {
+	&::before,
+	&::after {
+		content: '';
+		display: block;
+		position: absolute;
+	}
+
+	&::before {
+		@include border('right', $style: 'secondary', $color: 'text' 'primary');
+		// make the element the same width as the border, so it's a total of 2px wide, then scoot to the left 1px to visually center the line
+		bottom: 0;
+		left: 50%;
+		margin-left: (border-width() * -1);
+		top: 0;
+		width: border-width();
+	}
 
 	&::after {
 		$size: 0.6rem;
@@ -90,11 +105,9 @@ $-sides: ['top', 'right', 'bottom', 'left'];
 		@include color-background('text' 'primary');
 		border-radius: 100000px;
 		bottom: 0;
-		content: '';
-		display: block;
 		height: $size;
-		position: absolute;
-		right: -($size / 2);
+		left: 50%;
+		margin-left: ($size / 2 * -1);
 		width: $size;
 		z-index: z('middle');
 	}

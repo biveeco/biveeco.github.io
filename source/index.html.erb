@@ -41,7 +41,8 @@ title: home
 		id: "intro",
 		padding: "none",
 		fill_browser: true,
-		center_content: true
+		center_content: true,
+		classes: "border-roadmap-center-bottom@#{intro_breakpoint}"
 	} do %>
 		<% component "wrapper", locals: { width: "xwide", classes: "overflow-hidden" } do %>
 			<div data-ui-columns="50-50@<%= intro_breakpoint %>">
@@ -60,11 +61,17 @@ title: home
 				</section>
 				<div
 					data-ui-columns-item="left"
-					class="padding-x-outside padding-y-xwide border-roadmap-right@<%= intro_breakpoint %> position-relative"
+					data-js-scroll-reveal="show"
+					class="padding-x-outside padding-y-xwide position-relative"
 				>
 					<ul data-ui-gallery="small gutter-wide">
-						<% data.clients.each do |client| %>
-							<li data-ui-gallery-item>
+						<% data.clients.each_with_index do |client, index| %>
+							<li
+								data-ui-gallery-item
+								data-js-scroll-reveal-target
+								class="transition-fade hide-opacity"
+								style="--delay: <%= index * 0.2 %>s;"
+							>
 								<%= component "fluid_aspect_image", locals: {
 									source: client.logo,
 									alt: "#{client.name}#{" (#{client.acronym})" if client.acronym.present?}"
@@ -95,7 +102,7 @@ title: home
 				work_breakpoint = 'medium'
 			%>
 			<div
-				class="z-low fill-browser fill-half-browser-right position-sticky position-top transition hide-below@<%= work_breakpoint %>"
+				class="z-low fill-browser fill-half-browser-right position-sticky position-top transition-slow hide-below@<%= work_breakpoint %>"
 				data-js-feature-bg-target
 				style="background: <%= hsl(first_wallpaper) %>;"
 			></div>

@@ -10,8 +10,11 @@
 }
 
 .transition-fade {
-	--delay: 0s;
+	// stylelint-disable order/order
+	// need the sass var before the custom props here so it can define a default
 	$speed: 0.5s;
+	--delay: 0s;
+	--duration: #{$speed};
 	@include transition(opacity, $duration: $speed);
-	@include transition(opacity, $duration: $speed, $delay: var(--delay));
+	@include transition(opacity, $duration: var(--duration), $delay: var(--delay));
 }

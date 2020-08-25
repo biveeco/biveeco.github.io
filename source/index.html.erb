@@ -104,7 +104,7 @@ title: home
 				work_breakpoint = 'medium'
 			%>
 			<div
-				class="z-low fill-browser fill-half-browser-right position-sticky position-top transition-slow hide-below@<%= work_breakpoint %>"
+				class="z-low fill-half-browser-right position-sticky position-top transition-slow hide-below@<%= work_breakpoint %>"
 				data-js-feature-bg-target
 				style="background: <%= hsl(first_wallpaper) %>;"
 			></div>
@@ -131,13 +131,16 @@ title: home
 							data-js-scroll-reveal="show hide"
 							data-js-scroll-reveal-targets="<%= project_id %>"
 							data-ui-columns="50-50@<%= work_breakpoint %>"
-							class="overflow-hidden position-relative display-flex display-flex-fill display-flex-column display-flex-row@<%= work_breakpoint %> display-flex-align-items-center@<%= work_breakpoint %>"
+							class="overflow-hidden position-relative display-flex display-flex-fill display-flex-column display-flex-row@<%= work_breakpoint %>"
 						>
 
 							<!-- Case study title -->
 							<div
 								data-ui-columns-item="left"
-								class="padding-x-outside padding-y-xwide"
+								class="
+									padding-x-outside padding-y-xwide
+									display-flex display-flex-fill display-flex-column display-flex-centered
+								"
 							>
 								<% component "wrapper", locals: { width: "narrow" } do %>
 									<h3 class="t-scale-beta t-font-display t-leading-xtight">
@@ -178,7 +181,7 @@ title: home
 										device = element.device || "tablet"
 										orientation = element.orientation || "vertical"
 										position = element.position || 0.5
-										speed = element.speed || 1
+										speed = element.speed || 2
 									%>
 
 									<!-- tablet -->
@@ -233,6 +236,32 @@ title: home
 										<% end %>
 									<% end %>
 								<% end %>
+								<% if wallpaper.image.present? %>
+									<!-- wallpaper pattern -->
+									<div
+										data-js-rellax
+										data-rellax-percentage="0.5"
+										data-rellax-speed="<%= wallpaper.speed || -2 %>"
+										class="
+											position-absolute position-right position-left
+											z-middle
+										"
+										style="top: -5rem; bottom: -5rem;"
+									>
+										<div
+											data-js-scroll-reveal-target="<%= project_id %>"
+											class="
+												position-absolute position-top position-bottom position-right position-left position-top-outset position-bottom-outset
+												<%= wallpaper.type == "image" ? "c-bg-image-cover" : c-bg-pattern %>
+												transition-fade
+												hide-opacity
+											"
+											style="
+												background-image: url(<%= wallpaper.image %>);
+											"
+										></div>
+									</div>
+								<% end %>
 								<div
 									class="
 										hide-above@<%= work_breakpoint %>
@@ -242,31 +271,6 @@ title: home
 									style="background-color: <%= hsl(wallpaper.color) %>;"
 								></div>
 							</div>
-							<% if wallpaper.image.present? %>
-								<div
-									data-js-rellax
-									data-rellax-percentage="0.5"
-									data-rellax-speed="<%= wallpaper.speed || -2 %>"
-									class="
-										position-absolute position-top position-bottom position-right
-										z-middle
-										fill-browser fill-half-browser-right
-									"
-								>
-									<div
-										data-js-scroll-reveal-target="<%= project_id %>"
-										class="
-											position-absolute position-top position-bottom position-right position-left
-											<%= wallpaper.type == "image" ? "c-bg-image-cover" : c-bg-pattern %>
-											transition-fade
-											hide-opacity
-										"
-										style="
-											background-image: url(<%= wallpaper.image %>);
-										"
-									></div>
-								</div>
-							<% end %>
 						</article>
 					</li>
 				<% end %>

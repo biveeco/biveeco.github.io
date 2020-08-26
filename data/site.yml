@@ -50,7 +50,7 @@ intro:
 # -> primarily used in the footer
 contact:
   # Title for contact area in footer, e.g. 'You used to call me on my cell phone'
-  headline: Ready to get started?
+  headline: here's an awesome new headline
   # General email for potential clients/visitors to contact us
   email: newbiz@host-creative.com
   careers:

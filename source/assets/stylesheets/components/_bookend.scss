@@ -12,72 +12,72 @@
 // -----------------------------------------------------------------------------
 
 [data-ui-bookend] {
-  display: block;
-  position: relative;
+	display: block;
+	position: relative;
 }
 
 // Modifiers
 // -----------------------------------------------------------------------------
 
 @mixin bookend-horizontal {
-  @supports (display: flex) {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+	@supports (display: flex) {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
 
-  [data-ui-bookend-item] {
-    display: inline-block;
-  }
+	[data-ui-bookend-item] {
+		display: inline-block;
+	}
 
-  [data-ui-bookend-item~='left'] {
-    float: left;
+	[data-ui-bookend-item~='left'] {
+		float: left;
 
-    @supports (display: flex) {
-      float: none;
-    }
-  }
+		@supports (display: flex) {
+			float: none;
+		}
+	}
 
-  [data-ui-bookend-item~='center'] {
-    text-align: center;
+	[data-ui-bookend-item~='center'] {
+		text-align: center;
 
-    @supports (display: flex) {
-      flex: 1;
-    }
-  }
+		@supports (display: flex) {
+			flex: 1;
+		}
+	}
 
-  [data-ui-bookend-item~='right'] {
-    float: right;
-    text-align: right;
+	[data-ui-bookend-item~='right'] {
+		float: right;
+		text-align: right;
 
-    @supports (display: flex) {
-      float: none;
-      margin-left: auto;
-    }
-  }
+		@supports (display: flex) {
+			float: none;
+			margin-left: auto;
+		}
+	}
 }
 
 [data-ui-bookend~='horizontal'] {
-  @include bookend-horizontal;
+	@include bookend-horizontal;
 }
 
 @each $name in ('xsmall' 'small' 'medium') {
-  @include media('>#{$name}') {
-    [data-ui-bookend~='horizontal@#{$name}'] {
-      @include bookend-horizontal;
-    }
-  }
+	@include media('>#{$name}') {
+		[data-ui-bookend~='horizontal@#{$name}'] {
+			@include bookend-horizontal;
+		}
+	}
 }
 
 // Subcomponents
 // -----------------------------------------------------------------------------
 
 [data-ui-bookend-item] {
-  @include clearfix;
-  clear: both;
-  display: block;
-  float: none;
-  position: relative;
-  vertical-align: middle;
+	@include clearfix;
+	clear: both;
+	display: block;
+	float: none;
+	position: relative;
+	vertical-align: middle;
 }

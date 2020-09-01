@@ -16,59 +16,59 @@ $-navy: #132e3f;
 
 // highlights
 $highlights: (
-  'gold': #ffc439,
-  'red': #ff003c,
-  'green': #00c468
+	'gold': #ffc439,
+	'red': #ff003c,
+	'green': #00c468
 );
 
 // getter function for highlight colors
 // -> PUBLIC
 @function highlight($name: 'gold') {
-  @return map-get($highlights, $name);
+	@return map-get($highlights, $name);
 }
 
 // --- Themes ---
 
 $themes: (
-  // dark blue background, light text
-  'dark': (
-    'text': (
-      'primary': $-white,
-      'secondary': tint($-blue, 40)
-    ),
-    'bg': $-navy,
-    'island': tint($-navy, 10),
-    'well': shade($-navy, 10),
-    'shadow': shade($-navy, 50),
-    'border': tint($-navy, 30),
-    'highlight': highlight(),
-  ),
-  // dark blue background, light text
-  'wash': (
-    'text': (
-      'primary': tint($-navy, 10),
-      'secondary': tint($-navy, 10)
-    ),
-    'bg': highlight(),
-    'island': tint(highlight(), 10),
-    'well': shade(highlight(), 10),
-    'shadow': shade(highlight(), 50),
-    'border': tint(highlight(), 30),
-    'highlight': $-white,
-  ),
-  // white background, dark text
-  'default': (
-    'text': (
-      'primary': tint($-navy, 10),
-      'secondary': tint($-blue, 40)
-    ),
-    'bg': $-white,
-    'island': $-white,
-    'well': $-blue,
-    'shadow': tint($-navy, 70),
-    'border': tint($-blue, 70),
-    'highlight': highlight(),
-  )
+	// dark blue background, light text
+	'dark': (
+		'text': (
+			'primary': $-white,
+			'secondary': tint($-blue, 40)
+		),
+		'bg': $-navy,
+		'island': tint($-navy, 10),
+		'well': shade($-navy, 10),
+		'shadow': shade($-navy, 50),
+		'border': tint($-navy, 30),
+		'highlight': highlight(),
+	),
+	// dark blue background, light text
+	'wash': (
+		'text': (
+			'primary': tint($-navy, 10),
+			'secondary': tint($-navy, 10)
+		),
+		'bg': highlight(),
+		'island': tint(highlight(), 10),
+		'well': shade(highlight(), 10),
+		'shadow': shade(highlight(), 50),
+		'border': tint(highlight(), 30),
+		'highlight': $-white,
+	),
+	// white background, dark text
+	'default': (
+		'text': (
+			'primary': tint($-navy, 10),
+			'secondary': tint($-blue, 40)
+		),
+		'bg': $-white,
+		'island': $-white,
+		'well': $-blue,
+		'shadow': tint($-navy, 70),
+		'border': tint($-blue, 70),
+		'highlight': highlight(),
+	)
 );
 
 // getter function to access color map values
@@ -83,98 +83,98 @@ $themes: (
 //    - color: color('text' 'primary');
 //    - color: color('highlight' 'primary', 'reverse');
 @function color($colors, $name: 'default', $grade: 0, $opacity: 1) {
-  // first extract the 'theme' nested map
-  $theme: map-get($themes, $name);
+	// first extract the 'theme' nested map
+	$theme: map-get($themes, $name);
 
-  // now get the nested map for the first color value
-  $color: map-get($theme, nth($colors, 1));
+	// now get the nested map for the first color value
+	$color: map-get($theme, nth($colors, 1));
 
-  // if there's more than one color string in the $colors list, dig deeper
-  @if length($colors) > 1 {
-    @for $i from 2 through length($colors) {
-      // keep updating $color with the next nested map until we've reached the end of the list
-      $color: map-get($color, nth($colors, $i));
-    }
-  }
+	// if there's more than one color string in the $colors list, dig deeper
+	@if length($colors) > 1 {
+		@for $i from 2 through length($colors) {
+			// keep updating $color with the next nested map until we've reached the end of the list
+			$color: map-get($color, nth($colors, $i));
+		}
+	}
 
-  // lighten or darken the color
-  @if ($grade < 0) {
-    $color: shade($color, abs($grade));
-  } @elseif ($grade > 0) {
-    $color: tint($color, abs($grade));
-  }
+	// lighten or darken the color
+	@if ($grade < 0) {
+		$color: shade($color, abs($grade));
+	} @else if ($grade > 0) {
+		$color: tint($color, abs($grade));
+	}
 
-  @if ($opacity < 1) {
-    $color: rgba($color, $opacity);
-  }
+	@if ($opacity < 1) {
+		$color: rgba($color, $opacity);
+	}
 
-  @return $color;
+	@return $color;
 }
 
 // set print color overrides
 @mixin print-colors {
-  @media print {
-    // sass-lint:disable no-important
-    background: transparent !important;
-    border-color: $gray !important;
-    color: $black !important;
-  }
+	@media print {
+		// sass-lint:disable no-important
+		background: transparent !important;
+		border-color: $gray !important;
+		color: $black !important;
+	}
 }
 
 // add '!important' to the end of a property
-@function _important($prop, $add: false) {
-  @if $add == true {
-    @return append($prop, unquote(' !important'));
-  } @else {
-    @return $prop;
-  }
+@function important($prop, $add: false) {
+	@if $add == true {
+		@return append($prop, unquote(' !important'));
+	} @else {
+		@return $prop;
+	}
 }
 
 // print out the color styles (and state, if needed) for a given attribute
 // -> imports same arguments as color mixin below
 // -> PRIVATE
-@mixin _color-props(
-  $color,
-  $prop: color,
-  $theme: 'default',
-  $grade: 0,
-  $opacity: 1,
-  $hover: false,
-  $active: false,
-  $focus: false,
-  $important: false
+@mixin color-props(
+	$color,
+	$prop: color,
+	$theme: 'default',
+	$grade: 0,
+	$opacity: 1,
+	$hover: false,
+	$active: false,
+	$focus: false,
+	$important: false
 ) {
 
-  // default values for states
-  $hover-default: 10;
-  $active-default: -10;
-  $focus-default: 10;
+	// default values for states
+	$hover-default: 10;
+	$active-default: -10;
+	$focus-default: 10;
 
 
-  // set color for default theme
-  #{$prop}: _important(color($color, $theme, $grade, $opacity), $important);
+	// set color for default theme
+	#{$prop}: important(color($color, $theme, $grade, $opacity), $important);
 
-  // hover/active/focus states
-  @if $hover != false {
-    &:hover {
-      $percentage: if(type-of($hover) == 'number', $hover, $hover-default);
-      #{$prop}: _important(color($color, $theme, $percentage + $grade, $opacity), $important);
-    }
-  }
+	// hover/active/focus states
+	@if $hover != false {
+		&:hover {
+			$percentage: if(type-of($hover) == 'number', $hover, $hover-default);
+			#{$prop}: important(color($color, $theme, $percentage + $grade, $opacity), $important);
+		}
+	}
 
-  @if $active != false {
-    &:active {
-      $percentage: if(type-of($active) == 'number', $active, $active-default);
-      #{$prop}: _important(color($color, $theme, $percentage + $grade, $opacity), $important);
-    }
-  }
+	@if $active != false {
+		&:active {
+			$percentage: if(type-of($active) == 'number', $active, $active-default);
+			#{$prop}: important(color($color, $theme, $percentage + $grade, $opacity), $important);
+		}
+	}
 
-  @if $focus != false {
-    &:focus {
-      $percentage: if(type-of($focus) == 'number', $focus, $focus-default);
-      #{$prop}: _important(color($color, $theme, $percentage + $grade, $opacity), $important);
-    }
-  }
+	@if $focus != false {
+		&:focus {
+			$percentage: if(type-of($focus) == 'number', $focus, $focus-default);
+			#{$prop}: important(color($color, $theme, $percentage + $grade, $opacity), $important);
+		}
+	}
 }
 
 // add colors for each theme
@@ -193,34 +193,34 @@ $themes: (
 // -> USAGE:
 //      @include color(text primary, background-color, true, false, 12, true);
 @mixin color(
-  $color,
-  $prop: color,
-  $grade: 0,
-  $opacity: 1,
-  $hover: false,
-  $active: false,
-  $focus: false,
-  $important: false
+	$color,
+	$prop: color,
+	$grade: 0,
+	$opacity: 1,
+	$hover: false,
+	$active: false,
+	$focus: false,
+	$important: false
 ) {
-  @include _color-props($color, $prop, 'default', $grade, $opacity, $hover, $active, $focus, $important);
+	@include color-props($color, $prop, 'default', $grade, $opacity, $hover, $active, $focus, $important);
 
-  // set the color of this element to match the theme of this context
-  @each $theme, $colors in $themes {
-    // set color to theme of either this element or its parent
-    &.c-theme-#{$theme},
-    .c-theme-#{$theme} & {
-      @include _color-props($color, $prop, $theme, $grade, $opacity, $hover, $active, $focus, $important);
-    }
-  }
+	// set the color of this element to match the theme of this context
+	@each $theme, $colors in $themes {
+		// set color to theme of either this element or its parent
+		&.c-theme-#{$theme},
+		.c-theme-#{$theme} & {
+			@include color-props($color, $prop, $theme, $grade, $opacity, $hover, $active, $focus, $important);
+		}
+	}
 }
 
 // shortcut decorators for the above, using specific attributes
 @mixin color-background($color, $arguments...) {
-  @include color($color, 'background-color', $arguments...);
+	@include color($color, 'background-color', $arguments...);
 }
 
 @mixin color-border($color, $arguments...) {
-  @include color($color, 'border-color', $arguments...);
+	@include color($color, 'border-color', $arguments...);
 }
 
 // Theme Globals
@@ -228,14 +228,14 @@ $themes: (
 // -> set up helper classes and base colors
 
 @mixin theme($theme) {
-  background-color: color('bg', $theme);
-  border-color: color('border', $theme);
-  color: color('text' 'primary', $theme);
+	background-color: color('bg', $theme);
+	border-color: color('border', $theme);
+	color: color('text' 'primary', $theme);
 
-  // highlight color when you select something
-  ::selection {
-    background: color('highlight', $theme);
-    color: color('bg', $theme);
-    text-shadow: none;
-  }
+	// highlight color when you select something
+	::selection {
+		background: color('highlight', $theme);
+		color: color('bg', $theme);
+		text-shadow: none;
+	}
 }

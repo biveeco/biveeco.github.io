@@ -13,23 +13,23 @@ $scale-global: 1.5 !default;
 $scale-base-type: 16px;
 
 $scale-base-type-percentages: (
-  'default': 100%,
-  'xsmall': 105%,
-  'small': 110%,
-  'medium': 115%,
-  'large': 120%
+	'default': 100%,
+	'xsmall': 105%,
+	'small': 110%,
+	'medium': 115%,
+	'large': 120%
 );
 
 @function scale-base-type-size($screen: 'default') {
-  @return map-get($scale-base-type-percentages, $screen);
+	@return map-get($scale-base-type-percentages, $screen);
 }
 
 // --- modular scale config ----------------------------------------------------
 // -> for layout and spacing
 
 $modularscale: (
-  base: 1rem,
-  ratio: $scale-global
+	base: 1rem,
+	ratio: $scale-global
 );
 
 // --- type scale & sizing -----------------------------------------------------
@@ -38,14 +38,14 @@ $modularscale: (
 // -> we could compute this via the modular scale mixins,
 // -> but doing it by hand allows us to tweak certain sizes to suit the fonts we're using
 $scale-type: (
-  'alpha': ms(4),
-  'beta': ms(3),
-  'gamma': ms(2),
-  'delta': ms(1),
-  'epsilon': ms(0),
-  'zeta': ms(-1)
+	'alpha': ms(4),
+	'beta': ms(3),
+	'gamma': ms(2),
+	'delta': ms(1),
+	'epsilon': ms(0),
+	'zeta': ms(-1)
 ) !default;
 
 @function scale-type($size) {
-  @return map-get($scale-type, $size);
+	@return map-get($scale-type, $size);
 }

@@ -15,16 +15,16 @@
 // create utility classes for each color theme defined in config/color
 // e.g. '.c-theme-reverse' and '.c-theme-wash'
 @each $theme, $colors in $themes {
-  @if $theme != 'default' {
-    .c-theme-#{$theme} {
-      @include theme($theme);
-    }
-  }
+	@if $theme != 'default' {
+		.c-theme-#{$theme} {
+			@include theme($theme);
+		}
+	}
 }
 
 body,
 .c-theme-default {
-  @include theme('default');
+	@include theme('default');
 }
 
 
@@ -33,51 +33,55 @@ body,
 // --------------------------------------------------------------------------
 
 .c-text-primary {
-  @include color('text' 'primary', $important: true);
+	@include color('text' 'primary', $important: true);
 }
 
 .c-text-secondary {
-  @include color('text' 'secondary', $important: true);
+	@include color('text' 'secondary', $important: true);
 }
 
 // make the text (or foreground element) the background color
 .c-text-reverse {
-  @include color('bg');
+	@include color('bg');
 }
 
 .c-highlight {
-  @include color('highlight', $important: true);
+	@include color('highlight', $important: true);
 }
 
 .c-well {
-  @include color-background('well', $important: true);
+	@include color-background('well', $important: true);
 }
 
 // change the color of the border
 @each $color in ['highlight', 'island', 'well'] {
-  .c-border-#{$color} {
-    @include color-border($color, $important:  true);
-  }
+	.c-border-#{$color} {
+		@include color-border($color, $important:  true);
+	}
 }
 
 // change the color of the background to match another theme
 @each $theme, $colors in $themes {
-  .c-bg-#{$theme} {
-    background-color: color('bg', $theme) !important;
-  }
+	.c-bg-#{$theme} {
+		background-color: color('bg', $theme) !important;
+	}
 }
 
 .c-bg-midtone {
-  @include color-background('border', $grade: 20);
+	@include color-background('border', $grade: 20);
 }
 
 .c-bg-transparent {
-  background-color: transparent !important;
+	background-color: transparent !important;
 }
 
-.c-bg-triangles {
-  background-image: url('#{$asset-path-images}/covers/triangle-v1.svg');
-  background-position: left;
-  background-repeat: no-repeat;
-  background-size: cover;
+.c-bg-pattern {
+	background-position: center;
+	background-repeat: repeat;
+}
+
+.c-bg-image-cover {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }

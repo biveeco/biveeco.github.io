@@ -2,8 +2,11 @@
 // Positioning utilities
 // ==========================================================================
 
-// Allow 'important!' here because we want the styles to always apply in small utility classes
 // sass-lint:disable no-important
+// -> Allow 'important!' here because we want the styles to always apply in small utility classes
+// sass-lint:disable no-duplicate-properties
+// sass-lint:disable no-vendor-prefixes
+// -> need fallback/mobile min-height props for vh units
 
 @import '../config/libs';
 @import '../config/positioning';
@@ -13,42 +16,116 @@
 // -> useful if it contains, for instance, stuff like a jump nav that needs to overlay elements below
 
 @each $name, $level in $z-indexes {
-  .z-#{$name} {
-    z-index: z($name) !important;
-  }
+	.z-#{$name} {
+		z-index: z($name) !important;
+	}
 }
 
 .display-block {
-  display: block !important;
+	display: block !important;
 }
 
 .display-inline-block {
-  display: inline-block !important;
+	display: inline-block !important;
+}
+
+.display-flex {
+	display: block;
+
+	@supports (display: flex) {
+		display: flex !important;
+	}
+}
+
+@include breakpointify('.display-flex-column', $default: true, $sizes: 'small' 'medium' 'large') {
+	@supports (flex-direction: column) {
+		flex-direction: column;
+	}
+}
+
+@include breakpointify('.display-flex-row', $default: true, $sizes: 'small' 'medium' 'large') {
+	@supports (flex-direction: row) {
+		flex-direction: row;
+	}
+}
+
+@include breakpointify('.display-flex-centered', $default: true, $sizes: 'small' 'medium' 'large') {
+	@supports (justify-content: center) {
+		justify-content: center;
+	}
+}
+
+@include breakpointify('.display-flex-start', $default: true, $sizes: 'small' 'medium' 'large') {
+	@supports (justify-content: flex-start) {
+		justify-content: flex-start;
+	}
+}
+
+@include breakpointify('.display-flex-align-items-center', $default: true, $sizes: 'small' 'medium' 'large') {
+	@supports (align-items: center) {
+		align-items: center;
+	}
 }
 
 .display-flex-fill {
-  flex: 1;
+	@supports (flex: 1) {
+		flex: 1;
+	}
 }
 
 .overflow-hidden {
-  overflow: hidden;
+	overflow: hidden;
+}
+
+.overflow-visible {
+	overflow: visible;
 }
 
 .align-center-block {
-  margin-left: auto;
-  margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .position-relative {
-  position: relative !important;
+	position: relative !important;
 }
 
 .position-absolute {
-  position: absolute !important;
+	position: absolute !important;
+}
+
+.position-sticky {
+	position: sticky;
 }
 
 @each $side in [top, bottom, left, right] {
-  .position-#{$side} {
-    #{$side}: 0;
-  }
+	.position-#{$side} {
+		#{$side}: 0;
+	}
+
+	// push the element out of its bounding box a little
+	// -> useful for parallaxing backgrounds that need "overscan" room
+	// -> make sure the parent is using overflow-hidden if you don't want to see the outset
+	.position-#{$side}-outset {
+		#{$side}: -5rem;
+	}
+}
+
+// make an element the same height as the browser window
+.fill-browser {
+	min-height: 40rem;
+	min-height: 100vh;
+}
+
+// fill the window but only the right half
+.fill-half-browser-right {
+	margin-left: auto;
+	min-height: 40rem;
+	min-height: 100vh;
+	width: 50%;
+}
+
+// move an element up so it overlaps with a preceding .fill-browser element
+@include breakpointify('.fill-browser-overlap', $default: true, $sizes: 'medium') {
+	margin-top: -100vh;
 }

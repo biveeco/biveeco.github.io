@@ -1,0 +1,20 @@
+// Animation utilities
+@import '../config/animation';
+
+.transition {
+	@include transition();
+}
+
+.transition-slow {
+	@include transition($duration: 0.5s);
+}
+
+.transition-fade {
+	// stylelint-disable order/order
+	// need the sass var before the custom props here so it can define a default
+	$speed: 0.5s;
+	--delay: 0s;
+	--duration: #{$speed};
+	@include transition(opacity, $duration: $speed);
+	@include transition(opacity, $duration: var(--duration), $delay: var(--delay));
+}

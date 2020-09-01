@@ -15,23 +15,10 @@
 // -> global element styles: lists, text, images, etc.
 ////////////////////////////////////////////////////////////////////////////////
 
-@import 'base/form';
 @import 'base/html';
 @import 'base/list';
 @import 'base/media';
 @import 'base/type';
-
-////////////////////////////////////////////////////////////////////////////////
-// Utility classes
-// -> global element styles: lists, text, images, etc.
-////////////////////////////////////////////////////////////////////////////////
-
-@import 'utilities/borders';
-@import 'utilities/color';
-@import 'utilities/positioning';
-@import 'utilities/spacing';
-@import 'utilities/special_effects';
-@import 'utilities/visibility';
 
 ////////////////////////////////////////////////////////////////////////////////
 // Component styles
@@ -42,9 +29,23 @@
 @import 'components/button';
 @import 'components/columns';
 @import 'components/cover';
+@import 'components/device';
 @import 'components/fluid_aspect_ratio';
 @import 'components/gallery';
 @import 'components/gutter';
 @import 'components/icon';
 @import 'components/main_header';
 @import 'components/wrapper';
+
+////////////////////////////////////////////////////////////////////////////////
+// Utility classes
+// -> global element styles: lists, text, images, etc.
+////////////////////////////////////////////////////////////////////////////////
+
+@import 'utilities/animation';
+@import 'utilities/borders';
+@import 'utilities/color';
+@import 'utilities/positioning';
+@import 'utilities/spacing';
+@import 'utilities/special_effects';
+@import 'utilities/visibility';

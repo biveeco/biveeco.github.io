@@ -1,161 +1,327 @@
 ---
 title: home
 ---
+
 <div class="position-relative">
-  <%= component "main_header", locals: {
-    overlay: true,
-    theme: "wash",
-    hide_logo: "medium"
-  } %>
-  <section class="t-align-center">
-    <!-- Cover -->
-    <% component "cover", locals: {
-      padding: { y: "wide", x: "outside" },
-      theme: "wash"
-    } do %>
-      <% component "wrapper", locals: {
-        width: "wide"
-      } do %>
-        <div data-ui-columns="30-70@medium">
-          <div
-            data-ui-columns-item="left"
-            class="hide-below@medium t-align-left"
-            style="padding-top: 0.4em;"
-          >
-            <%= component "host-logo", locals: { width: 5 } %>
-          </div>
-          <div data-ui-columns-item="right">
-            <%= component "tagline" %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </section>
+	<%= component "main_header", locals: {
+		overlay: true,
+		theme: "wash",
+		hide_logo: "medium"
+	} %>
+	<section class="t-align-center">
+		<!-- Cover -->
+		<% component "cover", locals: {
+			padding: { y: "wide", x: "outside" },
+			theme: "wash"
+		} do %>
+			<% component "wrapper", locals: {
+				width: "wide"
+			} do %>
+				<div data-ui-columns="30-70@medium">
+					<div
+						data-ui-columns-item="left"
+						class="hide-below@medium t-align-left"
+						style="padding-top: 0.4em;"
+					>
+						<%= component "host-logo", locals: { width: 5 } %>
+					</div>
+					<div data-ui-columns-item="right">
+						<%= component "tagline" %>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</section>
 
-  <!-- Logo wall and intro -->
-  <% component "panel", locals: {
-    border: "none",
-    theme: "default",
-    id: "intro",
-    padding: {
-      x: "outside",
-      y: "xwide"
-    }
-  } do %>
-    <% component "wrapper", locals: { width: "wide", classes: "overflow-hidden" } do %>
-      <div data-ui-columns="50-50@medium" data-ui-gutter="xwide flush">
-        <section
-          data-ui-columns-item="right"
-          data-ui-gutter-item
-        >
-          <% component "wrapper", locals: { width: "narrow" } do %>
-            <h2 class="t-scale-gamma">We're a <strong>group of experts</strong> who love to work with clients and partners that share our dedication to <strong>making an impact</strong>.</h2>
-            <div class="t-content padding-top">
-              <p>We're headquartered in Washington D.C., with teams distributed globally. We've launched programs, brands, and products for the World Bank Group, UN Agencies, USAID, CDC, and more.</p>
-            </div>
-          <% end %>
-        </section>
-        <div
-          data-ui-columns-item="left"
-          data-ui-gutter-item
-        >
-          <ul data-ui-gallery="small gutter-wide">
-            <% data.clients.each do |client| %>
-              <li data-ui-gallery-item>
-                <%= component "fluid_aspect_image", locals: {
-                  source: client.logo,
-                  alt: "#{client.name}#{" (#{client.acronym})" if client.acronym.present?}"
-                } %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+	<!-- Logo wall and intro -->
+	<% intro_breakpoint = "medium" %>
+	<% component "panel", locals: {
+		border: "none",
+		theme: "default",
+		id: "intro",
+		padding: "none",
+		fill_browser: true,
+		center_content: true,
+		classes: "border-roadmap-center-bottom@#{intro_breakpoint}"
+	} do %>
+		<% component "wrapper", locals: { width: "xwide", classes: "overflow-hidden" } do %>
+			<div data-ui-columns="50-50@<%= intro_breakpoint %>">
+				<section
+					data-ui-columns-item="right"
+					class="padding-x-outside padding-top-xwide"
+				>
+					<% component "wrapper", locals: { width: "narrow" } do %>
+						<h2 class="t-scale-gamma">
+							<%= render_markdown(data.site.intro.headline, inline: true) %>
+						</h2>
+						<div class="t-content | padding-top">
+							<%= render_markdown(data.site.intro.blurb) %>
+						</div>
+					<% end %>
+				</section>
 
-  <!-- Work -->
-  <% component "panel", locals: {
-    border: "none",
-    id: "work",
-    padding: "none"
-  } do %>
-    <!-- <h2 class="t-scale-epsilon t-align-center padding-bottom-narrow">Our work</h2> -->
-    <!-- Case study listings -->
-    <ul class="list-undecorated border-y-between">
-      <% data.work.featured_projects.each do |slug| %>
-        <% project = data.work.projects.find {|p| p.slug === slug } %>
-        <li class="display-block no-margin c-theme-dark">
-          <article data-ui-columns="50-50@small">
-            <div data-ui-columns-item="left" class="padding-x-outside padding-y-wide">
-              <% component "wrapper", locals: { width: "narrow" } do %>
-                <h3 class="t-scale-beta t-font-display t-leading-xtight">
-                  <%= link_to project.title.long, "/work/#{project.slug.urlize}/", class: "t-decoration-none" %>
-                </h3>
-                <p class="t-heading t-scale-delta padding-top-narrow c-highlight t-weight-normal">
-                  <%= project.client %>
-                </p>
-                <%= component "button_link", locals: {
-                  label: "Read more",
-                  url: "/work/#{project.slug.urlize}/",
-                  icon: "arrow-right",
-                  classes: "margin-top-wide"
-                } %>
-              <% end %>
-            </div>
-            <div data-ui-columns-item="right">
-              <% image = project.cover.poster || project.cover.thumb %>
-              <%= component "fluid_aspect_image", locals: {
-                source: image.source,
-                sizes: image.sizes || [],
-                alt: project.title.short,
-                ratio: "2x1",
-                bg_size: "cover",
-                align: image.align || "center",
-                fill: true
-              } %>
-            </div>
-          </article>
-        </li>
-      <% end %>
-    </ul>
+				<div
+					data-ui-columns-item="left"
+					data-js-scroll-reveal="show"
+					data-js-scroll-reveal-targets="logo"
+					class="padding-x-outside padding-y-xwide position-relative"
+				>
+					<ul data-ui-gallery="small gutter-wide">
+						<% data.clients.each_with_index do |client, index| %>
+							<li
+								data-ui-gallery-item
+								data-js-scroll-reveal-target="logo"
+								class="transition-fade | hide-opacity"
+								style="--delay: <%= index * 0.2 %>s;"
+							>
+								<%= component "fluid_aspect_image", locals: {
+									source: client.logo,
+									alt: "#{client.name}#{" (#{client.acronym})" if client.acronym.present?}"
+								} %>
+							</li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
 
-    <aside class="c-theme-dark padding-x-outside padding-top-xwide padding-bottom-wide border-top">
-        <% component "wrapper" do %>
-          <div
-            data-ui-columns="30-70@small"
-            data-ui-gutter="flush"
-            style="overflow: visible;"
-          >
-            <div
-              data-ui-columns-item="left"
-              data-ui-gutter-item
-            >
-              <!-- scoot up a little to optically align with blurb to the right -->
-              <h2 class="t-scale-delta t-align-center" style="margin-top: -1rem;">
-                <strong class="t-scale-alpha t-weight-bold c-highlight">100&plus;</strong><br>
-                Assignments
-              </h2>
-            </div>
-            <div
-              data-ui-columns-item="right"
-              data-ui-gutter-item
-              class="t-content"
-            >
-              <p>For the better part of a decade, we have helped some of the world’s most recognizable organizations build and launch products time and time again.</p>
-            </div>
-          </div>
-        <% end %>
-      <%# this button appears when there"s more than 3 case studies to display %>
-      <% if (data.work.projects.length > data.work.featured_projects.length) %>
-        <div class="t-align-center padding-top">
-          <%= component "button_link", locals: {
-            label: "See more of our work",
-            url: "/work",
-            icon: "arrow-right"
-          }  %>
-        </div>
-      <% end %>
-    </aside>
-  <% end %>
+	<!-- Work -->
+	<% component "panel", locals: {
+		border: "none",
+		id: "work",
+		padding: "none"
+	} do %>
+		<h2 class="t-scale-epsilon t-align-center padding-y-narrow hide-below@<%= intro_breakpoint %>">Our work</h2>
+
+		<!-- Case study listings -->
+		<div class="c-theme-dark">
+			<%
+				first_wallpaper = data.work.projects.find do |p|
+					p.slug === data.work.featured_projects.first
+				end.cover.poster.wallpaper.color
+
+				work_breakpoint = 'medium'
+			%>
+			<div
+				class="z-low fill-half-browser-right position-sticky position-top transition-slow hide-below@<%= work_breakpoint %>"
+				data-js-feature-bg-target
+				style="background: <%= hsl(first_wallpaper) %>;"
+			></div>
+			<ul class="
+				list-undecorated
+				z-middle position-relative overflow-hidden fill-browser-overlap@<%= work_breakpoint %>
+				border-y-between
+			">
+				<% data.work.featured_projects.each_with_index do |slug, index| %>
+					<%
+						project = data.work.projects.find {|p| p.slug === slug }
+						wallpaper = project.cover.poster.wallpaper
+						highlight_color = project.cover.poster.highlight_color || wallpaper.color
+						project_id = "project-#{index}"
+					%>
+					<li
+						class="
+							no-margin
+							fill-browser display-flex display-flex-centered display-flex-column
+						"
+						data-js-feature-bg="<%= hsl(wallpaper.color) %>"
+					>
+						<article
+							data-js-scroll-reveal="show hide"
+							data-js-scroll-reveal-targets="<%= project_id %>"
+							data-ui-columns="50-50@<%= work_breakpoint %>"
+							class="overflow-hidden position-relative display-flex display-flex-fill display-flex-column display-flex-row@<%= work_breakpoint %>"
+						>
+
+							<!-- Case study title -->
+							<div
+								data-ui-columns-item="left"
+								class="
+									padding-x-outside padding-y-xwide
+									display-flex display-flex-fill display-flex-column display-flex-centered
+								"
+							>
+								<% component "wrapper", locals: { width: "narrow" } do %>
+									<h3 class="t-scale-beta t-font-display t-leading-xtight">
+										<%= link_to project.title.long,
+											"/work/#{project.slug.urlize}/",
+											class: "t-decoration-none"
+										%>
+									</h3>
+									<p
+										class="
+											t-heading t-scale-delta t-weight-normal
+											padding-top-narrow
+										"
+										style="color: <%= hsl(highlight_color) %>;"
+									>
+										<%= project.client %>
+									</p>
+									<%= component "button_link", locals: {
+										label: "Read more",
+										url: "/work/#{project.slug.urlize}/",
+										icon: "arrow-right",
+										classes: "margin-top-wide"
+									} %>
+								<% end %>
+							</div>
+
+							<!-- Case study "poster" -->
+							<div
+								data-ui-columns-item="right"
+								class="
+									position-relative
+									display-flex display-flex-fill display-flex-column display-flex-centered
+									padding-x-outside padding-y-wide
+								"
+							>
+								<% project.cover.poster.elements.each do |element| %>
+									<%
+										device = element.device || "tablet"
+										orientation = element.orientation || "vertical"
+										position = element.position || 0.5
+										speed = element.speed || 2
+									%>
+
+									<!-- tablet -->
+									<% if device == "tablet" %>
+
+										<!-- vertical -->
+										<% if orientation == "vertical" %>
+											<div
+												data-ui-wrapper="xnarrow"
+												data-js-rellax
+												data-rellax-percentage="0.5"
+												data-rellax-speed="<%= speed %>"
+												class="z-middle"
+											>
+												<div
+													data-js-scroll-reveal-target="<%= project_id %>"
+													class="transition-fade | hide-opacity"
+												>
+													<%= component "device", locals: {
+														device: device,
+														orientation: orientation,
+														source: element.source,
+														sizes: element.sizes,
+														alt: project.title.short
+													} %>
+												</div>
+											</div>
+
+										<!-- horizontal -->
+										<% else %>
+											<div
+												data-ui-wrapper="narrow"
+												data-js-rellax
+												data-rellax-percentage="<%= position %>"
+												data-rellax-speed="<%= speed %>"
+												class="z-high"
+												style=""
+											>
+												<div
+													data-js-scroll-reveal-target="<%= project_id %>"
+													class="transition-fade | hide-opacity"
+												>
+													<%= component "device", locals: {
+														device: device,
+														orientation: orientation,
+														source: element.source,
+														sizes: element.sizes,
+														alt: project.title.short
+													} %>
+												</div>
+											</div>
+										<% end %>
+									<% end %>
+								<% end %>
+								<% if wallpaper.image.present? %>
+									<!-- wallpaper pattern -->
+									<div
+										data-js-rellax
+										data-rellax-percentage="0.5"
+										data-rellax-speed="<%= wallpaper.speed || -2 %>"
+										class="
+											position-absolute position-right position-left
+											z-middle
+										"
+										style="top: -5rem; bottom: -5rem;"
+									>
+										<div
+											data-js-scroll-reveal-target="<%= project_id %>"
+											class="
+												position-absolute position-top position-bottom position-right position-left position-top-outset position-bottom-outset
+												<%= wallpaper.type == "image" ? "c-bg-image-cover" : c-bg-pattern %>
+												transition-fade
+												hide-opacity
+											"
+											style="
+												background-image: url(<%= wallpaper.image %>);
+											"
+										></div>
+									</div>
+								<% end %>
+								<div
+									class="
+										hide-above@<%= work_breakpoint %>
+										position-absolute position-top position-left position-right position-bottom
+										z-low
+									"
+									style="background-color: <%= hsl(wallpaper.color) %>;"
+								></div>
+							</div>
+						</article>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+
+		<aside class="
+			c-theme-dark
+			padding-x-outside padding-top-xwide padding-bottom-wide overflow-hidden
+			border-top
+		">
+				<% component "wrapper" do %>
+					<div
+						data-ui-columns="30-70@small"
+						data-ui-gutter="flush"
+						class="overflow-visible"
+					>
+						<div
+							data-ui-columns-item="left"
+							data-ui-gutter-item
+						>
+							<!-- scoot up a little to optically align with blurb to the right -->
+							<h2
+								class="t-scale-delta t-align-center"
+								style="margin-top: -1rem;"
+							>
+								<strong class="t-scale-alpha t-weight-bold | c-highlight_color">
+									100&plus;
+								</strong><br>
+								Assignments
+							</h2>
+						</div>
+						<div
+							data-ui-columns-item="right"
+							data-ui-gutter-item
+							class="t-content"
+						>
+							<p>For the better part of a decade, we have helped some of the world’s most recognizable organizations build and launch products time and time again.</p>
+						</div>
+					</div>
+				<% end %>
+			<%# this button appears when there"s more than 3 case studies to display %>
+			<% if (data.work.projects.length > data.work.featured_projects.length) %>
+				<div class="t-align-center | padding-top">
+					<%= component "button_link", locals: {
+						label: "See more of our work",
+						url: "/work",
+						icon: "arrow-right"
+					}  %>
+				</div>
+			<% end %>
+		</aside>
+	<% end %>
 </div>

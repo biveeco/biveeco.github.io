@@ -3,7 +3,8 @@
 //  -> a big splashy 'book cover' for a page of content
 // =============================================================================
 // sass-lint:disable no-duplicate-properties
-// -> need fallback min-height props for vh units
+// sass-lint:disable no-vendor-prefixes
+// -> need fallback/mobile min-height props for vh units
 
 @import '../config/borders';
 @import '../config/breakpoints';
@@ -14,75 +15,63 @@
 // -----------------------------------------------------------------------------
 
 [data-ui-cover] {
-  display: block;
-  height: 500px;
-  height: 100vh;
-  position: relative;
+	display: block;
+	height: 40rem;
+	height: 100vh;
+	position: relative;
 
-  @supports (display: flex) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  // @include media('height>60em') {
-  //   min-height: 60vh;
-  // }
-
-  // // for larger, wider screens, increase the height of the hero unit so the background covers the content well enough
-  // // -> this is a hacky magic numbers bad solution. @jay TODO refactor
-  // @include media('height>60em', '>medium') {
-  //   min-height: 70vh;
-  // }
-
-  // @include media('height>60em', '>large') {
-  //   min-height: 75vh;
-  // }
+	@supports (display: flex) {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
 }
 
 // Elements
 // -----------------------------------------------------------------------------
 
 [data-ui-cover-content] {
-  display: block;
-  margin-top: -5rem;
-  width: 100%;
+	display: block;
+	margin-top: -5rem;
+	width: 100%;
 }
 
 [data-ui-cover-prompt] {
-  $path-h: 6rem;
+	$path-h: 6rem;
 
-  bottom: $path-h;
-  display: inline-block;
-  left: 50%;
-  position: absolute;
-  text-align: center;
-  transform: translateX(-50%);
+	bottom: $path-h;
+	display: inline-block;
+	left: 50%;
+	position: absolute;
+	text-align: center;
+	transform: translateX(-50%);
 
-  &::before {
-    $size: 0.6rem;
+	&::before,
+	&::after {
+		content: '';
+		display: block;
+		position: absolute;
+	}
 
-    @include color-background('text' 'primary');
-    border-radius: 100000px;
-    bottom: ($size * -1);
-    content: '';
-    display: block;
-    height: $size;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-    width: $size;
-  }
+	&::before {
+		$size: 0.6rem;
 
-  &::after {
-    @include color-background('text' 'primary');
-    bottom: ($path-h * -1);
-    content: '';
-    display: block;
-    height: $path-h;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-    width: border-width('thin');
-  }
+		@include color-background('text' 'primary');
+		border-radius: 100000px;
+		bottom: ($size * -1);
+		height: $size;
+		left: 50%;
+		margin-left: ($size / 2 * -1);
+		width: $size;
+	}
+
+	&::after {
+		@include border('right', $style: 'secondary', $color: 'text' 'primary');
+		// make the element the same width as the border, so it's a total of 2px wide, then scoot to the left 1px to visually center the line
+		bottom: ($path-h * -1);
+		height: $path-h;
+		left: 50%;
+		margin-left: (border-width() * -1);
+		width: border-width();
+	}
 }

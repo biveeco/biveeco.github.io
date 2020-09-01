@@ -55,8 +55,21 @@ end
 helpers do
   # render markdown from an any string
   # https://stackoverflow.com/questions/43926754/how-to-output-data-from-yaml-variables-written-in-markdown-into-an-html-haml-f#44014190
-  def render_markdown(content)
-    Kramdown::Document.new(content).to_html
+  def render_markdown(content, inline: false)
+    render = Kramdown::Document.new(content).to_html
+    if inline
+      # remove surround "p" tags if "inline" argument is true
+      return render.gsub(%r{</?p>}, '')
+    end
+
+    render
+  end
+
+  # Render hsl() and hsla() CSS functions from data
+  def hsl(color)
+    return color if color.is_a?(String)
+
+    "hsl(#{color.h}, #{color.s}%, #{color.l}%)"
   end
 
   # 'Component' decorator for partial function
@@ -115,13 +128,15 @@ helpers do
   def border_classes(sides, class_prefix = 'border')
     if sides.is_a?(String)
       return '' if sides == 'none'
+
       return class_prefix if sides == 'all'
-      "#{class_prefix}-#{sides}"
-    else
-      sides.collect do |side|
-        "#{class_prefix}-#{side}"
-      end.join(' ').rstrip
+
+      return "#{class_prefix}-#{sides}"
     end
+
+    sides.collect do |side|
+      "#{class_prefix}-#{side}"
+    end.join(' ').rstrip
   end
 
   # is this url the current page?
@@ -184,6 +199,7 @@ helpers do
   # Responsive image component methods
   def default_source(path, sizes)
     return asset_url(path_template(path, sizes[0])) unless sizes.empty?
+
     path
   end
 

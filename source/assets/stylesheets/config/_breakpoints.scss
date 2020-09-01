@@ -11,16 +11,16 @@
 // Global breakpoints map
 // -> also used by include-media library
 $breakpoints: (
-  'xsmall': 30em, // 480
-  'small': 42em, // 672
-  'medium': 62em, // 992
-  'large': 75em, // 1200
-  'huge': 100em // 1600
+	'xsmall': 30em, // 480
+	'small': 42em, // 672
+	'medium': 62em, // 992
+	'large': 75em, // 1200
+	'huge': 100em // 1600
 );
 
 // getter/helper function to pull breakpoints from the map
 @function screen($size) {
-  @return map-get($breakpoints, $size);
+	@return map-get($breakpoints, $size);
 }
 
 // Breakpointify mixin by Hugo Giraudel, lightly modified
@@ -30,57 +30,57 @@ $breakpoints: (
 // -> @param {String} $class - Class to 'breakpointify'
 // -> USE JUDICIOUSLY, CAN CAUSE VERY MUCH HORRIBLE BLOATING
 @mixin breakpointify($class, $default: false, $sizes: all, $direction: '>') {
-  @if $default == true {
-    #{$class} { @content; }
-  }
+	@if $default == true {
+		#{$class} { @content; }
+	}
 
-  @if $sizes == 'all' {
-    @each $name, $size in $breakpoints {
-      @include media('#{$direction}#{$name}') {
-        #{$class}\@#{$name} {
-          @content;
-        }
-      }
-    }
-  } @else {
-    @each $name in $sizes {
-      @include media('#{$direction}#{$name}') {
-        #{$class}\@#{$name} {
-          @content;
-        }
-      }
-    }
-  }
+	@if $sizes == 'all' {
+		@each $name, $size in $breakpoints {
+			@include media('#{$direction}#{$name}') {
+				#{$class}\@#{$name} {
+					@content;
+				}
+			}
+		}
+	} @else {
+		@each $name in $sizes {
+			@include media('#{$direction}#{$name}') {
+				#{$class}\@#{$name} {
+					@content;
+				}
+			}
+		}
+	}
 }
 
-@function _attr-selector($attr, $value: false, $screen: false) {
-  @if $value {
-    @return '[#{$attr}~="#{$value}#{if($screen, '\@#{$screen}', '')}"]';
-  } @else {
-    @return '[#{$attr}~="#{if($screen, '\@#{$screen}', '')}"]';
-  }
+@function attr-selector($attr, $value: false, $screen: false) {
+	@if $value {
+		@return '[#{$attr}~="#{$value}#{if($screen, '\@#{$screen}', '')}"]';
+	} @else {
+		@return '[#{$attr}~="#{if($screen, '\@#{$screen}', '')}"]';
+	}
 }
 
 @mixin breakpointify-attr($attr, $value: false, $default: false, $sizes: all, $direction: '>') {
-  @if $default == true {
-    #{_attr-selector($attr, $value)} { @content; }
-  }
+	@if $default == true {
+		#{attr-selector($attr, $value)} { @content; }
+	}
 
-  @if $sizes == 'all' {
-    @each $name, $size in $breakpoints {
-      @include media('#{$direction}#{$name}') {
-        #{_attr-selector($attr, $value, $name)} {
-          @content;
-        }
-      }
-    }
-  } @else {
-    @each $name in $sizes {
-      @include media('#{$direction}#{$name}') {
-        #{_attr-selector($attr, $value, $name)} {
-          @content;
-        }
-      }
-    }
-  }
+	@if $sizes == 'all' {
+		@each $name, $size in $breakpoints {
+			@include media('#{$direction}#{$name}') {
+				#{attr-selector($attr, $value, $name)} {
+					@content;
+				}
+			}
+		}
+	} @else {
+		@each $name in $sizes {
+			@include media('#{$direction}#{$name}') {
+				#{attr-selector($attr, $value, $name)} {
+					@content;
+				}
+			}
+		}
+	}
 }

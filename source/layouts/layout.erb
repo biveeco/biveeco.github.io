@@ -13,7 +13,7 @@
 		<%= data.favicon.favicon.html_code if data.respond_to?("favicon") %>
 
 		<%= stylesheet_link_tag :main %>
-		<%= component "analytics", locals: { ga_code: ENV["GA_CODE"] } %>
+		<%= component "analytics" %>
 	</head>
 
 	<body>

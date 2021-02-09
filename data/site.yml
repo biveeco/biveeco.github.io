@@ -55,7 +55,7 @@ contact:
   email: newbiz@host-creative.com
   careers:
     call_to_action: Does this sound like you?
-    email: careers@host-creative.com
+    email: 
   # Places where we have offices
   locations:
     - name: 'Washington, DC'

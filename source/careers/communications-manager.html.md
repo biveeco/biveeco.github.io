@@ -1,7 +1,7 @@
 ---
 title: Communications Manager
 posted: 2021-02-08
-link: https://linkedin.com/
+link: https://www.linkedin.com/jobs/view/1899930563/
 excerpt: >-
   We're searching for a full-time Communications Manager to help us promote our work, write proposals, manage our social media and advise clients on communications and branding.
 ---
